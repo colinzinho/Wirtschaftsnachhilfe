@@ -1,69 +1,167 @@
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-.site-nav li {
-    display: inline;
-    margin-right: 0.5rem;
-}
-
-.site-nav {
-    background-color: black;
-    color: white;
-    padding: 0.5rem;
-    margin: 1rem 0;
-}
-
-.site-nav ul {
-    padding: 0;
-    margin: 0;
-}
-
-.site-nav a {
-    color: white;
-    text-decoration: none;
+body {
+  margin: 0;
 }
 
 .site-header h1 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .site-header p {
-    margin-top: 0;
+  margin-top: 0;
 }
 
-.site-footer {
-    background-color: black;
-    color: white;
-    /* text-align: right; */
-    padding: 0.5rem;
-    margin: 1rem 0;
+.home {
+  min-height: 700px;
+  background: #fff;
+
+  /* border: 2px solid blue; */
 }
 
-.site-footer a {
-    color: white;
-    text-decoration: none;
+.flexslider {
+  border: 2px solid yellow;
+}
+
+.home .flexslider {
+  border: none;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+.text {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  top: 50%;
+  margin-top: -212px;
+  text-align: center;
+
+  border: 2px solid red;
+}
+
+.text {
+  color: white;
+}
+
+/* .content-intro img {
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.content-intro-text {
+  border: 1px solid red;
+  color: white;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 50%;
+  margin: auto;
+  top: -200px;
+} */
+
+.site-nav {
+  background-color: #333;
+  color: white;
+  padding: 0.5rem;
+  /* margin: 1rem 0; */
+}
+
+.site-nav ul {
+  padding: 0;
+  margin: 0;
+}
+
+.site-nav li {
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.site-nav a {
+  color: white;
+  text-decoration: none;
 }
 
 .infoboxes {
-    background-color: whitesmoke;
-    padding: 1rem;
-    margin-bottom: 1rem;
+  background-color: #eee;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .infobox {
-    text-align: center;
-    background-color: white;
-    padding: 1rem;
-    margin: 1rem;
+  text-align: center;
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.site-footer {
+  background-color: #333;
+  color: white;
+  /* text-align: right; */
+  padding: 0.5rem;
+  /* margin: 1rem 0; */
+}
+
+.site-footer a {
+  color: white;
+  text-decoration: none;
 }
 
 .meta-nav ul {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .meta-nav li {
-    display: inline;
-    margin-right: 0.5rem;
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.content-ueber {
+  background-color: #eee;
+  overflow: hidden;
+}
+
+.wrapper-portrait {
+  float: left;
+}
+
+.wrapper-portrait-text {
+  overflow: hidden;
+}
+
+address {
+  font-style: normal;
+}
+
+.kontaktformular form {
+  max-width: 400px;
+  background-color: whitesmoke;
+  padding: 1rem;
+}
+
+.kontaktformular div {
+  margin-bottom: 1rem;
+}
+
+.kontaktformular label {
+  cursor: pointer;
+}
+
+.kontaktformular label[for] {
+  display: block;
+}
+
+.kontaktformular button {
+  background-color: #0b74b8;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  font-size: inherit;
+  cursor: pointer;
 }
