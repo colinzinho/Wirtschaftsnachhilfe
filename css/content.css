@@ -1,0 +1,67 @@
+.infoboxes {
+    background-color: #579BB1;
+    /* padding: 1rem; */
+    /* margin-bottom: 1rem; */
+}
+
+.infoboxes h2 {
+    color: #fff;
+}
+
+.infobox {
+    text-align: center;
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.infobox p {
+    color: black;
+}
+
+.content-ueber {
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.wrapper-portrait {
+    float: left;
+}
+
+.wrapper-portrait-text {
+    overflow: hidden;
+}
+
+.content-kontakt, .kontaktdaten {
+    background-color: #F8F4EA;
+    color: #000;
+}
+
+
+
+.kontaktformular form {
+    max-width: 400px;
+    background-color: whitesmoke;
+    padding: 1rem;
+}
+
+.kontaktformular div {
+    margin-bottom: 1rem;
+}
+
+.kontaktformular label {
+    cursor: pointer;
+}
+
+.kontaktformular label[for] {
+    display: block;
+}
+
+.kontaktformular button {
+    background-color: #0b74b8;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    font-size: inherit;
+    cursor: pointer;
+}

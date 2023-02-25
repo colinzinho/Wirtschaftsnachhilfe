@@ -1,0 +1,189 @@
+/*Navigationsbereich*/
+.site-nav {
+    position: relative;
+    background-color: #fff;
+
+    /* border: 1px solid red; */
+}
+
+.site-nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+.site-nav li {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 100px;
+    padding-right: 100px;
+
+    /* border: 1px solid blue; */
+}
+
+.container-fluid:before, .container-fluid:after {
+    content: " ";
+    display: table;
+}
+
+.container-fluid:after {
+    clear: both;
+}
+
+.menu-nav {
+    vertical-align: middle;
+    float: left;
+    width: 100%;
+    line-height: 0;
+    padding: 0.5rem;
+
+    /* border: 1px solid green; */
+}
+
+.menu-nav a {
+    padding: 35px 10px;
+    margin-right: 0.5rem;
+    color: #130d08;
+    text-decoration: none;
+    /* display: -moz-inline-stack; */
+    display: inline-block;
+    /* zoom: 1; */
+    /* *display: inline; */
+    vertical-align: middle;
+
+    /* border: 1px solid pink; */
+}
+
+.footer-nav {
+    position: relative;
+    background-color: #674188;
+
+    /* border: 1px solid red; */
+}
+
+.footer-nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.meta-nav {
+    vertical-align: middle;
+    float: left;
+    width: 100%;
+    line-height: 0;
+    /* padding: 0.5rem; */
+
+    /* border: 1px solid green; */
+}
+
+.meta-nav li {
+    display: inline;
+    padding-right: 0.5rem;
+    border-right: 1px solid white;
+}
+
+.meta-nav li:last-child {
+    border: none;
+}
+
+.meta-nav p, .meta-nav a {
+    font-size: 16px;
+    color: #fff;
+}
+
+
+.meta-nav a {
+    text-decoration: none;
+}
+
+.meta-nav p {
+    padding: 0;
+    display: inline-block;
+}
+
+.menu-nav img {
+    vertical-align: bottom;
+    margin-right: 0.5rem;
+    /* border: 1px solid yellow; */
+}
+
+.container {
+    position: relative;
+}
+
+.container img {
+    display: block;
+    max-width: 100%;
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centered-text h1, .centered-text p {
+    text-align: center;
+    color: #fff;
+}
+
+.home {
+    min-height: 700px;
+    background: #fff;
+}
+
+.flexslider {
+    border: 2px solid yellow;
+}
+
+.home .flexslider {
+    /* border: none; */
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+}
+
+.text {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    top: 50%;
+    margin-top: -212px;
+    text-align: center;
+    color: white;
+
+    border: 2px solid red;
+}
+
+.site-footer {
+    background-color: #333;
+    color: white;
+    /* text-align: right; */
+    padding: 0.5rem;
+    /* margin: 1rem 0; */
+}
+
+.site-footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.meta-nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+.meta-nav li {
+    display: inline;
+    margin-right: 0.5rem;
+}
