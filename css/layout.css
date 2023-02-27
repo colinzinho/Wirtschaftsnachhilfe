@@ -2,6 +2,9 @@
 .site-nav {
     position: relative;
     background-color: #fff;
+    -webkit-transition: all 2s ease;
+    transition: all 2s ease;
+    /* overflow: hidden; */
 
     /* border: 1px solid red; */
 }
@@ -137,23 +140,36 @@
     color: #fff;
 }
 
-.home {
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+
+.sticky .site-content {
+    padding-top: 60px;
+}
+
+/* .home {
     min-height: 700px;
     background: #fff;
-}
+} */
 
-.flexslider {
+/* .flexslider {
     border: 2px solid yellow;
-}
+} */
 
-.home .flexslider {
+/* .home .flexslider { */
     /* border: none; */
-    position: relative;
+    /* position: relative;
     z-index: 1;
     margin-bottom: 0;
-}
+} */
 
-.text {
+/* .text {
     position: absolute;
     z-index: 2;
     width: 100%;
@@ -163,27 +179,17 @@
     color: white;
 
     border: 2px solid red;
-}
+} */
 
-.site-footer {
+/* .site-footer {
     background-color: #333;
     color: white;
+    padding: 0.5rem; */
     /* text-align: right; */
-    padding: 0.5rem;
     /* margin: 1rem 0; */
-}
+/* } */
 
-.site-footer a {
+/* .site-footer a {
     color: white;
     text-decoration: none;
-}
-
-.meta-nav ul {
-    padding: 0;
-    margin: 0;
-}
-
-.meta-nav li {
-    display: inline;
-    margin-right: 0.5rem;
-}
+} */

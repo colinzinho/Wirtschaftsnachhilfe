@@ -42,8 +42,7 @@
     </script>
   </head>
   <body>
-
-    <div class="site-nav">
+    <div class="site-nav" id="navbar">
       <div class="container-fluid">
         <div class="menu-nav">
           <!--Nachfolge Liste steht in einer Reihe, wegen den kleinen Abständen, die ansonsten zwischen den Elementen auftauchen..-->
@@ -276,7 +275,22 @@
       </div>
     </div>
 
-    <script>
+    <script> 
+      // window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+      window.onscroll = function()  {onScrollNavBar()};
+
+      var navbar = document.getElementById("navbar");
+      var sticky = navbar.offsetHeight;
+
+      function onScrollNavBar() {
+        if(window.pageYOffset >= sticky) {
+          setTimeout(function() {
+            navbar.classList.add("sticky");
+          }, 250)
+        }else {
+          navbar.classList.remove("sticky");
+        }
+      }     
       onClickNavBar();
     </script>
   </body>
