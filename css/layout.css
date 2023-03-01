@@ -2,23 +2,42 @@
 .site-nav {
     position: relative;
     background-color: #fff;
-    -webkit-transition: all 2s ease;
-    transition: all 2s ease;
-    /* overflow: hidden; */
+    padding: 15px;
+    transition: all 0.5s ease-out, padding 0.5s ease-out;
 
     /* border: 1px solid red; */
 }
 
-.site-nav ul {
-    padding: 0;
-    margin: 0;
+
+/*Rahmenlinie Navigationsbereich*/
+.menu-nav-border {
+    position: relative;
+    background-color: #fff;
+
+    /* border: 1px solid yellow; */
 }
 
-.site-nav li {
-    display: inline;
-    margin-right: 0.5rem;
+.menu-nav-border::before, .menu-nav-border::after {
+    content: "";
+    position: absolute;
+    /* top: 0; */
+    height: 1px;
+    /* width: 100%; */
+    left: 100px;
+    right: 100px;
+    
+    background: #e6e6e6;
 }
 
+.menu-nav-border::before {
+    top: 1px;
+}
+
+.menu-nav-border::after {
+    bottom: 1px;
+}
+
+/*Wrapper für linke sowie rechte Einrückung des Inhalts um je 100px*/
 .container-fluid {
     margin-right: auto;
     margin-left: auto;
@@ -37,6 +56,7 @@
     clear: both;
 }
 
+/*Inhalt Navigation*/
 .menu-nav {
     vertical-align: middle;
     float: left;
@@ -60,6 +80,12 @@
 
     /* border: 1px solid pink; */
 }
+
+.site-content {
+    line-height: 1.5;
+}
+
+.site-content a:focus { outline: 2px solid darkred }
 
 .footer-nav {
     position: relative;
@@ -99,7 +125,7 @@
 }
 
 .meta-nav p, .meta-nav a {
-    font-size: 16px;
+    font-size: smaller;
     color: #fff;
 }
 
@@ -141,17 +167,19 @@
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
+#navbar.sticky {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1;
+    padding: 0px;
+    transition: all 0.5s ease-out, padding 0.5s ease-out;
 }
 
 
-.sticky .site-content {
+/* .sticky .site-content {
     padding-top: 60px;
-}
+} */
 
 /* .home {
     min-height: 700px;
