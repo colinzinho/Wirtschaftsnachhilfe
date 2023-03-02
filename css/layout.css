@@ -1,9 +1,18 @@
+#page-container {
+    /* padding-top: 135px; */
+    margin-top: -1px;
+}
+
+.animated-content#page-container {
+    transition: margin-top 0.5s ease-in-out;
+}
+
 /*Navigationsbereich*/
 .site-nav {
     position: relative;
     background-color: #fff;
-    padding: 15px;
-    transition: all 0.5s ease-out, padding 0.5s ease-out;
+    padding: 0.5rem;
+    transition: all 0.5s ease-in-out, padding 0.5s ease-in-out;
 
     /* border: 1px solid red; */
 }
@@ -100,7 +109,7 @@
 }
 
 .footer-nav li {
-    display: inline;
+    display: inline-block;
     margin-right: 0.5rem;
 }
 
@@ -115,7 +124,7 @@
 }
 
 .meta-nav li {
-    display: inline;
+    display: inline-block;
     padding-right: 0.5rem;
     border-right: 1px solid white;
 }
@@ -173,7 +182,7 @@
     width: 100%;
     z-index: 1;
     padding: 0px;
-    transition: all 0.5s ease-out, padding 0.5s ease-out;
+    transition: all 0.5s ease-in-out, padding 0.5s ease-in-out;
 }
 
 

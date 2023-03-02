@@ -1,7 +1,21 @@
 /**
  * 1. Allgemeine Eninstellungen
 */
+
+/* Aktivieren des Border-Box-Modell für alle Elemente inkl. durch CSS erzeugte Inhalte in den Pseudoelementen ::before & ::after */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 html { scroll-behavior: smooth; }
+
+/* Vermeiden von Collapsing Margins (zusammenfallende / kolllabierende Aussenabstände) */
+h1, h2, h3, h4, h5, h6,
+p, ol, ul, blockquote {
+    margin-top: 0;
+}
 
 /**
  * 2. Grundlegende Schrift- und Textgestaltung
