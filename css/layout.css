@@ -1,111 +1,216 @@
 #page-container {
-    /* padding-top: 135px; */
     margin-top: -1px;
+    padding-top: 135px;
+    overflow-y: hidden;
 }
 
 .animated-content#page-container {
-    transition: margin-top 0.5s ease-in-out;
+    transition: margin-top 0.4s ease-in-out;
 }
 
-/*Navigationsbereich*/
-.site-nav {
-    position: relative;
+/* Navigationsleiste */
+#main-header {
+    line-height: 1.5rem;
+    font-weight: 500;
     background-color: #fff;
-    padding: 0.5rem;
-    transition: all 0.5s ease-in-out, padding 0.5s ease-in-out;
-
-    /* border: 1px solid red; */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
 }
 
-
-/*Rahmenlinie Navigationsbereich*/
-.menu-nav-border {
-    position: relative;
-    background-color: #fff;
-
-    /* border: 1px solid yellow; */
+.fixed-header {
+    top: 0;
+    z-index: 200000;
 }
 
-.menu-nav-border::before, .menu-nav-border::after {
-    content: "";
-    position: absolute;
-    /* top: 0; */
-    height: 1px;
-    /* width: 100%; */
-    left: 100px;
-    right: 100px;
-    
-    background: #e6e6e6;
-}
-
-.menu-nav-border::before {
-    top: 1px;
-}
-
-.menu-nav-border::after {
-    bottom: 1px;
-}
-
-/*Wrapper für linke sowie rechte Einrückung des Inhalts um je 100px*/
 .container-fluid {
-    margin-right: auto;
+    width: 80%;
+    max-width: 1080px;
+    margin: auto;
+    /* text-align: left; */
+    position: relative;
+
+    /* margin-right: auto;
     margin-left: auto;
     padding-left: 100px;
-    padding-right: 100px;
-
-    /* border: 1px solid blue; */
+    padding-right: 100px; */
 }
 
-.container-fluid:before, .container-fluid:after {
+clearfix::after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
     content: " ";
-    display: table;
-}
-
-.container-fluid:after {
     clear: both;
+    height: 0;
 }
 
-/*Inhalt Navigation*/
-.menu-nav {
+.top-navigation img {
     vertical-align: middle;
-    float: left;
-    width: 100%;
-    line-height: 0;
-    padding: 0.5rem;
-
-    /* border: 1px solid green; */
+    margin-right: 0.5rem; /* kann auch .5rem geschrieben werden */
 }
 
-.menu-nav a {
-    padding: 35px 10px;
-    margin-right: 0.5rem;
-    color: #130d08;
-    text-decoration: none;
-    /* display: -moz-inline-stack; */
+/* Navigationsbereich mit Inhalt */
+.top-menu-nav {
     display: inline-block;
-    /* zoom: 1; */
-    /* *display: inline; */
-    vertical-align: middle;
-
-    /* border: 1px solid pink; */
+    padding: 60px 0 0 0;
+    transition: all 0.4s ease-in-out;
 }
 
-.site-content {
-    line-height: 1.5;
+.top-menu-nav li {
+    display: inline-block;
+    padding-right: 22px;
 }
 
-.site-content a:focus { outline: 2px solid darkred }
+.top-menu-nav li > a {
+    display: inline-block;
+    position: relative;
+    /* font-size: 18px; */
+    padding-bottom: 60px;
+}
+
+.fixed-header .top-menu-nav {
+    padding: 40px 0 0 0;
+}
+
+.fixed-header .top-menu-nav li > a {
+    padding-bottom: 40px;
+}
+
+#main-content {
+    background-color: transparent;
+}
+
+.builder-inner-content {
+    position: relative;
+    z-index: 1;
+}
+
+.pb-section {
+    position: relative;
+    background-color: #fff;
+    background-position: 50%;
+    /* background-size: 100%;  */
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    /* padding wird später in @media (min-width: 981px) spezifiziert */
+    padding: 4% 0;    
+}
+
+div.pb-section.pb-section-0 { 
+    background-image: url(https://joia-da-foia.com/wp-content/uploads/2022/10/joia-da-foia-bed-breakfast-monchique-algarve-01.jpg) !important;   
+}
+
+.pb-section-0.pb-section {
+    padding-top: 17vw;
+    padding-bottom: 3vw;
+}
+
+.pb-row {
+    width: 80%;
+    max-width: 1080px;
+    margin: auto;
+    position: relative;
+
+    /* padding wird später in @media (min-width: 981px) spezifiziert */
+    padding: 2% 0;
+}
+
+.pb-row::after {
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+    width: 0;
+}
+
+.pb-column {
+    float: left;
+    position: relative;
+    z-index: 2;
+    min-height: 1px;
+
+    width: 100%;
+}
+
+.pb-column, .pb-row {
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.pb-column.et-last-child {
+    margin-right: 0 !important;
+}
+
+.pb-module, .pb-with-background {
+    position: relative;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.pb-text {
+    word-wrap: break-word;
+}
+
+.pb-text h2{
+    font-size: 80px;
+    color: #ffffff !important;
+    text-align: center;
+}
+
+.slogan {
+    color: #fff !important;
+    text-align: center;
+}
+
+.pb-text > :last-child {
+    padding-bottom: 0;
+}
+
+.pb-text-inner {
+    position: relative;
+}
+
+.pb-row-1.pb-row {
+    padding-bottom: 10px !important;
+}
+
+.pb-column-1-2 {
+    width: 47.25%;
+    margin-right: 5.5%;
+}
+
+.offer.pb-first-child {
+    margin-bottom: 3rem;
+}
+
+.offer p {
+    margin-bottom: 1rem;
+}
+
+.offer {
+    border: 1px solid #000;
+}
+
+.pb-button {
+    color: #fff;
+    background-color: #592130;
+    border-color: #592130;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    padding: .3rem 1rem;
+    line-height: 1.7em !important;
+}
 
 .footer-nav {
-    position: relative;
-    background-color: #674188;
-
-    /* border: 1px solid red; */
-}
-
-.footer-nav ul {
-    padding: 0;
-    margin: 0;
+    padding: 0.5rem;
 }
 
 .footer-nav li {
@@ -113,20 +218,17 @@
     margin-right: 0.5rem;
 }
 
-.meta-nav {
+/* .meta-nav {
     vertical-align: middle;
     float: left;
     width: 100%;
     line-height: 0;
-    /* padding: 0.5rem; */
-
-    /* border: 1px solid green; */
-}
+} */
 
 .meta-nav li {
     display: inline-block;
     padding-right: 0.5rem;
-    border-right: 1px solid white;
+    border-right: 1px solid black;
 }
 
 .meta-nav li:last-child {
@@ -135,9 +237,8 @@
 
 .meta-nav p, .meta-nav a {
     font-size: smaller;
-    color: #fff;
+    color: #000;
 }
-
 
 .meta-nav a {
     text-decoration: none;
@@ -147,86 +248,3 @@
     padding: 0;
     display: inline-block;
 }
-
-.menu-nav img {
-    vertical-align: bottom;
-    margin-right: 0.5rem;
-    /* border: 1px solid yellow; */
-}
-
-.container {
-    position: relative;
-}
-
-.container img {
-    display: block;
-    max-width: 100%;
-}
-
-.centered-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.centered-text h1, .centered-text p {
-    text-align: center;
-    color: #fff;
-}
-
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-#navbar.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-    padding: 0px;
-    transition: all 0.5s ease-in-out, padding 0.5s ease-in-out;
-}
-
-
-/* .sticky .site-content {
-    padding-top: 60px;
-} */
-
-/* .home {
-    min-height: 700px;
-    background: #fff;
-} */
-
-/* .flexslider {
-    border: 2px solid yellow;
-} */
-
-/* .home .flexslider { */
-    /* border: none; */
-    /* position: relative;
-    z-index: 1;
-    margin-bottom: 0;
-} */
-
-/* .text {
-    position: absolute;
-    z-index: 2;
-    width: 100%;
-    top: 50%;
-    margin-top: -212px;
-    text-align: center;
-    color: white;
-
-    border: 2px solid red;
-} */
-
-/* .site-footer {
-    background-color: #333;
-    color: white;
-    padding: 0.5rem; */
-    /* text-align: right; */
-    /* margin: 1rem 0; */
-/* } */
-
-/* .site-footer a {
-    color: white;
-    text-decoration: none;
-} */
