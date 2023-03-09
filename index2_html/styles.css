@@ -1,20 +1,3 @@
-.footer-nav {
-    position: relative;
-    background-color: #674188;
-
-    /* border: 1px solid red; */
-}
-
-.footer-nav ul {
-    padding: 0;
-    margin: 0;
-}
-
-.footer-nav li {
-    display: inline-block;
-    margin-right: 0.5rem;
-}
-
 .meta-nav {
     vertical-align: middle;
     float: left;

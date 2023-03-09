@@ -28,40 +28,49 @@
           const positionTop = 20;
           var windowpos = $(window).scrollTop();
           var navbar = $("#main-header");
+          var menubutton = $("#menubutton");
           var pageContainer = $("#page-container");
+
           if(windowpos >= positionTop && !navbar.hasClass("fixed-header")) {
             navbar.addClass("fixed-header");
             pageContainer.addClass("animated-content");
+            if(window.innerWidth < 700) {
+              menubutton.css('padding-bottom', 40 + 'px');
+            }
 
             pageContainer.css('margin-top', -41 + 'px');
           }else if(windowpos <= navbar.position().top && navbar.hasClass("fixed-header")) {
             navbar.removeClass("fixed-header");
             pageContainer.css('margin-top', -1 + 'px');
-
+            if(window.innerWidth < 700) {
+              menubutton.css('padding-bottom', 60 + 'px');
+            }
           }
         })
       })
 
       function onClickNavBar() {
-        var topVal = $(window).width() < 769 ? 0 : 58;
+        // var topVal = $(window).width() < 769 ? 0 : 136;
 
-        $(window).resize(function () {
-          topVal = $(window).width() < 769 ? 0 : 58;
-        });
+        // $(window).resize(function () {
+        //   topVal = $(window).width() < 769 ? 0 : 136;
+        // });
+
         $("#main-header a").click(function (event) {
+          var headerHeight = $('#main-header')[0].getBoundingClientRect().height;
           var section = $(this).data("nav-section");
-          
-          /* OONLY TEMPORARY! */
-          if(section == "angebote") {
-            topVal = 280;
-          }
 
           if ($('div[data-section="' + section + '"]').length) {
+            var topVal = 0;
+            if(section == "angebote") {
+              topVal = 270;
+            } else {
+              topVal = 134;
+            }
             $("html, body").animate(
               {
                 scrollTop:
-                  $('div[data-section="' + section + '"]').offset().top -
-                  topVal
+                  $('div[data-section="' + section + '"]').offset().top -topVal
               },
               500
             );
@@ -81,6 +90,7 @@
               <p>Silvia von Burg</p>
               <p>Dipl. Lehrperson</p>
               <p>Wirtschaft + Recht</p></div><nav class="top-menu-nav">
+              <button id="menubutton" class="menubutton" onclick="this.classList.toggle('showmenu')"></button>
               <ul>
                 <li><a href="index.html" data-nav-section="home"><span>Home</span></a></li>
                 <li><a href="#" data-nav-section="angebote"><span>Angebot</span></a></li>
@@ -96,11 +106,11 @@
           <div class="builder-inner-content">
 
             <div class="pb-section pb-section-0 pb-with-background">
-              <div class="pb-row pb-row-0">
+              <div class="container-fluid pb-row pb-row-0">
                   <div class="pb-column">
                     <div class="pb-module pb-text">
-                      <div class="pb-text-inner">
-                        <h2>Wirtschaft - Recht - BWL - VWL - Staatskunde</h2>
+                      <div>
+                        <h2>Wirtschaft & Recht - FRW</h2>
                         <!-- <p class="slogan">
                           
                         </p> -->
@@ -110,331 +120,222 @@
               </div>
             </div>
 
-            <div class="pb-section pb-section-1 pb-with-background">
-              <div class="pb-row pb-row-1">
+            <div class="pb-section pb-section-1 pb-with-background section-scroll">
+              <div class="container-fluid pb-row pb-row-1">
+                <div class="section-heading section-heading-title">
+                  <h1>Angebote für Lernende</h1>
+                </div>
                 <div class="pb-column">
-                  <div class="pb-module pb-text">
-                    <!-- <div class="pb-text-inner">Algarve - Portugal</div> -->
+                  <div class="pb-module offer">
+                    <h3>Online-Nachhilfe</h3>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                   </div>
-                  <div class="pb-module pb-text">
-                    <div class="pb-text-inner">
-                      <h1>Angebote für Lernende</h1>
-                    </div>
-                  </div>
+                  <!-- <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Erfahre Mehr</a> -->
                 </div>
-              </div>
+                <div class="pb-column">
+                  <div class="pb-module offer">
+                    <h3>Intensivkurs in Portugal</h3>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                  </div>
+                  <!-- <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf">Erfahre Mehr</a> -->
+                </div>
 
-              <div class="pb-row pb-row-2" data-section="angebote">
-                <div class="pb-column pb-column-1-2">
-                    <div class="pb-module offer">
-                      <h3>Online-Nachhilfe</h3>
-                      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                    </div>
-                    <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Erfahre Mehr</a>
+                <div class="pb-column pb-button-1">
+                  <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Erfahre Mehr</a>
                 </div>
-                <div class="pb-column pb-column-1-2 et-last-child">
-                    <div class="pb-module offer">
-                      <h3>Intensivkurs in Portugal</h3>
-                      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                    </div>
-                    <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf">Erfahre Mehr</a>
+                <div class="pb-column pb-button-2">
+                  <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf">Erfahre Mehr</a>
                 </div>
               </div>
             </div>
 
-            <div class="pb-section pb-section-2 pb-with-background">
-              
-              <div class="pb-row pb-row-1">
+            <div class="pb-section pb-section-2 pb-with-background section-scroll">
+              <div class="container-fluid pb-row pb-row-1">
+                <div class="section-heading section-heading-title">
+                  <h1>Angebote für Schulen</h1>
+                </div>
                 <div class="pb-column">
-                  <div class="pb-module pb-text">
-                    <!-- <div class="pb-text-inner">Algarve - Portugal</div> -->
-                  </div>
-                  <div class="pb-module pb-text">
-                    <div class="pb-text-inner">
-                      <h1>Angebote für Schulen</h1>
-                    </div>
+                  <div class="pb-module offer">
+                    <h3>Stellvertretungen</h3>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                   </div>
                 </div>
-              </div>
-
-              <div class="pb-row pb-row-2">
-                <div class="pb-column pb-column-1-2">
-                    <div class="pb-module offer">
-                      <h3>Stellvertretungen</h3>
-                      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                    </div>
-                    <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Erfahre Mehr</a>
-                </div>
-                <div class="pb-column pb-column-1-2 et-last-child">
+                <div class="pb-column">
                     <div class="pb-module offer">
                       <h3>Kurse</h3>
                       <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                     </div>
-                    <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf">Erfahre Mehr</a>
+                </div>
+
+                <div class="pb-column pb-button-1">
+                  <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Erfahre Mehr</a>
+                </div>
+                <div class="pb-column pb-button-2">
+                  <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf">Erfahre Mehr</a>
                 </div>
               </div>
-
-              <!-- <div class="pb-row pb-row-2" data-section="angebote">
-                <div class="pb-column pb-column-1-2-copy">
-                    <div class="pb-module offer-copy">
-                      <h3>Stellver-tretungen</h3></div>
-                    <a class="pb-button-copy" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Erfahre Mehr</a>
-                    
-                </div>
-                <div class="pb-column pb-column-1-2-copy et-last-child">
-                    <div class="pb-module offer-copy">
-                      <h3>Kurse</h3></div>
-                    <a class="pb-button-copy" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf">Erfahre Mehr</a>
-                </div>
-              </div> -->
-
             </div>
 
-            <div class="pb-section pb-section-3 pb-with-background" data-section="ueber">
+            <div class="pb-section pb-section-3 pb-with-background section-scroll" data-section="ueber">
               
-              <div class="pb-row pb-row-1">
+              <div class="container-fluid pb-row pb-row-1">
+                <div class="section-heading section-heading-title">
+                  <h1>Über mich</h1>
+                </div>
                 <div class="pb-column">
-                  <div class="pb-module pb-text">
-                    <!-- <div class="pb-text-inner">Algarve - Portugal</div> -->
+                  <div class="pb-module text-portrait">
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                   </div>
-                  <div class="pb-module pb-text">
-                    <div class="pb-text-inner">
-                      <h1>Über mich</h1>
-                    </div>
-                  </div>
+                    <a class="cv-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Erfahre Mehr</a>
                 </div>
-              </div>
-
-              <div class="pb-row pb-row-2">
-                <div class="pb-column" >
-                    <div class="pb-module portrait">
-                      <span class="portrait-helper"></span><img id="portrait" src="img/logo-joia-da-foia.png" alt="Silvia von Burg" width="240" height="152">
-                    </div><div class="description">
-                      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                      <!-- <a class="cv-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Erfahre Mehr</a> -->
-                    </div>
-                </div>
-                <div class="pb-column column-cv-button">
-                  <a class="cv-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Erfahre Mehr</a>
+                <div class="pb-module portrait center-image">
+                    <img id="portrait" src="img/waldemar-weber-300.gif" alt="Silvia von Burg" width="240" height="152">
                 </div>
               </div>
             </div>
 
-            <!-- <div class="pb-section pb-section-4 pb-with-background" data-section="kontakt">
-              <div class="pb-row pb-row-1">
-                <div class="pb-column">
-                  <div class="pb-module pb-text"> -->
-                    <!-- <div class="pb-text-inner">Algarve - Portugal</div> -->
-                  <!-- </div>
-                  <div class="pb-module pb-text">
-                    <div class="pb-text-inner">
-                      <h1>Kontakt</h1>
-                    </div>
-                  </div>
+            <div id="kontakt" class="pb-section pb-section-4 pb-with-background section-scroll" data-section="kontakt">
+              <div class="container-fluid pb-row pb-row-1">
+                <div class="section-heading section-heading-title">
+                  <h1>Kontakt</h1>
                 </div>
-              </div>
 
-              <div class="pb-row pb-row-2">
-                <div class="pb-column pb-column-1-2">
-                    <div class="pb-module offer">
-                      <p>Silvia von Burg</p>
-                      <p>E-Mail: deburg@bluewin.ch</p>
-                    </div>
+                <div class="pb-module ">
+                  <p>Silvia von Burg</p>
+                  <p>E-Mail: deburg@bluewin.ch</p>
+                  <p>Mobile: +351 937 176 255</p>
+                  <br>
+                  <p>* sind Pflichtfelder</p>
                 </div>
-                <div class="pb-column pb-column-1-2 et-last-child">
-                    <div class="pb-module offer">
-                      <h3>Kontaktformular</h3>
-                      <p>Ich interessiere mich für:</p>
-                      <form action="#" method="POST" class="form-contact">
-                        <div class="field-wrapper">
-                          <label for="firstname">Vorname:</label>
-                          <input type="text" id="firstname" name="firstname" required>
-                        </div>
-                        <div class="field-wrapper">
-                          <label for="lastname">Nachname:</label>
-                          <input type="text" id="lastname" name="lastname" required>
-                        </div>
-                        <div class="field-wrapper">
-                          <label for="address">Adresse:</label>
-                          <input type="text" id="address" name="address" required>
-                        </div>
-                        <div class="field-wrapper">
-                          <label for="place">Ort:</label>
-                          <input type="text" id="place" name="place" required>
-                        </div>
-                        <div class="field-wrapper">
-                          <label for="email">Email:</label>
-                          <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="field-wrapper">
-                          <label for="message">Text:</label>
-                          <textarea id="message" name="message" cols="50" rows="20"></textarea>
-                        </div>
-                        <button type="submit" class="pb-button">Senden</button>
-                      </form>
-                    </div>
-                </div>
-              </div>
-            </div> -->
-            <!------------------------------------------------------------------------------>
 
-            <div class="pb-section pb-section-4 pb-with-background" data-section="kontakt">
-              <div class="pb-row pb-row-1">
-                <div class="pb-column">
-                  <div class="pb-module pb-text">
-                    <!-- <div class="pb-text-inner">Algarve - Portugal</div> -->
-                  </div>
-                  <div class="pb-module pb-text">
-                    <div class="pb-text-inner">
-                      <h1>Kontakt</h1>
+                <div class="pb-module form-contact">
+                  <!-- <h3>Kontaktformular</h3> -->
+                  <form action="#" method="POST" class="form">
+                    <div class="field-wrapper entire-line">
+                      <label for="course">Ich interessiere mich für *</label>
+                      <select id="course" name="course" required>
+                        <option>Wählen Sie einen Kurs aus</option>
+                        <option>Online-Nachhilfe</option>
+                        <option>Intensivkurs in Portugal</option>
+                        <option>Stellvertretungen</option>
+                        <option>Kurse</option>
+                      </select>
                     </div>
-                  </div>
-                </div>
-              </div>
+                    <div class="field-wrapper">
+                      <div class="field">
+                        <label for="firstname">Vorname *</label><input type="text" id="firstname" name="firstname" class="inputfield" required>
+                      </div>
+                    </div>
+                    <div class="field-wrapper">
+                      <div class="field">
+                        <label for="lastname">Nachname *</label><input type="text" id="lastname" name="lastname" class="inputfield" required>
+                      </div>
+                    </div>
+                    
+                    <div class="field-wrapper">
+                      <div class="field">
+                        <label for="address">Strasse *</label><input type="text" id="address" name="address" class="inputfield" required>
+                      </div>
+                    </div>
+                    <div class="field-wrapper">
+                      <div class="field">
+                        <label for="place">PLZ/Ort *</label><input type="text" id="place" name="place" class="inputfield" required>
+                      </div>
+                    </div>
 
-              <div class="pb-row pb-row-2">
-                <div class="pb-column pb-column-1-2">
-                    <div class="pb-module ">
-                      <p>Silvia von Burg</p>
-                      <p>E-Mail: deburg@bluewin.ch</p><!-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p> -->
+                    <div class="field-wrapper entire-line">
+                      <label for="email">Email *</label>
+                      <input type="email" id="email" name="email" class="email" required>
                     </div>
+                    <div class="field-wrapper entire-line et-last-child">
+                      <label for="message">Nachricht</label>
+                      <textarea id="message" name="message" cols="30" rows="5" class="textarea"></textarea>
+                    </div>
+                    <div>
+                      <button type="submit" class="pb-button">Senden</button>
+                    </div>
+                  </form>
                 </div>
-                <div class="pb-column pb-column-1-2 et-last-child">
-                    <div class="pb-module offer">
-                      <h3>Kontaktformular</h3>
-                      <form action="#" method="POST" class="form-contact">
-                        <div class="field-wrapper">
-                          <label for="course">Ich interessiere mich für:</label>
-                          <select id="course" name="course" required>
-                            <option>Wählen Sie einen Kurs aus</option>
-                            <option>Online-Nachhilfe</option>
-                            <option>Intensivkurs in Portugal</option>
-                            <option>Stellvertretungen</option>
-                            <option>Kurse</option>
-                          </select>
-                        </div>
-                        <div class="field-wrapper">
-                          <div class="field">
-                            <label for="firstname">Vorname:</label><input type="text" id="firstname" name="firstname" required>
-                          </div><div class="field">
-                            <label for="lastname">Nachname:</label><input type="text" id="lastname" name="lastname" required>
-                          </div>
-                        </div>
-                        
-                        <div class="field-wrapper">
-                          <div class="field">
-                            <label for="address">Strasse:</label><input type="text" id="address" name="address" required>
-                          </div><div class="field">
-                            <label for="place">PLZ/Ort:</label><input type="text" id="place" name="place" required>
-                          </div>
-                        </div>
 
-                        <div class="field-wrapper">
-                          <label for="email">Email:</label>
-                          <input type="email" id="email" name="email" class="email" required>
-                        </div>
-                        <div class="field-wrapper">
-                          <label for="message">Text:</label>
-                          <textarea id="message" name="message" cols="30" rows="5" class="textarea"></textarea>
-                        </div>
-                        <button type="submit" class="pb-button">Senden</button>
-                      </form>
-                    </div>
-                </div>
               </div>
             </div>
 
-            <div class="pb-section pb-section-5 pb-with-background">
-              <div class="pb-row pb-row-1">
-                <div class="pb-column">
-                  <div class="pb-module pb-text pb-text-15 pb-text-align-center">
-                    <div class="pb-text-inner">
-                      <h2>Ich freue mich auf eure Kontaktaufnahme</h2>
-                    </div>
-                  </div>
+            <div class="pb-section pb-section-5 pb-with-background section-scroll">
+              <div class="container-fluid pb-row pb-row-1">
+                <div class="section-heading-icons section-heading-title pb-text-align-center">
+                  <h1>Ich freue mich auf eure Kontaktaufnahme</h1>
                 </div>
-              </div>
 
-              <div class="pb-row pb-row-1">
-                <div class="pb-column pb-column-1-3">
-                  <div class="pb-module pb-text-align-center">
-                    <div class="pb-blurb-content">
-                      <div class="pb-main-blurb-image">
-                        <!-- <span class="pb-image-wrap"> -->
-                          <span class="pb-icon">
-                            <img src="img/icons/favorite_FILL0_wght400_GRAD0_opsz40.png" alt="Favorite" width="40" height="40">
-                          </span>
-                        <!-- </span> -->
-                      </div>
-                      <div class="pb-blurb-container">
-                        <h3 class="pb-module-header">
-                          <span>Erfahrung</span>
-                        </h3>
-                      </div>
+                <div class="pb-module pb-text-align-center">
+                  <div class="pb-blurb-content">
+                    <div class="pb-main-blurb-image">
+                      <!-- <span class="pb-image-wrap"> -->
+                        <span class="pb-icon">
+                          <img src="img/icons/footprint_FILL0_wght400_GRAD0_opsz40.svg" alt="Icon Footprint">
+                        </span>
+                      <!-- </span> -->
+                    </div>
+                    <div class="pb-blurb-container">
+                      <h3 class="pb-module-header">
+                        <span>Erfahrung</span>
+                      </h3>
                     </div>
                   </div>
                 </div>
-                <div class="pb-column pb-column-1-3">
-                  <div class="pb-module pb-text-align-center">
-                    <div class="pb-blurb-content">
-                      <div class="pb-main-blurb-image">
-                        <!-- <span class="pb-image-wrap"> -->
-                          <span class="pb-icon">
-                            <img src="img/icons/favorite_FILL0_wght400_GRAD0_opsz40.png" alt="Favorite" width="40" height="40">
-                          </span>
-                        <!-- </span> -->
-                      </div>
-                      <div class="pb-blurb-container">
-                        <h3 class="pb-module-header">
-                          <span>Kompetenz</span>
-                        </h3>
-                      </div>
+
+                <div class="pb-module pb-text-align-center">
+                  <div class="pb-blurb-content">
+                    <div class="pb-main-blurb-image">
+                      <!-- <span class="pb-image-wrap"> -->
+                        <span class="pb-icon">
+                          <img src="img/icons/school_FILL0_wght400_GRAD0_opsz40.svg" alt="Icon School">
+                        </span>
+                      <!-- </span> -->
+                    </div>
+                    <div class="pb-blurb-container">
+                      <h3 class="pb-module-header">
+                        <span>Kompetenz</span>
+                      </h3>
                     </div>
                   </div>
                 </div>
-                <div class="pb-column pb-column-1-3 et-last-child">
-                  <div class="pb-module pb-text-align-center">
-                    <div class="pb-blurb-content">
-                      <div class="pb-main-blurb-image">
-                        <!-- <span class="pb-image-wrap"> -->
-                          <span class="pb-icon">
-                            <img src="img/icons/favorite_FILL0_wght400_GRAD0_opsz40.png" alt="Favorite" width="40" height="40">
-                          </span>
-                        <!-- </span> -->
-                      </div>
-                      <div class="pb-blurb-container">
-                        <h3 class="pb-module-header">
-                          <span>Freude + Begeisterung</span>
-                        </h3>
-                      </div>
+
+                <div class="pb-module pb-text-align-center">
+                  <div class="pb-blurb-content">
+                    <div class="pb-main-blurb-image">
+                      <!-- <span class="pb-image-wrap"> -->
+                        <span class="pb-icon">
+                          <img src="img/icons/sentiment_satisfied_FILL0_wght400_GRAD0_opsz40.svg" alt="Icon Sentiment Satisfied">
+                        </span>
+                      <!-- </span> -->
+                    </div>
+                    <div class="pb-blurb-container">
+                      <h3 class="pb-module-header">
+                        <span>Freude + Begeisterung</span>
+                      </h3>
                     </div>
                   </div>
                 </div>
+                
               </div>
             </div>
 
           </div>
         </article>
       </div>
-      
-  
-      <!-- <footer class="site-footer">
-        <nav class="meta-nav">
-          <ul>
-            <li><a href="#">Impressum</a></li>
-            <li><a href="#">Datenschutz</a></li>
-            <li><a href="#top">Nach oben</a></li>
-          </ul>
-        </nav>
-      </footer> -->
-      <div class="footer-nav">
+
+      <footer class="site-footer">
         <div class="container-fluid">
-          <div class="meta-nav">
-            <!--Nachfolge Liste steht in einer Reihe, wegen den kleinen Abständen, die ansonsten zwischen den Elementen auftauchen..-->
-            <li><p>&copy; 2020-2023 Silvia von Burg</p></li><li><a href="#" target="_blank" rel="noopener noreferrer">Impressum </a></li><li><a href="#" target="_blank" rel="noopener noreferrer">Datenschutz </a></li> 
-          </div>
+          <nav class="meta-nav">
+              <ul>
+                <!--Nachfolge Liste steht in einer Reihe, wegen den kleinen Abständen, die ansonsten zwischen den Elementen auftauchen..-->
+                <li class="copyright"><p>&copy; 2020-2023 Silvia&nbsp;von&nbsp;Burg</p></li><li><a href="#" target="_blank" rel="noopener noreferrer">Impressum </a></li><li><a href="#" target="_blank" rel="noopener noreferrer">Datenschutz </a></li> 
+              </ul>
+          </nav>
         </div>
-      </div>
+      </footer>
+
+      
     </div>
     
     <script>

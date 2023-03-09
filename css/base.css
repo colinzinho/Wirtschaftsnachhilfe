@@ -34,6 +34,10 @@ a, body, div, h1, h2, h3, h4, h5, h6, html, img, li, p, span, ul {
     background-color: transparent;
 }
 
+textarea {
+    margin-block-end: 0;
+}
+
 /**
  * 2. Grundlegende Schrift- und Textgestaltung
 */
