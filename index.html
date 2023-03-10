@@ -58,6 +58,7 @@
           var section = $(this).data("nav-section");        
 
           if ($('div[data-section="' + section + '"]').length) {
+            $("#menubutton").removeClass('showmenu');
             switch (headerHeight) {
               case 156:
               case 151.5:
