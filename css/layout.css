@@ -45,10 +45,6 @@
     margin: auto auto auto 0;
 }
 
-.fixed-header .top-menu-nav {
-    padding: 40px 0 0 0;
-}
-
 .builder-inner-content {
     position: relative;
     z-index: 1;
@@ -232,6 +228,7 @@ div.pb-section.pb-section-0 {
 
 .field-wrapper label {
     display: block;
+    font-weight: 600;
 }
 
 .field-wrapper .field {
@@ -249,7 +246,24 @@ div.pb-section.pb-section-0 {
 
 .field-wrapper .textarea {
     width: 87.5%;
-    margin-bottom: 1rem ;
+    margin-bottom: 0.5rem ;
+}
+
+.accept-data-privacy {
+    margin-bottom: 0.5rem;
+}
+
+.accept-data-privacy a {
+    color: #d06f25;
+}
+
+.text-field-required span {
+    color: #592130;
+}
+
+.field-required {
+    color: #790000;
+    margin-left: 4px;
 }
 
 .pb-text-align-center h1 {
@@ -361,6 +375,10 @@ div.pb-section.pb-section-0 {
      .field-wrapper .textarea {
         margin-bottom: 0;
      }
+
+    .accept-data-privacy {
+        margin-bottom: 0rem;
+    }
 
     .pb-button-1 {
         grid-row: auto;

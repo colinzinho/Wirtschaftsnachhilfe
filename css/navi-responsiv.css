@@ -1,10 +1,5 @@
 /* Navigationsbereich mit Inhalt */
-
 @media screen and (min-width: 980px) {
-    .top-menu-nav {
-        
-    }
-
     .top-menu-nav ul {
         max-height: none !important;
         flex-direction: row !important;
@@ -17,37 +12,31 @@
     }
 
     .top-menu-nav li {
-        /* flex: 1; */
-        /* max-width: 10rem;
-        text-align: center; */
-
         display: inline-block;
         margin-right: 22px;
     }
     
-    .top-menu-nav a {
+    nav.top-menu-nav a {
         display: inline-block;
         position: relative;
-        padding-bottom: 60px !important;
+        padding-bottom: 60px;
         text-align: end;
         margin-right: 0 !important;
+        transition: padding-bottom 0.4s ease-in-out;   
+    }
+
+    /* collapsed navbar */
+    .fixed-header .top-menu-nav a {
+        padding-bottom: 40px;
     }
 
     .menubutton {display: none !important }
-
 }
 
 .top-menu-nav {
     position: static;
     padding: 60px 0 0 0;
-    transition: all 0.4s ease-in-out;
-}
-
-.top-menu-nav button {
-    width: 100%;
-    justify-content: flex-end;
-    padding-bottom: 60px;
-    transition: padding-bottom 0.4s;
+    transition: padding 0.4s ease-in-out;
 }
 
 .top-menu-nav ul {
@@ -56,6 +45,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    max-height: 0;
 }
 
 .top-menu-nav ul {
@@ -71,6 +61,22 @@
     color: #3d3d3d;
     padding: 0.5rem 1rem;
     margin-right: -1rem;
+}
+
+/* collapsed navbar */
+.fixed-header .top-menu-nav {
+    padding: 40px 0 0 0;
+}
+
+.top-menu-nav button {
+    width: 100%;
+    justify-content: flex-end;
+    padding-bottom: 60px;
+    transition: padding-bottom 0.4s ease-in-out;
+}
+
+.fixed-header .menubutton {
+    padding-bottom: 40px;
 }
 
 .menubutton {
@@ -91,36 +97,10 @@
     margin-right: 0.25rem;
 }
 
-.showmenu {
-    /* padding-bottom: 40px !important; */
-    /* justify-content: flex-start !important; */
-}
-
 .showmenu + ul {
-    /* max-height: 100rem; */
-    transition: max-height 0.4s;
     overflow: initial;
 }
 
 .showmenu.menubutton::before {
     content: url(../img/icons/menuclose.svg);
 }
-
-/* .top-menu-nav {
-    display: inline-block;
-    padding: 60px 0 0 0;
-    width: 84%;
-    text-align: end;
-    transition: all 0.4s ease-in-out;
-}
-
-.top-menu-nav li {
-    display: inline-block;
-    padding-right: 22px;
-}
-
-.top-menu-nav li > a {
-    display: inline-block;
-    position: relative;
-    padding-bottom: 60px;
-} */

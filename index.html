@@ -8,16 +8,9 @@
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
     <meta name="author" content="Colin Spichiger" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"> <!--Media Queries in mobilen Browsern funktionsfähig machen-->
     <title>Silvia von Burg &mdash; Wirtschaftsnachhilfe</title>
-    <!--Favicon - needs revision!-->
-    <link rel="icon" type="image/x-icon" href="img/logo-joia-da-foia.png" />
-
-    <link href="//db.onlinewebfonts.com/c/9d25ea5c587d0f9d470aa9a3634735ea?family=ETmodules" rel="stylesheet" type="text/css"/> 
-
-    <!--Google fonts-->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">  -->
+    <link rel="icon" type="image/x-icon" href="img/waldemar-weber-300.gif" /> <!--Favicon - needs revision!-->
 
     <link href="css/style.css" rel="stylesheet" />
 
@@ -37,8 +30,8 @@
             if(window.innerWidth < 700) {
               menubutton.css('padding-bottom', 40 + 'px');
             }
-
             pageContainer.css('margin-top', -41 + 'px');
+
           }else if(windowpos <= navbar.position().top && navbar.hasClass("fixed-header")) {
             navbar.removeClass("fixed-header");
             pageContainer.css('margin-top', -1 + 'px');
@@ -50,30 +43,40 @@
       })
 
       function onClickNavBar() {
-        // var topVal = $(window).width() < 769 ? 0 : 136;
-
-        // $(window).resize(function () {
-        //   topVal = $(window).width() < 769 ? 0 : 136;
-        // });
-
         $("#main-header a").click(function (event) {
+          var topVal = $(window).width() < 980 ? 110 : 115;
+
+          $(window).resize(function () {
+            topVal = $(window).width() < 980 ? 110 : 115;
+          });
+
+          /**
+           * viewport > 769 - initial height: 156px,   collapsed height: 116
+           * viewport < 769 - initial height: 151.5px, collapsed height: 111.5px
+           */
           var headerHeight = $('#main-header')[0].getBoundingClientRect().height;
-          var section = $(this).data("nav-section");
+          var section = $(this).data("nav-section");        
 
           if ($('div[data-section="' + section + '"]').length) {
-            var topVal = 0;
-            if(section == "angebote") {
-              topVal = 270;
-            } else {
-              topVal = 134;
+            switch (headerHeight) {
+              case 156:
+              case 151.5:
+                topVal += 40;
+                break;
+            
+              default:
+                break;
             }
+
             $("html, body").animate(
               {
                 scrollTop:
-                  $('div[data-section="' + section + '"]').offset().top -topVal
+                  $('div[data-section="' + section + '"]').offset().top - topVal
               },
               500
             );
+          } else if(section == 'home') {
+            $(window).location.reload();
           }
           event.preventDefault();
           // return false;
@@ -104,7 +107,6 @@
       <div id="main-content">
         <article>
           <div class="builder-inner-content">
-
             <div class="pb-section pb-section-0 pb-with-background">
               <div class="container-fluid pb-row pb-row-0">
                   <div class="pb-column">
@@ -119,8 +121,7 @@
                   </div>
               </div>
             </div>
-
-            <div class="pb-section pb-section-1 pb-with-background section-scroll">
+            <div class="pb-section pb-section-1 pb-with-background" data-section="angebote">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Angebote für Lernende</h1>
@@ -130,14 +131,12 @@
                     <h3>Online-Nachhilfe</h3>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                   </div>
-                  <!-- <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Erfahre Mehr</a> -->
                 </div>
                 <div class="pb-column">
                   <div class="pb-module offer">
                     <h3>Intensivkurs in Portugal</h3>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                   </div>
-                  <!-- <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf">Erfahre Mehr</a> -->
                 </div>
 
                 <div class="pb-column pb-button-1">
@@ -148,8 +147,7 @@
                 </div>
               </div>
             </div>
-
-            <div class="pb-section pb-section-2 pb-with-background section-scroll">
+            <div class="pb-section pb-section-2 pb-with-background">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Angebote für Schulen</h1>
@@ -176,8 +174,7 @@
               </div>
             </div>
 
-            <div class="pb-section pb-section-3 pb-with-background section-scroll" data-section="ueber">
-              
+            <div class="pb-section pb-section-3 pb-with-background" data-section="ueber">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Über mich</h1>
@@ -193,26 +190,23 @@
                 </div>
               </div>
             </div>
-
-            <div id="kontakt" class="pb-section pb-section-4 pb-with-background section-scroll" data-section="kontakt">
+            <div id="kontakt" class="pb-section pb-section-4 pb-with-background" data-section="kontakt">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Kontakt</h1>
                 </div>
-
                 <div class="pb-module ">
                   <p>Silvia von Burg</p>
                   <p>E-Mail: deburg@bluewin.ch</p>
                   <p>Mobile: +351 937 176 255</p>
                   <br>
-                  <p>* sind Pflichtfelder</p>
+                  <p class="text-field-required"><span>*</span> sind Pflichtfelder</p>
                 </div>
-
                 <div class="pb-module form-contact">
                   <!-- <h3>Kontaktformular</h3> -->
                   <form action="#" method="POST" class="form">
                     <div class="field-wrapper entire-line">
-                      <label for="course">Ich interessiere mich für *</label>
+                      <label for="course">Ich interessiere mich für<span class="field-required">*</span></label>
                       <select id="course" name="course" required>
                         <option>Wählen Sie einen Kurs aus</option>
                         <option>Online-Nachhilfe</option>
@@ -223,49 +217,48 @@
                     </div>
                     <div class="field-wrapper">
                       <div class="field">
-                        <label for="firstname">Vorname *</label><input type="text" id="firstname" name="firstname" class="inputfield" required>
+                        <label for="firstname">Vorname<span class="field-required">*</span></label><input type="text" id="firstname" name="firstname" class="inputfield" required>
                       </div>
                     </div>
                     <div class="field-wrapper">
                       <div class="field">
-                        <label for="lastname">Nachname *</label><input type="text" id="lastname" name="lastname" class="inputfield" required>
-                      </div>
-                    </div>
-                    
-                    <div class="field-wrapper">
-                      <div class="field">
-                        <label for="address">Strasse *</label><input type="text" id="address" name="address" class="inputfield" required>
+                        <label for="lastname">Nachname<span class="field-required">*</span></label><input type="text" id="lastname" name="lastname" class="inputfield" required>
                       </div>
                     </div>
                     <div class="field-wrapper">
                       <div class="field">
-                        <label for="place">PLZ/Ort *</label><input type="text" id="place" name="place" class="inputfield" required>
+                        <label for="address">Strasse<span class="field-required">*</span></label><input type="text" id="address" name="address" class="inputfield" required>
                       </div>
                     </div>
-
+                    <div class="field-wrapper">
+                      <div class="field">
+                        <label for="place">PLZ/Ort<span class="field-required">*</span></label><input type="text" id="place" name="place" class="inputfield" required>
+                      </div>
+                    </div>
                     <div class="field-wrapper entire-line">
-                      <label for="email">Email *</label>
+                      <label for="email">Email<span class="field-required">*</span></label>
                       <input type="email" id="email" name="email" class="email" required>
                     </div>
                     <div class="field-wrapper entire-line et-last-child">
                       <label for="message">Nachricht</label>
                       <textarea id="message" name="message" cols="30" rows="5" class="textarea"></textarea>
                     </div>
+                    <div class="accept-data-privacy entire-line">
+                      <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+                      <label for="privacy-policy">Ich stimme der <a href="datenschutzerklärung/Datenschutz_Joia_da_Foia.pdf" target="_blank">Datenschutzerklärung</a> zu<span class="field-required">*</span></label>
+                    </div>
                     <div>
-                      <button type="submit" class="pb-button">Senden</button>
+                      <button type="submit" class="pb-button">Abschicken</button>
                     </div>
                   </form>
                 </div>
-
               </div>
             </div>
-
-            <div class="pb-section pb-section-5 pb-with-background section-scroll">
+            <div class="pb-section pb-section-5 pb-with-background">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading-icons section-heading-title pb-text-align-center">
                   <h1>Ich freue mich auf eure Kontaktaufnahme</h1>
                 </div>
-
                 <div class="pb-module pb-text-align-center">
                   <div class="pb-blurb-content">
                     <div class="pb-main-blurb-image">
@@ -282,7 +275,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="pb-module pb-text-align-center">
                   <div class="pb-blurb-content">
                     <div class="pb-main-blurb-image">
@@ -299,7 +291,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="pb-module pb-text-align-center">
                   <div class="pb-blurb-content">
                     <div class="pb-main-blurb-image">
@@ -316,26 +307,21 @@
                     </div>
                   </div>
                 </div>
-                
               </div>
             </div>
-
           </div>
         </article>
       </div>
-
       <footer class="site-footer">
         <div class="container-fluid">
           <nav class="meta-nav">
               <ul>
                 <!--Nachfolge Liste steht in einer Reihe, wegen den kleinen Abständen, die ansonsten zwischen den Elementen auftauchen..-->
-                <li class="copyright"><p>&copy; 2020-2023 Silvia&nbsp;von&nbsp;Burg</p></li><li><a href="#" target="_blank" rel="noopener noreferrer">Impressum </a></li><li><a href="#" target="_blank" rel="noopener noreferrer">Datenschutz </a></li> 
+                <li class="copyright"><p>&copy; 2020-2023 Silvia&nbsp;von&nbsp;Burg</p></li><li><a href="#" target="_blank" rel="noopener noreferrer">Impressum </a></li><li><a href="datenschutzerklärung/Datenschutz_Joia_da_Foia.pdf" target="_blank" rel="noopener noreferrer">Datenschutz </a></li> 
               </ul>
           </nav>
         </div>
       </footer>
-
-      
     </div>
     
     <script>
