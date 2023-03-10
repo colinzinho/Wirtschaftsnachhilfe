@@ -228,7 +228,7 @@ div.pb-section.pb-section-0 {
 
 .field-wrapper label {
     display: block;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .field-wrapper .field {
@@ -363,6 +363,10 @@ div.pb-section.pb-section-0 {
      .field-wrapper .field {
         width: 75%;
      }
+
+     .field-wrapper label {
+        font-weight: 600;
+    }
 
      .field-wrapper .inputfield {
         width: 100%;
