@@ -129,6 +129,10 @@ div.pb-section.pb-section-0 {
     padding-bottom: 0;
 }
 
+/* .sub-title {
+    margin-bottom: 0.5rem;
+} */
+
 .offer {
     border: 1px solid #000;
     padding: 0.5rem;
@@ -136,6 +140,16 @@ div.pb-section.pb-section-0 {
 
 .offer h3 {
     font-size: 20px;
+    padding-bottom: 0 !important;
+}
+
+.offer .textForOffer {
+    padding-top: 0.5rem;
+}
+
+.offer .sub-title p{
+    /* font-size: 32px; */
+    /* padding-bottom: 0 !important */
 }
 
 .pb-button {
