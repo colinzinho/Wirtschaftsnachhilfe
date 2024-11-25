@@ -30,6 +30,22 @@
     position: relative;
 }
 
+.backToTopCont {
+    position: fixed;
+    right: 3%;
+    z-index: 99;
+    text-align: end;
+}
+
+.backToTopCont button {
+    background-color: transparent;
+    background-image: url('../img/icons/back_to_top_arrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain; /* What does this statement do? */
+    border: none;
+    width: 30px;
+    height: 30px;
+}
 .clearfix::after {
     visibility: hidden;
     display: block;
@@ -40,7 +56,6 @@
 }
 
 .logo-container {
-    border: 1px solid #000;
     padding: 0.25rem;
     margin: auto auto auto 0;
 }
@@ -63,15 +78,16 @@
 }
 
 div.pb-section.pb-section-0 { 
-    background-image: url(https://joia-da-foia.com/wp-content/uploads/2021/11/kontakt.jpg) !important;   
+    background-image: url('../img/Wallpaper_background.JPG') !important;
 }
 
 .pb-section-0.pb-section {
     padding-top: 17vw;
-    padding-bottom: 3vw;
+    padding-bottom: 8vw;
 }
 
 .pb-section-1.pb-section {
+    padding-top: 0rem;
     /* background-color: #FFFBEB; */
 }
 
@@ -117,12 +133,20 @@ div.pb-section.pb-section-0 {
 .pb-text h2{
     font-size: 50px;
     color: #ffffff !important;
-    text-align: center;
+    text-align: end;
+    /* text-align: center; */
 }
 
 .slogan {
     color: #fff !important;
-    text-align: center;
+    margin-bottom: 1rem;
+    /* text-align: center; */
+}
+
+.slogan h2 {
+    font-size: 65px;
+    color: #ffffff !important;
+    text-align: end;
 }
 
 .pb-text > :last-child {
@@ -136,6 +160,7 @@ div.pb-section.pb-section-0 {
 .offer {
     border: 1px solid #000;
     padding: 0.5rem;
+    height: 100%;
 }
 
 .offer h3 {
@@ -347,6 +372,12 @@ div.pb-section.pb-section-0 {
 .pb-row {
     /* padding wird später in @media (min-width: 981px) spezifiziert */
     padding: 2% 0;
+}
+
+.pb-row-0 {
+    position: absolute;
+    right: 5%;
+    top: 15%;
 }
 
 .pb-section-1 > .container-fluid, .pb-section-2 > .container-fluid {

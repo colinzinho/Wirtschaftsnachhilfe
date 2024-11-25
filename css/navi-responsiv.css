@@ -61,6 +61,7 @@
     color: #3d3d3d;
     padding: 0.5rem 1rem;
     margin-right: -1rem;
+    cursor: pointer;
 }
 
 /* collapsed navbar */
@@ -82,7 +83,6 @@
 .menubutton {
     display: flex;
     align-items: center;
-    cursor: pointer;
     background: inherit;
     color: #000;
     font: inherit;

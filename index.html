@@ -14,16 +14,25 @@
 
     <link href="css/style.css" rel="stylesheet" />
 
+    <!-- Embedd Google Fonts for demonstration purposes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap" rel="stylesheet">
+
     <script src="js/jquery-3.6.3.js"></script>
     <script>
-      $(document).ready(function() {
-        $(window).scroll(function() {
-          const positionTop = 20;
-          var windowpos = $(window).scrollTop();
-          var navbar = $("#main-header");
-          var menubutton = $("#menubutton");
-          var pageContainer = $("#page-container");
+      const positionTop = 20;
+      var navbar;
+      var menubutton;
+      var pageContainer;
 
+      $(document).ready(function() {
+        navbar = $("#main-header");
+        menubutton = $("#menubutton");
+        pageContainer = $("#page-container");
+
+        $(window).scroll(function() {
+          var windowpos = $(window).scrollTop();
           if(windowpos >= positionTop && !navbar.hasClass("fixed-header")) {
             navbar.addClass("fixed-header");
             pageContainer.addClass("animated-content");
@@ -39,16 +48,22 @@
               menubutton.css('padding-bottom', 60 + 'px');
             }
           }
-        })
+        });
       })
+
+      function onClickLogo() {
+        $("#logo-container a").click(function (event) {
+          window.location.reload();
+        });
+      }
 
       function onClickNavBar() {
         $("#main-header a").click(function (event) {
-          var topVal = $(window).width() < 980 ? 110 : 115;
+          var topVal = $(window).width() < 980 ? 110 : 115; /* Using Ternary Operator */
 
-          $(window).resize(function () {
-            topVal = $(window).width() < 980 ? 110 : 115;
-          });
+          // $(window).resize(function () {
+          //   topVal = $(window).width() < 980 ? 110 : 115;
+          // });
 
           /**
            * viewport > 769 - initial height: 156px,   collapsed height: 116
@@ -85,22 +100,24 @@
       }
     </script>
   </head>
-  <body>
+  <body class="googlefont">
     <div id="page-container">
       <header id="main-header">
         <div class="container-fluid clearfix">
           <div class="top-navigation">
             <div class="logo-container">
-              <p>Silvia von Burg</p>
-              <p>Dipl. Lehrperson</p>
-              <p>Wirtschaft + Recht</p></div><nav class="top-menu-nav">
-              <button id="menubutton" class="menubutton" onclick="this.classList.toggle('showmenu')"></button>
-              <ul>
-                <li><a href="index.html" data-nav-section="home"><span>Home</span></a></li>
-                <li><a href="#" data-nav-section="angebote"><span>Angebot</span></a></li>
-                <li><a href="#" data-nav-section="ueber"><span>Über</span></a></li>
-                <li><a href="#" data-nav-section="kontakt"><span>Kontakt</span></a></li>
-              </ul>
+              <a>
+                <img id="logo" src="img/Logo.png" alt="Logo Wirtschaftsnachhilfe" width="200" height="100">
+              </a>
+            </div>
+              <nav class="top-menu-nav">
+                <button id="menubutton" class="menubutton" onclick="this.classList.toggle('showmenu')"></button>
+                <ul>
+                  <li><a href="#" data-nav-section="home"><span>Home</span></a></li>
+                  <li><a href="#" data-nav-section="angebote"><span>Angebot</span></a></li>
+                  <li><a href="#" data-nav-section="ueber"><span>Über</span></a></li>
+                  <li><a href="#" data-nav-section="kontakt"><span>Kontakt</span></a></li>
+                </ul>
             </nav>
           </div>
         </div>
@@ -108,15 +125,18 @@
       <div id="main-content">
         <article>
           <div class="builder-inner-content">
-            <div class="pb-section pb-section-0 pb-with-background">
-              <div class="container-fluid pb-row pb-row-0">
-                  <div class="pb-column">
-                    <div class="pb-module pb-text">
-                      <div>
-                        <h2 class="slogan">Gemeinsam zum Ziel</h2>
-                      </div>
-                    </div>
+            <div class="pb-section pb-section-0 pb-with-background" data-section="home">
+              <div class="pb-row pb-row-0">
+
+                  <div class="slogan">
+                    <h2>Gemeinsam zum Ziel</h2>
                   </div>
+
+                  <!-- <div class="pb-column">
+                    <div class="pb-module pb-text">
+                      
+                    </div>
+                  </div> -->
               </div>
             </div>
             <div class="pb-section pb-section-1 pb-with-background" data-section="angebote">
@@ -153,11 +173,14 @@
                 </div>
 
                 <div class="pb-column pb-button-1">
-                  <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Kontakt</a>
+                  <a class="pb-button" href="#kontakt">Kontakt</a>
                 </div>
                 <div class="pb-column pb-button-2">
-                  <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf">Erfahre Mehr</a>
+                  <a class="pb-button" href="angebote/Informationsblatt_zu_Intensivkurs_in_Monchique.pdf" target="_blank" >Erfahre Mehr</a>
                 </div>
+              </div>
+              <div class="backToTopCont">
+                <button onClick="backToTop()" id="backToTopBtn" title=""></button>
               </div>
             </div>
             <div class="pb-section pb-section-2 pb-with-background">
@@ -195,10 +218,10 @@
                 </div>
 
                 <div class="pb-column pb-button-1">
-                  <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Kontakt</a>
+                  <a class="pb-button" href="#kontakt">Kontakt</a>
                 </div>
                 <div class="pb-column pb-button-2">
-                  <a class="pb-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf">Kontakt</a>
+                  <a class="pb-button" href="#kontakt">Kontakt</a>
                 </div>
               </div>
             </div>
@@ -223,7 +246,7 @@
                       Bitte kontaktieren Sie mich für nähere Informationen. Sehr gerne schicke ich Ihnen meinen detaillierten Lebenslauf mit den dazugehörenden Diplomen und Arbeitszeugnissen zu. 
                     </p>
                   </div>
-                    <a class="cv-button" href="angebote/Aufenthaltsbestätigung-Montreux.pdf" download="angbeot-1.pdf" target="_blank">Erfahre Mehr</a>
+                    <a class="cv-button" href="#kontakt">Kontakt</a>
                 </div>
                 <div class="pb-module portrait center-image">
                     <img id="portrait" src="img/Portrait_Silvia_von_Burg.jpg" alt="Silvia von Burg" width="260" height="172">
@@ -285,7 +308,7 @@
                     </div>
                     <div class="accept-data-privacy entire-line">
                       <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
-                      <label for="privacy-policy">Ich stimme der <a href="datenschutzerklärung/Datenschutz_Joia_da_Foia.pdf" target="_blank">Datenschutzerklärung</a> zu<span class="field-required">*</span></label>
+                      <label for="privacy-policy">Ich stimme der <a href="datenschutzerklärung/Datenschutzerklaerung.pdf" target="_blank">Datenschutzerklärung</a> zu<span class="field-required">*</span></label>
                     </div>
                     <div>
                       <button type="submit" class="pb-button">Abschicken</button>
@@ -357,7 +380,7 @@
           <nav class="meta-nav">
               <ul>
                 <!--Nachfolge Liste steht in einer Reihe, wegen den kleinen Abständen, die ansonsten zwischen den Elementen auftauchen..-->
-                <li class="copyright"><p>&copy; 2020-2024 Silvia&nbsp;von&nbsp;Burg</p></li><li><a href="#" target="_blank" rel="noopener noreferrer">Impressum </a></li><li><a href="datenschutzerklärung/Datenschutz_Joia_da_Foia.pdf" target="_blank" rel="noopener noreferrer">Datenschutz </a></li> 
+                <li class="copyright"><p>&copy; 2020-2024 Silvia&nbsp;von&nbsp;Burg</p></li><li><a href="impressum/Impressum_Silvia.pdf" target="_blank" rel="noopener noreferrer">Impressum </a></li><li><a href="datenschutzerklärung/Datenschutzerklaerung.pdf" target="_blank" rel="noopener noreferrer">Datenschutz </a></li> 
               </ul>
           </nav>
         </div>
@@ -365,6 +388,7 @@
     </div>
     
     <script>
+      onClickLogo();
       onClickNavBar();
     </script>
   </body>
