@@ -177,13 +177,21 @@ div.pb-section.pb-section-0 {
     /* padding-bottom: 0 !important */
 }
 
+.enclosure {
+    overflow: hidden;
+}
+
+.enclosure a {
+    display: inline-block;
+    height: 100% !important;
+}
+
 .pb-button {
     color: #fff;
     background-color: #592130;
     border-color: #592130;
     text-transform: uppercase;
     text-decoration: none;
-
     padding: .3rem 1rem;
     line-height: 1.7em !important;
 }
@@ -238,17 +246,6 @@ div.pb-section.pb-section-0 {
     display: grid;
     align-items: center;
     justify-items: center;
-}
-
-.cv-button {
-    color: #fff;
-    background-color: #592130;
-    border-color: #592130;
-    text-transform: uppercase;
-    text-decoration: none;
-
-    padding: .3rem 1rem;
-    line-height: 1.7em !important;
 }
 
 .form-contact {
@@ -384,11 +381,6 @@ div.pb-section.pb-section-0 {
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 1rem;
-}
-
-.pb-button-1 {
-    grid-row: 3/4;
-    margin-bottom: 1rem;
 }
 
 .pb-section-3 > .container-fluid {

@@ -10,7 +10,7 @@
     <meta name="author" content="Colin Spichiger" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"> <!--Media Queries in mobilen Browsern funktionsfähig machen-->
     <title>Silvia von Burg &mdash; Wirtschaftsnachhilfe</title>
-    <link rel="icon" type="image/x-icon" href="img/waldemar-weber-300.gif" /> <!--Favicon - needs revision!-->
+    <link rel="icon" type="image/x-icon" href="img/Logo.png" /> <!--Favicon - needs revision!-->
 
     <link href="css/style.css" rel="stylesheet" />
 
@@ -51,52 +51,66 @@
         });
       })
 
-      function onClickLogo() {
-        $("#logo-container a").click(function (event) {
-          window.location.reload();
-        });
-      }
+      // function onClickLogo() {
+      //   $("#logo-container a").click(function (event) {
+      //     $(window).location.reload();
+      //   });
+      // }
 
-      function onClickNavBar() {
+      function onClick() {
+        $("#logo").click(function (event) {
+          location.reload();
+        });
+
+        $(".contact-btn").click(function (event) {
+          var sectionName = $(this).text();
+          var result = sectionNav(sectionName);
+
+          if(!result) {
+            event.preventDefault();
+          }
+        })
+
+
         $("#main-header a").click(function (event) {
-          var topVal = $(window).width() < 980 ? 110 : 115; /* Using Ternary Operator */
+          var sectionName = $(this).data("nav-section"); 
+          var result = sectionNav(sectionName);
+
+          if(!result) {
+            event.preventDefault(); // what does this do - exception handler??
+          }
 
           // $(window).resize(function () {
           //   topVal = $(window).width() < 980 ? 110 : 115;
           // });
+        })
 
+        function sectionNav (input) {
+          var sectionname = input.toLowerCase();
+          
           /**
            * viewport > 769 - initial height: 156px,   collapsed height: 116
            * viewport < 769 - initial height: 151.5px, collapsed height: 111.5px
            */
+          var topVal = 0;
           var headerHeight = $('#main-header')[0].getBoundingClientRect().height;
-          var section = $(this).data("nav-section");        
+                 
 
-          if ($('div[data-section="' + section + '"]').length) {
-            $("#menubutton").removeClass('showmenu');
-            switch (headerHeight) {
-              case 156:
-              case 151.5:
-                topVal += 40;
-                break;
-            
-              default:
-                break;
-            }
-
+          if ($('div[data-section="' + sectionname + '"]').length) {
+            topVal = headerHeight - 1;
+            // $("#menubutton").removeClass('showmenu');
             $("html, body").animate(
               {
                 scrollTop:
-                  $('div[data-section="' + section + '"]').offset().top - topVal
+                  $('div[data-section="' + sectionname + '"]').offset().top - topVal
               },
-              500
+              250
             );
-          } else if(section == 'home') {
-            $(window).location.reload();
+            return true;
+          } else {
+            return false;
           }
-          event.preventDefault();
-          // return false;
-        });
+        }
       }
     </script>
   </head>
@@ -106,8 +120,8 @@
         <div class="container-fluid clearfix">
           <div class="top-navigation">
             <div class="logo-container">
-              <a>
-                <img id="logo" src="img/Logo.png" alt="Logo Wirtschaftsnachhilfe" width="200" height="100">
+              <a id="logo">
+                <img src="img/Logo.png" alt="Logo Wirtschaftsnachhilfe" width="200" height="100">
               </a>
             </div>
               <nav class="top-menu-nav">
@@ -172,10 +186,14 @@
                   </div>
                 </div>
 
-                <div class="pb-column pb-button-1">
+                <!-- <div class="pb-column pb-button-1">
                   <a class="pb-button" href="#kontakt">Kontakt</a>
+                </div> -->
+                <div>
+                  <button class="pb-button contact-btn" onclick="onClick()">Kontakt</button>
                 </div>
-                <div class="pb-column pb-button-2">
+
+                <div class="enclosure">
                   <a class="pb-button" href="angebote/Informationsblatt_zu_Intensivkurs_in_Monchique.pdf" target="_blank" >Erfahre Mehr</a>
                 </div>
               </div>
@@ -217,11 +235,11 @@
                     </div>
                 </div>
 
-                <div class="pb-column pb-button-1">
-                  <a class="pb-button" href="#kontakt">Kontakt</a>
+                <div>
+                  <button class="pb-button contact-btn" onclick="onClick()">Kontakt</button>
                 </div>
-                <div class="pb-column pb-button-2">
-                  <a class="pb-button" href="#kontakt">Kontakt</a>
+                <div>
+                  <button class="pb-button contact-btn" onclick="onClick()">Kontakt</button>
                 </div>
               </div>
             </div>
@@ -246,7 +264,7 @@
                       Bitte kontaktieren Sie mich für nähere Informationen. Sehr gerne schicke ich Ihnen meinen detaillierten Lebenslauf mit den dazugehörenden Diplomen und Arbeitszeugnissen zu. 
                     </p>
                   </div>
-                    <a class="cv-button" href="#kontakt">Kontakt</a>
+                    <button class="pb-button contact-btn" onclick="onClick()">Kontakt</button>
                 </div>
                 <div class="pb-module portrait center-image">
                     <img id="portrait" src="img/Portrait_Silvia_von_Burg.jpg" alt="Silvia von Burg" width="260" height="172">
@@ -388,8 +406,7 @@
     </div>
     
     <script>
-      onClickLogo();
-      onClickNavBar();
+      onClick();
     </script>
   </body>
 </html>
