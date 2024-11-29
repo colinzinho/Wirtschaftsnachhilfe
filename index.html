@@ -10,7 +10,7 @@
     <meta name="author" content="Colin Spichiger" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"> <!--Media Queries in mobilen Browsern funktionsfähig machen-->
     <title>Silvia von Burg &mdash; Wirtschaftsnachhilfe</title>
-    <link rel="icon" type="image/x-icon" href="img/Logo.png" /> <!--Favicon - needs revision!-->
+    <link rel="icon" type="image/x-icon" href="img/facivon.png" /> <!--Favicon - needs revision!-->
 
     <link href="css/style.css" rel="stylesheet" />
 
@@ -21,35 +21,65 @@
 
     <script src="js/jquery-3.6.3.js"></script>
     <script>
-      const positionTop = 20;
-      var navbar;
+      var header;
       var menubutton;
       var pageContainer;
+      var toTopBtn;
+
+      let x;
 
       $(document).ready(function() {
-        navbar = $("#main-header");
+        /* set variable values after initialization of site */
+        header = $("#main-header");
         menubutton = $("#menubutton");
         pageContainer = $("#page-container");
-
-        $(window).scroll(function() {
-          var windowpos = $(window).scrollTop();
-          if(windowpos >= positionTop && !navbar.hasClass("fixed-header")) {
-            navbar.addClass("fixed-header");
-            pageContainer.addClass("animated-content");
-            if(window.innerWidth < 700) {
-              menubutton.css('padding-bottom', 40 + 'px');
-            }
-            pageContainer.css('margin-top', -41 + 'px');
-
-          }else if(windowpos <= navbar.position().top && navbar.hasClass("fixed-header")) {
-            navbar.removeClass("fixed-header");
-            pageContainer.css('margin-top', -1 + 'px');
-            if(window.innerWidth < 700) {
-              menubutton.css('padding-bottom', 60 + 'px');
-            }
-          }
-        });
+        
+        toTopBtn = $("#toTopBtn");
+        thresholdValtoTopBtn = $('div[id="thresholdToTopBtn"]').offset().top - getHeaderHeight();
       })
+
+      $(window).scroll(function() {
+        var windowpos = $(window).scrollTop(); /* gets vertical scrollbar position of window element */
+        
+        var headerIsFixed = header.hasClass("fixed-header");
+        var btnIsHidden = toTopBtn.hasClass("hidden")
+
+        if(windowpos >= thresholdValtoTopBtn && btnIsHidden) {
+          if(toTopBtn.hasClass("fadeOut")) {
+            toTopBtn.removeClass("fadeOut");
+          }
+          toTopBtn.removeClass("hidden");
+          toTopBtn.addClass("fadeIn");
+        }
+
+        if(windowpos < thresholdValtoTopBtn && !btnIsHidden) {
+          toTopBtn.addClass("fadeOut");  
+          setTimeout( function functionName () {
+            toTopBtn.addClass("hidden");
+          }, 2000);
+        }
+
+        if(windowpos > 20 && !headerIsFixed) { /* 20 stands for the imagniary space in px above the header */
+          header.addClass("fixed-header");
+          pageContainer.addClass("animation"); /* enables smooth animation (ease-in-ease-out) */
+          pageContainer.css('margin-top', -41 + 'px'); /* whole website content hops up by 41px - is being used for smooth animation/ transition */
+          
+          /* Responsive Design - collapsed header menu */
+          // if(window.innerWidth < 700) {
+          //   menubutton.css('padding-bottom', 40 + 'px');
+          // }
+        }
+        
+        if(windowpos <= 0 && headerIsFixed) { /* restore default size of header (height) */
+          header.removeClass("fixed-header");
+          pageContainer.css('margin-top', -1 + 'px'); /* whole website content hops down by 40px - is being used for smooth animation/ transition */
+
+          /* Responsive Design - collapsed header menu */
+          // if(window.innerWidth < 700) {
+          //   menubutton.css('padding-bottom', 60 + 'px');
+          // }
+        }
+      });
 
       // function onClickLogo() {
       //   $("#logo-container a").click(function (event) {
@@ -93,13 +123,13 @@
            * viewport < 769 - initial height: 151.5px, collapsed height: 111.5px
            */
           var topVal = 0;
-          var headerHeight = $('#main-header')[0].getBoundingClientRect().height;
+          // var headerHeight = $('#main-header')[0].getBoundingClientRect().height;
                  
 
           if ($('div[data-section="' + sectionname + '"]').length) {
-            topVal = headerHeight - 1;
+            topVal = getHeaderHeight() -1;
             // $("#menubutton").removeClass('showmenu');
-            $("html, body").animate(
+            $("html").animate(
               {
                 scrollTop:
                   $('div[data-section="' + sectionname + '"]').offset().top - topVal
@@ -112,6 +142,11 @@
           }
         }
       }
+
+      function getHeaderHeight() {
+        return $('#main-header')[0].getBoundingClientRect().height;
+      }
+
     </script>
   </head>
   <body class="googlefont">
@@ -121,7 +156,7 @@
           <div class="top-navigation">
             <div class="logo-container">
               <a id="logo">
-                <img src="img/Logo.png" alt="Logo Wirtschaftsnachhilfe" width="200" height="100">
+                <img src="img/logo.png" alt="Logo Wirtschaftsnachhilfe" width="200" height="100">
               </a>
             </div>
               <nav class="top-menu-nav">
@@ -153,7 +188,7 @@
                   </div> -->
               </div>
             </div>
-            <div class="pb-section pb-section-1 pb-with-background" data-section="angebote">
+            <div id="thresholdToTopBtn" class="pb-section pb-section-1 pb-with-background" data-section="angebote">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Angebote für Lernende</h1>
@@ -198,7 +233,7 @@
                 </div>
               </div>
               <div class="backToTopCont">
-                <button onClick="backToTop()" id="backToTopBtn" title=""></button>
+                <button onClick="backToTop()" id="toTopBtn" class="hidden" title=""></button>
               </div>
             </div>
             <div class="pb-section pb-section-2 pb-with-background">
@@ -267,7 +302,7 @@
                     <button class="pb-button contact-btn" onclick="onClick()">Kontakt</button>
                 </div>
                 <div class="pb-module portrait center-image">
-                    <img id="portrait" src="img/Portrait_Silvia_von_Burg.jpg" alt="Silvia von Burg" width="260" height="172">
+                    <img id="portrait" src="img/portrait_silvia_von_burg.jpg" alt="Portrait Silvia von Burg" width="260" height="172">
                 </div>
               </div>
             </div>
@@ -322,10 +357,10 @@
                     </div>
                     <div class="field-wrapper entire-line et-last-child">
                       <label for="message">Nachricht</label>
-                      <textarea id="message" name="message" cols="30" rows="5" class="textarea"></textarea>
+                      <textarea id="message" class="textarea" name="message" cols="10" rows="5"></textarea>
                     </div>
                     <div class="accept-data-privacy entire-line">
-                      <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+                      <input type="checkbox" id="privacy-policy" class="checkbox" name="privacy-policy" required>
                       <label for="privacy-policy">Ich stimme der <a href="datenschutzerklärung/Datenschutzerklaerung.pdf" target="_blank">Datenschutzerklärung</a> zu<span class="field-required">*</span></label>
                     </div>
                     <div>

@@ -4,8 +4,42 @@
     overflow-y: hidden;
 }
 
-.animated-content#page-container {
+.animation#page-container {
     transition: margin-top 0.4s ease-in-out;
+}
+
+
+
+.fadeIn#toTopBtn {
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeOut#toTopBtn {
+    animation: fadeOutAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOutAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 /* Navigationsleiste */
@@ -33,6 +67,7 @@
 .backToTopCont {
     position: fixed;
     right: 3%;
+    bottom: 3%;
     z-index: 99;
     text-align: end;
 }
@@ -43,8 +78,8 @@
     background-repeat: no-repeat;
     background-size: contain; /* What does this statement do? */
     border: none;
-    width: 30px;
-    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
 }
 .clearfix::after {
     visibility: hidden;
@@ -78,7 +113,7 @@
 }
 
 div.pb-section.pb-section-0 { 
-    background-image: url('../img/Wallpaper_background.JPG') !important;
+    background-image: url('../img/wallpaper_background.jpg') !important;
 }
 
 .pb-section-0.pb-section {
@@ -253,6 +288,10 @@ div.pb-section.pb-section-0 {
     max-width: 100%;
 }
 
+.form-contact select, input {
+    min-height: 25px; /* to cover better the available area */
+}
+
 .form {
     border: 1px solid #000;
     padding: 1rem;
@@ -269,20 +308,16 @@ div.pb-section.pb-section-0 {
 
 .field-wrapper .field {
     display: inline-block;
-    width: 100%;
-}
-
-.field-wrapper .inputfield {
-    width: 50%;
-}
-
-.field-wrapper .email {
-    width: 50%;
 }
 
 .field-wrapper .textarea {
     width: 87.5%;
     margin-bottom: 0.5rem ;
+}
+
+.accept-data-privacy .checkbox {
+    field-sizing: fixed;
+    cursor: pointer;
 }
 
 .accept-data-privacy {
@@ -501,4 +536,15 @@ div.pb-section.pb-section-0 {
     .section-heading-icons {
         grid-column: 1/4;
     }
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+.toTopBtn {
+    opacity: 0;
+    transition: opacity 3s;
 }
