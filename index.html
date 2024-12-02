@@ -26,23 +26,22 @@
       var pageContainer;
       var toTopBtn;
 
-      let x;
-
       $(document).ready(function() {
+        // $(window).scrollTop(0);
         /* set variable values after initialization of site */
         header = $("#main-header");
         menubutton = $("#menubutton");
         pageContainer = $("#page-container");
         
         toTopBtn = $("#toTopBtn");
-        thresholdValtoTopBtn = $('div[id="thresholdToTopBtn"]').offset().top - getHeaderHeight();
-      })
+        thresholdValtoTopBtn = $('div[id="offers"]').offset().top - getHeaderHeight();
+      });
 
       $(window).scroll(function() {
         var windowpos = $(window).scrollTop(); /* gets vertical scrollbar position of window element */
         
         var headerIsFixed = header.hasClass("fixed-header");
-        var btnIsHidden = toTopBtn.hasClass("hidden")
+        var btnIsHidden = toTopBtn.hasClass("hidden");
 
         if(windowpos >= thresholdValtoTopBtn && btnIsHidden) {
           if(toTopBtn.hasClass("fadeOut")) {
@@ -81,15 +80,9 @@
         }
       });
 
-      // function onClickLogo() {
-      //   $("#logo-container a").click(function (event) {
-      //     $(window).location.reload();
-      //   });
-      // }
-
       function onClick() {
         $("#logo").click(function (event) {
-          location.reload();
+          window.location.reload(0);
         });
 
         $(".contact-btn").click(function (event) {
@@ -99,10 +92,9 @@
           if(!result) {
             event.preventDefault();
           }
-        })
+        });
 
-
-        $("#main-header a").click(function (event) {
+        $("#navigation a").click(function (event) {
           var sectionName = $(this).data("nav-section"); 
           var result = sectionNav(sectionName);
 
@@ -113,26 +105,22 @@
           // $(window).resize(function () {
           //   topVal = $(window).width() < 980 ? 110 : 115;
           // });
-        })
+        });
+      }
 
-        function sectionNav (input) {
-          var sectionname = input.toLowerCase();
-          
+      function sectionNav (input) {
+          input.toLowerCase();
           /**
            * viewport > 769 - initial height: 156px,   collapsed height: 116
            * viewport < 769 - initial height: 151.5px, collapsed height: 111.5px
            */
-          var topVal = 0;
-          // var headerHeight = $('#main-header')[0].getBoundingClientRect().height;
-                 
-
-          if ($('div[data-section="' + sectionname + '"]').length) {
-            topVal = getHeaderHeight() -1;
+          if ($('div[data-section="' + input + '"]').length) {
+            var headerHeight = getHeaderHeight() -1;
             // $("#menubutton").removeClass('showmenu');
             $("html").animate(
               {
                 scrollTop:
-                  $('div[data-section="' + sectionname + '"]').offset().top - topVal
+                  $('div[data-section="' + input + '"]').offset().top - headerHeight
               },
               250
             );
@@ -141,7 +129,6 @@
             return false;
           }
         }
-      }
 
       function getHeaderHeight() {
         return $('#main-header')[0].getBoundingClientRect().height;
@@ -155,17 +142,17 @@
         <div class="container-fluid clearfix">
           <div class="top-navigation">
             <div class="logo-container">
-              <a id="logo">
+              <a id="logo" href="/index.html">
                 <img src="img/logo.png" alt="Logo Wirtschaftsnachhilfe" width="200" height="100">
               </a>
             </div>
-              <nav class="top-menu-nav">
+              <nav id="navigation" class="top-menu-nav">
                 <button id="menubutton" class="menubutton" onclick="this.classList.toggle('showmenu')"></button>
                 <ul>
                   <li><a href="#" data-nav-section="home"><span>Home</span></a></li>
-                  <li><a href="#" data-nav-section="angebote"><span>Angebot</span></a></li>
-                  <li><a href="#" data-nav-section="ueber"><span>Über</span></a></li>
-                  <li><a href="#" data-nav-section="kontakt"><span>Kontakt</span></a></li>
+                  <li><a href="#offers" data-nav-section="offers"><span>Angebot</span></a></li>
+                  <li><a href="#about" data-nav-section="about"><span>Über</span></a></li>
+                  <li><a href="#contact" data-nav-section="contact"><span>Kontakt</span></a></li>
                 </ul>
             </nav>
           </div>
@@ -180,15 +167,9 @@
                   <div class="slogan">
                     <h2>Gemeinsam zum Ziel</h2>
                   </div>
-
-                  <!-- <div class="pb-column">
-                    <div class="pb-module pb-text">
-                      
-                    </div>
-                  </div> -->
               </div>
             </div>
-            <div id="thresholdToTopBtn" class="pb-section pb-section-1 pb-with-background" data-section="angebote">
+            <div id="offers" class="pb-section pb-section-1 pb-with-background" data-section="offers">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Angebote für Lernende</h1>
@@ -220,10 +201,6 @@
                     </p>
                   </div>
                 </div>
-
-                <!-- <div class="pb-column pb-button-1">
-                  <a class="pb-button" href="#kontakt">Kontakt</a>
-                </div> -->
                 <div>
                   <button class="pb-button contact-btn" onclick="onClick()">Kontakt</button>
                 </div>
@@ -233,7 +210,7 @@
                 </div>
               </div>
               <div class="backToTopCont">
-                <button onClick="backToTop()" id="toTopBtn" class="hidden" title=""></button>
+                <button onClick="$(window).scrollTop(0)" id="toTopBtn" class="hidden" title=""></button>
               </div>
             </div>
             <div class="pb-section pb-section-2 pb-with-background">
@@ -279,7 +256,7 @@
               </div>
             </div>
 
-            <div class="pb-section pb-section-3 pb-with-background" data-section="ueber">
+            <div id="about" class="pb-section pb-section-3 pb-with-background" data-section="about">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Über mich</h1>
@@ -306,7 +283,8 @@
                 </div>
               </div>
             </div>
-            <div id="kontakt" class="pb-section pb-section-4 pb-with-background" data-section="kontakt">
+
+            <div id="contact" class="pb-section pb-section-4 pb-with-background" data-section="contact">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Kontakt</h1>
@@ -319,7 +297,6 @@
                   <p class="text-field-required"><span>*</span> sind Pflichtfelder</p>
                 </div>
                 <div class="pb-module form-contact">
-                  <!-- <h3>Kontaktformular</h3> -->
                   <form action="#" method="POST" class="form">
                     <div class="field-wrapper entire-line">
                       <label for="course">Ich interessiere mich für<span class="field-required">*</span></label>
@@ -439,7 +416,6 @@
         </div>
       </footer>
     </div>
-    
     <script>
       onClick();
     </script>
