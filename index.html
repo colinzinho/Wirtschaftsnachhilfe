@@ -25,9 +25,10 @@
       var menubutton;
       var pageContainer;
       var toTopBtn;
+      
+      var sectionSizes = {}  
 
       $(document).ready(function() {
-        // $(window).scrollTop(0);
         /* set variable values after initialization of site */
         header = $("#main-header");
         menubutton = $("#menubutton");
@@ -35,6 +36,17 @@
         
         toTopBtn = $("#toTopBtn");
         thresholdValtoTopBtn = $('div[id="offers"]').offset().top - getHeaderHeight();
+
+        var a_sections = document.getElementsByClassName('section');
+        sectionSizes['home'] = 20;
+        for (let i = 0; i < a_sections.length; i++) {
+          const section = a_sections[i];
+          let sectionName = section.attributes.getNamedItem('data-section').nodeValue;
+          sectionSizes[sectionName] = section.offsetTop;          
+        }
+        const temp = Array.from(sectionSizes).sort((a, b) => a[1] - b[1]);
+        const sortedMap = new Map(temp);
+        console.log('x');
       });
 
       $(window).scroll(function() {
@@ -42,6 +54,12 @@
         
         var headerIsFixed = header.hasClass("fixed-header");
         var btnIsHidden = toTopBtn.hasClass("hidden");
+
+        for(let i in sectionSizes) {
+          if(windowpos == sectionSizes[i]) {
+            window.history.pushState('', '', '#' + i);
+          }
+        };
 
         if(windowpos >= thresholdValtoTopBtn && btnIsHidden) {
           if(toTopBtn.hasClass("fadeOut")) {
@@ -56,6 +74,7 @@
           setTimeout( function functionName () {
             toTopBtn.addClass("hidden");
           }, 2000);
+
         }
 
         if(windowpos > 20 && !headerIsFixed) { /* 20 stands for the imagniary space in px above the header */
@@ -86,8 +105,7 @@
         });
 
         $(".contact-btn").click(function (event) {
-          var sectionName = $(this).text();
-          var result = sectionNav(sectionName);
+          var result = sectionNav('contact');
 
           if(!result) {
             event.preventDefault();
@@ -109,18 +127,18 @@
       }
 
       function sectionNav (input) {
-          input.toLowerCase();
+          var sectionName = input.toLowerCase();
           /**
            * viewport > 769 - initial height: 156px,   collapsed height: 116
            * viewport < 769 - initial height: 151.5px, collapsed height: 111.5px
            */
-          if ($('div[data-section="' + input + '"]').length) {
+          if ($('div[data-section="' + sectionName + '"]').length) {
             var headerHeight = getHeaderHeight() -1;
             // $("#menubutton").removeClass('showmenu');
             $("html").animate(
               {
                 scrollTop:
-                  $('div[data-section="' + input + '"]').offset().top - headerHeight
+                  $('div[data-section="' + sectionName + '"]').offset().top - headerHeight
               },
               250
             );
@@ -169,7 +187,7 @@
                   </div>
               </div>
             </div>
-            <div id="offers" class="pb-section pb-section-1 pb-with-background" data-section="offers">
+            <div id="offers" class="section pb-section pb-section-1 pb-with-background" data-section="offers">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Angebote für Lernende</h1>
@@ -202,7 +220,7 @@
                   </div>
                 </div>
                 <div>
-                  <button class="pb-button contact-btn" onclick="onClick()">Kontakt</button>
+                  <button class="pb-button contact-btn" onclick="">Kontakt</button>
                 </div>
 
                 <div class="enclosure">
@@ -248,15 +266,15 @@
                 </div>
 
                 <div>
-                  <button class="pb-button contact-btn" onclick="onClick()">Kontakt</button>
+                  <button class="pb-button contact-btn" onclick="">Kontakt</button>
                 </div>
                 <div>
-                  <button class="pb-button contact-btn" onclick="onClick()">Kontakt</button>
+                  <button class="pb-button contact-btn" onclick="">Kontakt</button>
                 </div>
               </div>
             </div>
 
-            <div id="about" class="pb-section pb-section-3 pb-with-background" data-section="about">
+            <div id="about" class="section pb-section pb-section-3 pb-with-background" data-section="about">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Über mich</h1>
@@ -276,7 +294,7 @@
                       Bitte kontaktieren Sie mich für nähere Informationen. Sehr gerne schicke ich Ihnen meinen detaillierten Lebenslauf mit den dazugehörenden Diplomen und Arbeitszeugnissen zu. 
                     </p>
                   </div>
-                    <button class="pb-button contact-btn" onclick="onClick()">Kontakt</button>
+                    <button class="pb-button contact-btn" onclick="">Kontakt</button>
                 </div>
                 <div class="pb-module portrait center-image">
                     <img id="portrait" src="img/portrait_silvia_von_burg.jpg" alt="Portrait Silvia von Burg" width="260" height="172">
@@ -284,7 +302,7 @@
               </div>
             </div>
 
-            <div id="contact" class="pb-section pb-section-4 pb-with-background" data-section="contact">
+            <div id="contact" class="section pb-section pb-section-4 pb-with-background" data-section="contact">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Kontakt</h1>
@@ -347,6 +365,7 @@
                 </div>
               </div>
             </div>
+
             <div class="pb-section pb-section-5 pb-with-background">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading-icons section-heading-title pb-text-align-center">
