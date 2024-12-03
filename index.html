@@ -25,8 +25,6 @@
       var menubutton;
       var pageContainer;
       var toTopBtn;
-      
-      var sectionSizes = {}  
 
       $(document).ready(function() {
         /* set variable values after initialization of site */
@@ -36,17 +34,6 @@
         
         toTopBtn = $("#toTopBtn");
         thresholdValtoTopBtn = $('div[id="offers"]').offset().top - getHeaderHeight();
-
-        var a_sections = document.getElementsByClassName('section');
-        sectionSizes['home'] = 20;
-        for (let i = 0; i < a_sections.length; i++) {
-          const section = a_sections[i];
-          let sectionName = section.attributes.getNamedItem('data-section').nodeValue;
-          sectionSizes[sectionName] = section.offsetTop;          
-        }
-        const temp = Array.from(sectionSizes).sort((a, b) => a[1] - b[1]);
-        const sortedMap = new Map(temp);
-        console.log('x');
       });
 
       $(window).scroll(function() {
@@ -54,12 +41,6 @@
         
         var headerIsFixed = header.hasClass("fixed-header");
         var btnIsHidden = toTopBtn.hasClass("hidden");
-
-        for(let i in sectionSizes) {
-          if(windowpos == sectionSizes[i]) {
-            window.history.pushState('', '', '#' + i);
-          }
-        };
 
         if(windowpos >= thresholdValtoTopBtn && btnIsHidden) {
           if(toTopBtn.hasClass("fadeOut")) {
@@ -104,6 +85,15 @@
           window.location.reload(0);
         });
 
+        $("#navigation a").click(function (event) {
+          var sectionName = $(this).data("nav-section"); 
+          var result = sectionNav(sectionName);
+
+          if(!result) {
+            event.preventDefault(); // what does this do - exception handler??
+          }
+        });
+
         $(".contact-btn").click(function (event) {
           var result = sectionNav('contact');
 
@@ -112,17 +102,9 @@
           }
         });
 
-        $("#navigation a").click(function (event) {
-          var sectionName = $(this).data("nav-section"); 
-          var result = sectionNav(sectionName);
-
-          if(!result) {
-            event.preventDefault(); // what does this do - exception handler??
-          }
-
-          // $(window).resize(function () {
-          //   topVal = $(window).width() < 980 ? 110 : 115;
-          // });
+        $("#toTopBtn").click(function (event) {
+          window.history.pushState('', '', '/index.html');
+          $(window).scrollTop(0)
         });
       }
 
@@ -187,7 +169,7 @@
                   </div>
               </div>
             </div>
-            <div id="offers" class="section pb-section pb-section-1 pb-with-background" data-section="offers">
+            <div id="offers" class="pb-section pb-section-1 pb-with-background" data-section="offers">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Angebote für Lernende</h1>
@@ -228,7 +210,7 @@
                 </div>
               </div>
               <div class="backToTopCont">
-                <button onClick="$(window).scrollTop(0)" id="toTopBtn" class="hidden" title=""></button>
+                <button onClick="" id="toTopBtn" class="hidden" title=""></button>
               </div>
             </div>
             <div class="pb-section pb-section-2 pb-with-background">
@@ -274,7 +256,7 @@
               </div>
             </div>
 
-            <div id="about" class="section pb-section pb-section-3 pb-with-background" data-section="about">
+            <div id="about" class="pb-section pb-section-3 pb-with-background" data-section="about">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Über mich</h1>
@@ -302,7 +284,7 @@
               </div>
             </div>
 
-            <div id="contact" class="section pb-section pb-section-4 pb-with-background" data-section="contact">
+            <div id="contact" class="pb-section pb-section-4 pb-with-background" data-section="contact">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Kontakt</h1>
