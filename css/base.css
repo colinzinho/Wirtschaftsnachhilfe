@@ -46,7 +46,7 @@ textarea {
       "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 body, button {
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive, 'Sour Gummy';
+    font-family: 'Comic Sans MS', 'Comic Sans', 'Sour Gummy', cursive;
     color: #3d3d3d;
     overflow-x: hidden;
     line-height: 1.8;
