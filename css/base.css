@@ -82,16 +82,39 @@ img {
 
 @media screen and (min-width: 1135px) {
     .blocker {
-        min-width: 33%;
+        width: 33%;
     }
 }
 
-@media screen and (min-width: 753px) and (max-width: 1134px) {
+@media screen and (min-width: 624px) and (max-width: 1134px) {
     .blocker {
         min-width: 63%;
     }
 }
 
+@media screen and (min-width: 524px) and (max-width: 623px) {
+    .blocker {
+        min-width: 58%;
+    }
+}
+
+@media screen and (min-width: 424px) and (max-width: 523px) {
+    .blocker {
+        min-width: 48%;
+    }
+}
+
+@media screen and (min-width: 324px) and (max-width: 423px) {
+    .blocker {
+        min-width: 38%;
+    }
+}
+
+@media screen and (max-width: 323px) {
+    .blocker {
+        min-width: 28%;
+    }
+}
 
 
 
@@ -147,14 +170,20 @@ img {
     h4 { font-size: 1.5rem }
     h5 { font-size: 1.25rem }
     h6 { font-size: 1rem; font-variant: small-caps; }
+}
 
+@media screen and (min-width: 1135px) {
+    .container-fluid {
+        width: 80%;
+        margin: auto;
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 1134px) {
     .container-fluid {
         width: 90%;
         margin: auto;
         position: relative;
-    }
-
-    .blocker {
-        min-width: 43%;
     }
 }

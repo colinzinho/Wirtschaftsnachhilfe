@@ -61,6 +61,13 @@
         if(windowpos > 20 && !headerIsFixed) { /* 20 stands for the imagniary space in px above the header */
           header.addClass("fixed-header");
           pageContainer.addClass("animation"); /* enables smooth animation (ease-in-ease-out) */
+          var decreasingValue;
+          /* Mit switch case anfangen zu arbeiten */
+          // if($(window).width() < 625) {
+          //   decreasingValue = -21
+          // } else {
+          //   decreasingValue = -41
+          // }
           pageContainer.css('margin-top', -41 + 'px'); /* whole website content hops up by 41px - is being used for smooth animation/ transition */
         }
         
@@ -71,7 +78,7 @@
       });
 
       function onClick() {
-        $("#logo").click(function (event) {
+        $("#logo-link").click(function (event) {
           window.location.reload(0);
         });
 
@@ -100,13 +107,18 @@
 
       function sectionNav (input) {
           var sectionName = input.toLowerCase();
+          var collapsingValueNavBar = - 1;
+          var headerHeight;
           /**
            * viewport > 769 - initial height: 156px,   collapsed height: 116
            * viewport < 769 - initial height: 151.5px, collapsed height: 111.5px
            */
           if ($('div[data-section="' + sectionName + '"]').length) {
-            var headerHeight = getHeaderHeight() - 1;
-            $("#menubutton").removeClass('showmenu');
+            if(!header.hasClass('fixed-header') && $(window).width() < 625) {
+              collapsingValueNavBar = 19;
+            }
+
+            headerHeight = getHeaderHeight() + collapsingValueNavBar;
             $("html").animate(
               {
                 scrollTop:
@@ -114,6 +126,11 @@
               },
               250
             );
+
+            if($("#menubutton").hasClass('showmenu')) {
+              $("#menubutton").removeClass('showmenu');
+            }
+
             return true;
           } else {
             return false;
@@ -132,8 +149,8 @@
         <div class="container-fluid">
           <div class="top-navigation">
             <div class="logo-container">
-              <a id="logo" href="/index.html">
-                <img src="img/logo.png" alt="Logo Wirtschaftsnachhilfe">
+              <a id="logo-link" href="/index.html">
+                <img id="logo" src="img/logo.png" alt="Logo Wirtschaftsnachhilfe">
               </a>
             </div>
             <div class="blocker">

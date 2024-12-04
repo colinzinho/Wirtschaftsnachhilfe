@@ -1,6 +1,6 @@
 #page-container {
     margin-top: -1px;
-    padding-top: 135px;
+    /* padding-top: 13.5rem; */
     overflow-y: hidden;
 }
 
@@ -45,7 +45,6 @@
 /* Navigationsleiste */
 #page-header {
     line-height: 1.5rem;
-    font-weight: 500;
     background-color: #fff;
     position: fixed;
     top: 0;
@@ -81,6 +80,7 @@
 .logo-container {
     padding: 0.25rem;
     margin: auto auto auto 0;
+    /* margin: auto; */
 }
 
 
@@ -501,6 +501,8 @@ div.pb-section.pb-section-0 {
     div.pb-section.pb-section-0{ min-height: 25vw; }
 
     #slogan{ font-size: 3vw; }
+
+    #page-container { padding-top: 13.5rem; }
 }
 
 
@@ -512,4 +514,6 @@ div.pb-section.pb-section-0 {
     div.pb-section.pb-section-0 { min-height: calc(0.66 * 100vw); }
 
     #slogan{ font-size: 4vw; }
+    
+    #page-container { padding-top: 8.5rem; }
 }
