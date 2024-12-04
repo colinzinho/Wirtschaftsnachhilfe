@@ -62,21 +62,11 @@
           header.addClass("fixed-header");
           pageContainer.addClass("animation"); /* enables smooth animation (ease-in-ease-out) */
           pageContainer.css('margin-top', -41 + 'px'); /* whole website content hops up by 41px - is being used for smooth animation/ transition */
-          
-          /* Responsive Design - collapsed header menu */
-          // if(window.innerWidth < 700) {
-          //   menubutton.css('padding-bottom', 40 + 'px');
-          // }
         }
         
         if(windowpos <= 0 && headerIsFixed) { /* restore default size of header (height) */
           header.removeClass("fixed-header");
           pageContainer.css('margin-top', -1 + 'px'); /* whole website content hops down by 40px - is being used for smooth animation/ transition */
-
-          /* Responsive Design - collapsed header menu */
-          // if(window.innerWidth < 700) {
-          //   menubutton.css('padding-bottom', 60 + 'px');
-          // }
         }
       });
 
@@ -116,7 +106,7 @@
            */
           if ($('div[data-section="' + sectionName + '"]').length) {
             var headerHeight = getHeaderHeight() - 1;
-            // $("#menubutton").removeClass('showmenu');
+            $("#menubutton").removeClass('showmenu');
             $("html").animate(
               {
                 scrollTop:
