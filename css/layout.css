@@ -381,6 +381,11 @@ div.pb-section.pb-section-0 {
     grid-row: 2/3;
 }
 
+.container-offers-1, .container-offers-2 { 
+    display: grid;
+    row-gap: 1rem;
+}
+
 @media screen and (min-width: 753px) {
     /**
      * Reset Settings
@@ -464,9 +469,7 @@ div.pb-section.pb-section-0 {
 
 @media screen and (max-width: 752px) {
     .container-offers-1, .container-offers-2 {
-        display: grid;
         grid-template-columns: 1fr;
-        row-gap: 1rem;
     }
 
     .container-offers-1 .first-btn, .container-offers-2 .first-btn {
