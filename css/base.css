@@ -78,11 +78,7 @@ img {
     height: auto;
 }
 
-.container-fluid {
-    width: 80%;
-    margin: auto;
-    position: relative;
-}
+
 
 @media screen and (min-width: 1135px) {
     .blocker {
@@ -116,12 +112,18 @@ img {
         line-height: 1.8em;
     }
     
-    h1 { font-size: 5rem; }
+    /* h1 { font-size: 5rem; } */
     h2 { font-size: 4rem; }
     h3 { font-size: 3rem }
     h4 { font-size: 1.5rem }
     h5 { font-size: 1.25rem }
     h6 { font-size: 1rem; font-variant: small-caps; }
+
+    .container-fluid {
+        width: 80%;
+        margin: auto;
+        position: relative;
+    }
 }
 
 @media screen and (max-width: 624px) {
@@ -139,10 +141,20 @@ img {
         line-height: 1.4em;
     }
 
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.8rem; }
+    /* h1 { font-size: 2rem; } */
+    h2 { font-size: 2rem; }
     h3 { font-size: 1.6rem }
     h4 { font-size: 1.5rem }
     h5 { font-size: 1.25rem }
     h6 { font-size: 1rem; font-variant: small-caps; }
+
+    .container-fluid {
+        width: 90%;
+        margin: auto;
+        position: relative;
+    }
+
+    .blocker {
+        min-width: 43%;
+    }
 }
