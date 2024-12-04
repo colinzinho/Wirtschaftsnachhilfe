@@ -19,30 +19,23 @@ body {
     background-attachment: fixed !important;
 }
 
-h1, h2, h3, h4, h5, h6,
-p, ol, ul, blockquote {
-    margin-top: 0;
-}
-
-a, body, button, div, h1, h2, h3, h4, h5, h6, html, img, li, p, span, ul {
+a, body, button, blockquote div, h1, h2, h3, h4, h5, h6, html, img, li, p, span, ol, ul {
     margin: 0;
     padding: 0;
     border: 0;
     outline: 0;
-    font-size: 18px;
     vertical-align: baseline;
     background-color: transparent;
 }
 
-textarea {
-    margin-block-end: 0;
-}
+textarea { margin-block-end: 0; }
 
 /**
  * 2. Grundlegende Schrift- und Textgestaltung
 */
-:root {
+html {
     --font-fallback: "-apple-system", BlinkMacSystemFont;
+    font-size: 62.5%;
 }
 
 * {
@@ -58,17 +51,49 @@ input, button, select, textarea, option {
 
 body {
     overflow-x: hidden;
-    line-height: 1.8;
+    /* line-height: 1.8; */
 }
 
-h1, h2, h3, h4, h5, h6 {
-    padding-bottom: 10px;
+@media screen and (max-device-width: 624px) {
+    div {
+        font-size: 1.6rem;
+    }
+    
+    h1, h2, h4, h5, h6 {
+        padding-bottom: 1rem;
+        line-height: 1em;
+    }
+    
+    a, button, p, span {
+        font-size: 1.6rem;
+        line-height: 1.6em;
+    }
+
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.8rem }
+    h4 { font-size: 1.5rem }
+    h5 { font-size: 1.25rem }
+    h6 { font-size: 1rem; font-variant: small-caps; }
+}
+
+div {
+    font-size: 1.8rem;
+}
+
+h1, h2, h4, h5, h6 {
+    padding-bottom: 1rem;
     line-height: 1em;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem }
+a, button, p, span {
+    font-size: 1.8rem;
+    line-height: 1.8em;
+}
+
+h1 { font-size: 5rem; }
+h2 { font-size: 4rem; }
+h3 { font-size: 3rem }
 h4 { font-size: 1.5rem }
 h5 { font-size: 1.25rem }
 h6 { font-size: 1rem; font-variant: small-caps; }

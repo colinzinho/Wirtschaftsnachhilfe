@@ -147,13 +147,7 @@ div.pb-section.pb-section-0 {
     /* text-align: center; */
 }
 
-.slogan {
-    color: #fff !important;
-    margin-bottom: 1rem;
-    /* text-align: center; */
-}
-
-.slogan h2 {
+#slogan {
     font-size: 3vw;
     color: #ffffff !important;
     text-align: end;
@@ -174,7 +168,6 @@ div.pb-section.pb-section-0 {
 }
 
 .offer h3 {
-    font-size: 20px;
     padding-bottom: 0 !important;
 }
 
@@ -183,7 +176,9 @@ div.pb-section.pb-section-0 {
 }
 
 .offer .sub-title p{
-    /* font-size: 32px; */
+    font-size: 2.2rem;
+    color: #373737;
+    opacity: 0.7;
     /* padding-bottom: 0 !important */
 }
 
@@ -203,7 +198,6 @@ div.pb-section.pb-section-0 {
     text-transform: uppercase;
     text-decoration: none;
     padding: .3rem 1rem;
-    line-height: 1.7em !important;
 }
 
 .site-footer {
@@ -367,10 +361,6 @@ div.pb-section.pb-section-0 {
     color: #000000 !important;
 }
 
-.section-heading-title h1 {
-    font-size: 25px;
-}
-
 .pb-row {
     /* padding wird später in @media (min-width: 981px) spezifiziert */
     padding: 2% 0;
@@ -444,12 +434,12 @@ div.pb-section.pb-section-0 {
     }
 
     .section-heading-title h1 {
-        font-size: 35px;
+        font-size: 5rem;
     }
 
-    .offer h3 {
+    /* .offer h3 {
         font-size: 30px;
-    }
+    } */
 
     .pb-section-1 > .container-fluid, .pb-section-2 > .container-fluid {
         column-gap: 3rem;
@@ -492,7 +482,7 @@ div.pb-section.pb-section-0 {
     }
 
     .section-heading-title h1 {
-        font-size: 40px !important;
+        font-size: 5rem !important;
     }
 }
 
