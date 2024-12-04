@@ -31,4 +31,24 @@
        url('../fonts/sour-gummy-v1-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
+/* comic_sans_ms_latin_regular */
+@font-face {
+  font-display: swap;
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/comic_sans_ms_latin_regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/comic_sans_ms_latin_regular.ttf') format('truetype'), /* Safari, Android, iOS */ 
+}
+
+/* comic_sans_ms_latin_700 */
+@font-face {
+  font-display: swap;
+  font-family: 'Comic Sans MS 700';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/comic_sans_ms_latin_700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/comic_sans_ms_latin_700.ttf') format('truetype'), /* Safari, Android, iOS */ 
+}
+
 
