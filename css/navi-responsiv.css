@@ -1,5 +1,5 @@
-/* Navigationsbereich mit Inhalt */
-@media screen and (min-width: 980px) {
+/* Navigation Section with Content */
+@media screen and (min-width: 1135px) {
     .top-menu-nav ul {
         max-height: none !important;
         flex-direction: row !important;
@@ -7,13 +7,14 @@
         padding: 0;
     }
 
-    .top-menu-nav li:last-child {
-        margin-right: 0 !important;
-    }
-
     .top-menu-nav li {
         display: inline-block;
         margin-right: 22px;
+    }
+
+    /* Affects only last li Item in ul */
+    .top-menu-nav li:last-child {
+        margin-right: 0 !important;
     }
     
     nav.top-menu-nav a {
@@ -25,48 +26,60 @@
         transition: padding-bottom 0.4s ease-in-out;   
     }
 
-    /* collapsed navbar */
+    /* Fixed Navbar: decrease padding of Links in Navigation */
     .fixed-header .top-menu-nav a {
         padding-bottom: 40px;
     }
 
     .menubutton {display: none !important }
+
+    .flex-container {
+        flex-direction: row;
+    }
+    
+    .skill {
+        min-width: 30%;
+    }
+
+    
+}
+
+/* Is being used with every Viewport width! */
+.top-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .top-menu-nav {
-    position: static;
+    /* position: static; */
+     /* Why was Position set static? */
     padding: 60px 0 0 0;
     transition: padding 0.4s ease-in-out;
+}
+
+/* Collapsed Navbar */
+.fixed-header .top-menu-nav {
+    padding: 40px 0 0 0;
 }
 
 .top-menu-nav ul {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
     list-style: none;
     padding: 0;
     margin: 0;
     max-height: 0;
-}
-
-.top-menu-nav ul {
-    max-height: 0;
     overflow: hidden;
-    padding: 0;
 }
 
 .top-menu-nav a {
     display: block;
-    text-decoration: none;
     background: #fff;
     color: #3d3d3d;
-    padding: 0.5rem 1rem;
-    margin-right: -1rem;
-    cursor: pointer;
-}
-
-/* collapsed navbar */
-.fixed-header .top-menu-nav {
-    padding: 40px 0 0 0;
+    padding: 0.5rem;
 }
 
 .top-menu-nav button {

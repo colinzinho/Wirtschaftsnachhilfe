@@ -28,7 +28,7 @@
 
       $(document).ready(function() {
         /* set variable values after initialization of site */
-        header = $("#main-header");
+        header = $("#page-header");
         menubutton = $("#menubutton");
         pageContainer = $("#page-container");
         
@@ -115,7 +115,7 @@
            * viewport < 769 - initial height: 151.5px, collapsed height: 111.5px
            */
           if ($('div[data-section="' + sectionName + '"]').length) {
-            var headerHeight = getHeaderHeight() -1;
+            var headerHeight = getHeaderHeight() - 1;
             // $("#menubutton").removeClass('showmenu');
             $("html").animate(
               {
@@ -131,29 +131,32 @@
         }
 
       function getHeaderHeight() {
-        return $('#main-header')[0].getBoundingClientRect().height;
+        return $('#page-header')[0].getBoundingClientRect().height;
       }
 
     </script>
   </head>
-  <body class="googlefont">
+  <body>
     <div id="page-container">
-      <header id="main-header">
-        <div class="container-fluid clearfix">
+      <header id="page-header">
+        <div class="container-fluid">
           <div class="top-navigation">
             <div class="logo-container">
               <a id="logo" href="/index.html">
-                <img src="img/logo.png" alt="Logo Wirtschaftsnachhilfe" width="200" height="100">
+                <img src="img/logo.png" alt="Logo Wirtschaftsnachhilfe">
               </a>
             </div>
-              <nav id="navigation" class="top-menu-nav">
-                <button id="menubutton" class="menubutton" onclick="this.classList.toggle('showmenu')"></button>
-                <ul>
-                  <li><a href="#" data-nav-section="home"><span>Home</span></a></li>
-                  <li><a href="#offers" data-nav-section="offers"><span>Angebot</span></a></li>
-                  <li><a href="#about" data-nav-section="about"><span>Über</span></a></li>
-                  <li><a href="#contact" data-nav-section="contact"><span>Kontakt</span></a></li>
-                </ul>
+            <div class="blocker">
+              
+            </div>
+            <nav id="navigation" class="top-menu-nav">
+              <button id="menubutton" class="menubutton" onclick="this.classList.toggle('showmenu')"></button>
+              <ul>
+                <li><a href="#" data-nav-section="home"><span>Home</span></a></li>
+                <li><a href="#offers" data-nav-section="offers"><span>Angebot</span></a></li>
+                <li><a href="#about" data-nav-section="about"><span>Über</span></a></li>
+                <li><a href="#contact" data-nav-section="contact"><span>Kontakt</span></a></li>
+              </ul>
             </nav>
           </div>
         </div>
@@ -161,20 +164,19 @@
       <div id="main-content">
         <article>
           <div class="builder-inner-content">
-            <div class="pb-section pb-section-0 pb-with-background" data-section="home">
+            <div class="pb-section pb-section-0" data-section="home">
               <div class="pb-row pb-row-0">
-
                   <div class="slogan">
                     <h2>Gemeinsam zum Ziel</h2>
                   </div>
               </div>
             </div>
-            <div id="offers" class="pb-section pb-section-1 pb-with-background" data-section="offers">
+            <div id="offers" class="pb-section pb-section-1" data-section="offers">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Angebote für Lernende</h1>
                 </div>
-                <div class="pb-column">
+                <div>
                   <div class="pb-module offer">
                     <h3>Online-Nachhilfe</h3>
                     <div class="pb-module sub-title">
@@ -188,7 +190,7 @@
                     <p>Bei Interesse oder für nähere Informationen, kontaktiere mich bitte und fülle dazu das Kontaktformular aus. Ich freue mich auf deine Kontaktaufnahme.</p>
                   </div>
                 </div>
-                <div class="pb-column">
+                <div>
                   <div class="pb-module offer">
                     <h3>Intensivkurs in Monchique / Portugal</h3>
                     <div class="pb-module sub-title">
@@ -213,16 +215,16 @@
                 <button onClick="" id="toTopBtn" class="hidden" title=""></button>
               </div>
             </div>
-            <div class="pb-section pb-section-2 pb-with-background">
+            <div class="pb-section pb-section-2">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Angebote für Schulen</h1>
                 </div>
-                <div class="pb-column">
+                <div>
                   <div class="pb-module offer">
                     <h3>Stellvertreterin für Wirtschaft und Recht</h3>
                     <p class="textForOffer">
-                      Suchen Sie eine erfahrene und diplomierte Lehrperson im Fachbereich Wirtschaft und Recht für eine Stellvertretung? Ich verfüge über eine 20jährige Berufserfahrung als Lehrperson im Fachbereich Wirtschaft und Recht. 
+                      Suchen Sie eine erfahrene und diplomierte Lehrperson im Fachbereich Wirtschaft und Recht für eine Stellvertretung? Ich verfüge über eine 20 jährige Berufserfahrung als Lehrperson im Fachbereich Wirtschaft und Recht. 
                       Meine Unterrichtserfahrung habe ich an Berufsfachschulen, Fachmittelschulen und auch am Gymnasium erworben. 
                       Mein Angebot richtet sich an Schulen, die eine kompetente und erfahrene Stellvertretung suchen, die nahtlos den laufenden Unterricht übernimmt und gemäss den Lehrplänen fortsetzt. 
                       Die Mindestdauer eines Einsatzes als Stellvertreterin beträgt 1 Monat mit einem Mindestpensum von 50 %. Kosten pro erteilter Lektion CHF 125.— netto. 
@@ -232,14 +234,14 @@
                     </p>
                   </div>
                 </div>
-                <div class="pb-column">
+                <div>
                     <div class="pb-module offer">
                       <h3>Kurse / Expertentätigkeiten</h3>
                       <p class="textForOffer">
                         Suchen Sie eine erfahrene und diplomierte Lehrperson im Fachbereich Wirtschaft und Recht für die Erteilung von Kursen (z.B. Repetitionskurse, Prüfungsvorbereitungskurse etc) im Fachgebiet Wirtschaft und Recht und Finanz- und Rechnungswesen? 
                         Oder benötigen Sie eine Expertin, die Erst- oder Zweitkorrekturen von schriftlichen Abschlussprüfungen vornimmt? Vielleicht suchen Sie eine Expertin, die mündliche Abschlussprüfungen in den erwähnten Fachbereichen abhalten kann? 
-                        Ich verfüge über eine 20jährige Berufserfahrung als Lehrperson im Fachbereich Wirtschaft und Recht. Meine Unterrichtserfahrung habe ich an Berufsfachschulen inkl. Berufsmaturität, Fachmittelschulen und auch am Gymnasium erworben. 
-                        Des Weiteren habe ich im Bereich der Technischen Kaufleute während 10Jahren mündliche Abschlussprüfungen in den Fächern BWL und VWL abgehalten. 
+                        Ich verfüge über eine 20 jährige Berufserfahrung als Lehrperson im Fachbereich Wirtschaft und Recht. Meine Unterrichtserfahrung habe ich an Berufsfachschulen inkl. Berufsmaturität, Fachmittelschulen und auch am Gymnasium erworben. 
+                        Des Weiteren habe ich im Bereich der Technischen Kaufleute während 10 Jahren mündliche Abschlussprüfungen in den Fächern BWL und VWL abgehalten. 
                       </p>
                       <p>
                         Bei Interesse oder für nähere Informationen, kontaktieren Sie mich bitte und füllen Sie dazu das Kontaktformular aus. Ich freue mich auf Ihre Kontaktaufnahme. 
@@ -256,20 +258,20 @@
               </div>
             </div>
 
-            <div id="about" class="pb-section pb-section-3 pb-with-background" data-section="about">
+            <div id="about" class="pb-section pb-section-3" data-section="about">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Über mich</h1>
                 </div>
-                <div class="pb-column">
+                <div>
                   <div class="pb-module text-portrait">
                     <p>
                       Im Jahre 2020 habe ich mich entschieden, ein neues Kapitel in meinem Leben aufzuschlagen. In Monchique (Algarve, Portugal) habe ich zusammen mit meinem Mann ein Bed & Breakfast gekauft, renoviert und im Jahre 2022 wiedereröffnet. 
-                      Die Arbeit als Gastgeberin und Unternehmerin bereitet mir grosse Freude wie es auch meine über 20jährige Tätigkeit als Lehrperson für Wirtschaft und Recht immer getan hat. 
+                      Die Arbeit als Gastgeberin und Unternehmerin bereitet mir grosse Freude wie es auch meine über 20 jährige Tätigkeit als Lehrperson für Wirtschaft und Recht immer getan hat. 
                       Diese beiden Leidenschaften zu kombinieren, betrachte ich als grosse Bereicherung in meinem aktuellen Lebensabschnitt. 
                     </p>
                     <p>
-                      Ich verfüge über eine 20jährige Berufserfahrung als Lehrperson im Fachgebiet Wirtschaft und Recht mit den dazugehörenden Diplomen. Ich bin eine motivierte, erfahrene und engagierte Lehrperson. 
+                      Ich verfüge über eine 20 jährige Berufserfahrung als Lehrperson im Fachgebiet Wirtschaft und Recht mit den dazugehörenden Diplomen. Ich bin eine motivierte, erfahrene und engagierte Lehrperson. 
                       Die Arbeit mit Jugendlichen bereitet mir immer noch grosse Freude. Meine zukünftige berufliche Tätigkeit sehe ich in der Übernahme von Stellvertretungen, dem Erteilen von Kursen, Expertentätigkeiten und Nachhilfe im Bereich Wirtschaft und Recht und Finanz- und Rechnungswesen. 
                     </p>
                     <p>
@@ -284,7 +286,7 @@
               </div>
             </div>
 
-            <div id="contact" class="pb-section pb-section-4 pb-with-background" data-section="contact">
+            <div id="contact" class="pb-section pb-section-4" data-section="contact">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading section-heading-title">
                   <h1>Kontakt</h1>
@@ -348,59 +350,64 @@
               </div>
             </div>
 
-            <div class="pb-section pb-section-5 pb-with-background">
+            <div class="pb-section pb-section-5">
               <div class="container-fluid pb-row pb-row-1">
                 <div class="section-heading-icons section-heading-title pb-text-align-center">
                   <h1>Ich freue mich auf eure Kontaktaufnahme</h1>
                 </div>
-                <div class="pb-module pb-text-align-center">
-                  <div class="pb-blurb-content">
-                    <div class="pb-main-blurb-image">
-                      <!-- <span class="pb-image-wrap"> -->
-                        <span class="pb-icon">
-                          <img src="img/icons/footprint_FILL0_wght400_GRAD0_opsz40.svg" alt="Icon Footprint">
-                        </span>
-                      <!-- </span> -->
+                <div class="container-fluid">
+                  <div class="flex-container">
+                    <div class="pb-module skill pb-text-align-center">
+                      <div class="pb-blurb-content">
+                        <div class="pb-main-blurb-image">
+                          <!-- <span class="pb-image-wrap"> -->
+                            <span class="pb-icon">
+                              <img src="img/icons/footprint_FILL0_wght400_GRAD0_opsz40.svg" alt="Icon Footprint">
+                            </span>
+                          <!-- </span> -->
+                        </div>
+                        <div class="pb-blurb-container">
+                          <h3 class="pb-module-header">
+                            <span>Erfahrung</span>
+                          </h3>
+                        </div>
+                      </div>
                     </div>
-                    <div class="pb-blurb-container">
-                      <h3 class="pb-module-header">
-                        <span>Erfahrung</span>
-                      </h3>
+                    <div class="pb-module skill pb-text-align-center">
+                      <div class="pb-blurb-content">
+                        <div class="pb-main-blurb-image">
+                          <!-- <span class="pb-image-wrap"> -->
+                            <span class="pb-icon">
+                              <img src="img/icons/school_FILL0_wght400_GRAD0_opsz40.svg" alt="Icon School">
+                            </span>
+                          <!-- </span> -->
+                        </div>
+                        <div class="pb-blurb-container">
+                          <h3 class="pb-module-header">
+                            <span>Kompetenz</span>
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pb-module skill pb-text-align-center">
+                      <div class="pb-blurb-content">
+                        <div class="pb-main-blurb-image">
+                          <!-- <span class="pb-image-wrap"> -->
+                            <span class="pb-icon">
+                              <img src="img/icons/sentiment_satisfied_FILL0_wght400_GRAD0_opsz40.svg" alt="Icon Sentiment Satisfied">
+                            </span>
+                          <!-- </span> -->
+                        </div>
+                        <div class="pb-blurb-container">
+                          <h3 class="pb-module-header">
+                            <span>Freude + Begeisterung</span>
+                          </h3>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="pb-module pb-text-align-center">
-                  <div class="pb-blurb-content">
-                    <div class="pb-main-blurb-image">
-                      <!-- <span class="pb-image-wrap"> -->
-                        <span class="pb-icon">
-                          <img src="img/icons/school_FILL0_wght400_GRAD0_opsz40.svg" alt="Icon School">
-                        </span>
-                      <!-- </span> -->
-                    </div>
-                    <div class="pb-blurb-container">
-                      <h3 class="pb-module-header">
-                        <span>Kompetenz</span>
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-                <div class="pb-module pb-text-align-center">
-                  <div class="pb-blurb-content">
-                    <div class="pb-main-blurb-image">
-                      <!-- <span class="pb-image-wrap"> -->
-                        <span class="pb-icon">
-                          <img src="img/icons/sentiment_satisfied_FILL0_wght400_GRAD0_opsz40.svg" alt="Icon Sentiment Satisfied">
-                        </span>
-                      <!-- </span> -->
-                    </div>
-                    <div class="pb-blurb-container">
-                      <h3 class="pb-module-header">
-                        <span>Freude + Begeisterung</span>
-                      </h3>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>

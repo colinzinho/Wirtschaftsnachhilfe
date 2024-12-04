@@ -43,7 +43,7 @@
 }
 
 /* Navigationsleiste */
-#main-header {
+#page-header {
     line-height: 1.5rem;
     font-weight: 500;
     background-color: #fff;
@@ -58,11 +58,7 @@
     z-index: 200000;
 }
 
-.container-fluid {
-    width: 80%;
-    margin: auto;
-    position: relative;
-}
+
 
 .backToTopCont {
     position: fixed;
@@ -81,19 +77,13 @@
     min-width: 30px;
     min-height: 30px;
 }
-.clearfix::after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-}
 
 .logo-container {
     padding: 0.25rem;
     margin: auto auto auto 0;
 }
+
+
 
 .builder-inner-content {
     position: relative;
@@ -113,12 +103,10 @@
 }
 
 div.pb-section.pb-section-0 { 
+    min-height: 25vw;
+    /* padding-top: 17vw;
+    padding-bottom: 8vw; */
     background-image: url('../img/wallpaper_background.jpg') !important;
-}
-
-.pb-section-0.pb-section {
-    padding-top: 17vw;
-    padding-bottom: 8vw;
 }
 
 .pb-section-1.pb-section {
@@ -148,21 +136,8 @@ div.pb-section.pb-section-0 {
     width: 0;
 }
 
-.pb-column, .pb-row {
-    background-size: cover;
-    background-position: 50%;
-    background-repeat: no-repeat;
-}
-
 .et-last-child {
     margin-bottom: 0 !important;
-}
-
-.pb-module, .pb-with-background {
-    position: relative;
-    background-size: cover;
-    background-position: 50%;
-    background-repeat: no-repeat;
 }
 
 .pb-text h2{
@@ -179,7 +154,7 @@ div.pb-section.pb-section-0 {
 }
 
 .slogan h2 {
-    font-size: 65px;
+    font-size: 3vw;
     color: #ffffff !important;
     text-align: end;
 }
@@ -392,11 +367,6 @@ div.pb-section.pb-section-0 {
     color: #000000 !important;
 }
 
-.top-navigation {
-    display: flex;
-    justify-content: space-between;
-}
-
 .section-heading-title h1 {
     font-size: 25px;
 }
@@ -527,7 +497,7 @@ div.pb-section.pb-section-0 {
 }
 
 @media screen and (min-width: 525px) {
-    .pb-section-5 > .container-fluid {
+    /* .pb-section-5 > .container-fluid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         row-gap: 1rem;
@@ -535,10 +505,8 @@ div.pb-section.pb-section-0 {
     
     .section-heading-icons {
         grid-column: 1/4;
-    }
+    } */
 }
-
-
 
 .hidden {
     display: none;
@@ -547,4 +515,13 @@ div.pb-section.pb-section-0 {
 .toTopBtn {
     opacity: 0;
     transition: opacity 3s;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-top: 3rem;
+    padding: 0 5rem;
 }
