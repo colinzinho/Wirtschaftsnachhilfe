@@ -78,7 +78,9 @@ img {
     height: auto;
 }
 
-
+p {
+    text-align: justify; /* Stellt Text im Blocksatz dar */
+}
 
 @media screen and (min-width: 1135px) {
     .blocker {
@@ -120,7 +122,7 @@ img {
 
 /* Dynamischer Teil */
 
-@media screen and (min-width: 625px) {
+@media screen and (min-width: 1135px) {
     div {
         font-size: 1.8rem;
     }
@@ -141,12 +143,29 @@ img {
     h4 { font-size: 1.5rem }
     h5 { font-size: 1.25rem }
     h6 { font-size: 1rem; font-variant: small-caps; }
+}
 
-    .container-fluid {
-        width: 80%;
-        margin: auto;
-        position: relative;
+@media screen and (min-width: 625px) and (max-width: 1134px) {
+    div {
+        font-size: 1.6rem;
     }
+    
+    h1, h2, h4, h5, h6 {
+        padding-bottom: 1rem;
+        line-height: 1em;
+    }
+    
+    a, button, p, span {
+        font-size: 1.6rem;
+        line-height: 1.6em;
+    }
+    
+    /* h1 { font-size: 5rem; } */
+    h2 { font-size: 3rem; }
+    h3 { font-size: 2rem }
+    h4 { font-size: 1.5rem }
+    h5 { font-size: 1.25rem }
+    h6 { font-size: 1rem; font-variant: small-caps; }
 }
 
 @media screen and (max-width: 624px) {
@@ -172,7 +191,7 @@ img {
     h6 { font-size: 1rem; font-variant: small-caps; }
 }
 
-@media screen and (min-width: 1135px) {
+@media screen and (min-width: 1525px) {
     .container-fluid {
         width: 80%;
         margin: auto;
@@ -180,7 +199,7 @@ img {
     }
 }
 
-@media screen and (max-width: 1134px) {
+@media screen and (max-width: 1524px) {
     .container-fluid {
         width: 90%;
         margin: auto;
