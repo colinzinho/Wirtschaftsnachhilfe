@@ -82,18 +82,6 @@ p {
     text-align: justify; /* Stellt Text im Blocksatz dar */
 }
 
-@media screen and (min-width: 1135px) {
-    .blocker {
-        width: 33%;
-    }
-}
-
-@media screen and (min-width: 624px) and (max-width: 1134px) {
-    .blocker {
-        min-width: 63%;
-    }
-}
-
 @media screen and (min-width: 524px) and (max-width: 623px) {
     .blocker {
         min-width: 58%;
@@ -118,8 +106,6 @@ p {
     }
 }
 
-
-
 /* Dynamischer Teil */
 
 @media screen and (min-width: 1135px) {
@@ -143,6 +129,10 @@ p {
     h4 { font-size: 1.5rem }
     h5 { font-size: 1.25rem }
     h6 { font-size: 1rem; font-variant: small-caps; }
+
+    .blocker {
+        width: 33%;
+    }
 }
 
 @media screen and (min-width: 625px) and (max-width: 1134px) {
@@ -166,6 +156,10 @@ p {
     h4 { font-size: 1.5rem }
     h5 { font-size: 1.25rem }
     h6 { font-size: 1rem; font-variant: small-caps; }
+
+    .blocker {
+        min-width: 63%;
+    }
 }
 
 @media screen and (max-width: 624px) {

@@ -8,8 +8,6 @@
     transition: margin-top 0.4s ease-in-out;
 }
 
-
-
 .fadeIn#toTopBtn {
     animation: fadeInAnimation ease 2s;
     animation-iteration-count: 1;
@@ -57,8 +55,6 @@
     z-index: 200000;
 }
 
-
-
 .backToTopCont {
     position: fixed;
     right: 3%;
@@ -83,8 +79,6 @@
     /* margin: auto; */
 }
 
-
-
 .builder-inner-content {
     position: relative;
     z-index: 1;
@@ -97,29 +91,16 @@
     /* background-size: 100%;  */
     background-size: cover;
     background-repeat: no-repeat;
-
-    /* padding wird später in @media (min-width: 981px) spezifiziert */
     padding: 3% 0;    
 }
 
-div.pb-section.pb-section-0 { 
-    /* min-height: 25vw; */
-    /* padding-top: 17vw;
-    padding-bottom: 8vw; */
+div.pb-section.pb-section-0 {
     background-image: url('../img/wallpaper_background.jpg') !important;
 }
 
+/* Decrease Space between Wallpaper Background and first Section */
 .pb-section-1.pb-section {
     padding-top: 0rem;
-    /* background-color: #FFFBEB; */
-}
-
-.pb-section-3.pb-section {
-    /* background-color: #FFFBEB; */
-}
-
-.pb-section-5.pb-section {
-    /* background-color: #BDCDD6; */
 }
 
 .pb-section-2.pb-section, .pb-section-4.pb-section, .pb-section-6.pb-section {
@@ -241,10 +222,6 @@ div.pb-section.pb-section-0 {
     position: relative;
 }
 
-.text-portrait {
-    margin-bottom: 1rem;
-}
-
 .center-image {
     display: grid;
     align-items: center;
@@ -305,7 +282,7 @@ div.pb-section.pb-section-0 {
     margin-left: 4px;
 }
 
-.pb-text-align-center h1 {
+.pb-text-align-center h2 {
     text-align: center;
 }
 
@@ -374,10 +351,6 @@ div.pb-section.pb-section-0 {
     row-gap: 1rem;
 }
 
-.portrait {
-    grid-row: 2/3;
-}
-
 .container-offers-1, .container-offers-2 { 
     display: grid;
     row-gap: 1rem;
@@ -416,15 +389,6 @@ div.pb-section.pb-section-0 {
         margin-bottom: 0rem;
     }
 
-    .pb-button-1 {
-        grid-row: auto;
-        margin-bottom: 0;
-    }
-
-    .portrait {
-        grid-row: auto;
-    }
-
     /**
      * Normal Settings
      */
@@ -436,9 +400,7 @@ div.pb-section.pb-section-0 {
     /* .offer h3 {
         font-size: 30px;
     } */
-
-    
-
+     
     .pb-section-4 > .container-fluid {
         display: grid;
         grid-template-columns: 1fr 1.25fr;
@@ -475,6 +437,14 @@ div.pb-section.pb-section-0 {
     }
 }
 
+@media screen and (min-width: 985px) and (max-width: 1524px){
+    #portrait {
+        width: 224px;
+        height: 300px;
+    }
+}
+
+/* Layout 2 vertically */
 @media screen and (max-width: 1134px) {
     .container-offers-1, .container-offers-2 {
         grid-template-columns: 1fr;
@@ -486,7 +456,7 @@ div.pb-section.pb-section-0 {
         margin-bottom: 1rem;
     }
 
-    .first-btn, .second-btn {
+    .offer, .sub-title p, .first-btn, .second-btn {
         text-align: center;
     }
 
@@ -496,6 +466,7 @@ div.pb-section.pb-section-0 {
     }
 }
 
+/* Layout 1 horizontally */
 @media screen and (min-width: 1135px) {
     .container-offers-1, .container-offers-2 {
         grid-template-columns: 1fr 1fr;
@@ -503,6 +474,7 @@ div.pb-section.pb-section-0 {
     }
 }
 
+/* Layout 2 vertically */
 @media screen and (max-width: 984px) {
     .container-about-me .section-heading {
         grid-column: 1/1;
@@ -514,12 +486,22 @@ div.pb-section.pb-section-0 {
     
     .container-about-me .portrait {
         grid-row: 2;
+        margin-bottom: 1.5rem;
+    }
+
+    .container-about-me .text-portrait {
+        border: 1px solid #000;
+        padding: 0.75rem;
     }
 }
 
 @media screen and (min-width: 984px) {
     .pb-text h2 {
         font-size: 75px !important;
+    }
+
+    .container-about-me .contact-btn {
+        margin-top: 1rem;
     }
 }
 
@@ -540,7 +522,6 @@ div.pb-section.pb-section-0 {
     margin-top: 3rem;
     padding: 0 5rem;
 }
-
 
 div.pb-section.pb-section-0{ min-height: 25vw; }
 #slogan{ font-size: 3vw; }
@@ -573,9 +554,4 @@ div.pb-section.pb-section-0{ min-height: 25vw; }
     #slogan{ font-size: 4vw; }
     
     #page-container { padding-top: 8.5rem; }
-
-    /* #portrait {
-        width: ;
-        height: ;
-    } */
 }
