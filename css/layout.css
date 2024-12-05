@@ -467,6 +467,10 @@ div.pb-section.pb-section-0 {
         margin-bottom: 1rem;
     }
 
+    .first-btn, .second-btn {
+        text-align: center;
+    }
+
     .container-offers-1 .section-heading, .container-offers-2 .section-heading {
         grid-column: 1/1;
         text-align: center;
@@ -541,7 +545,14 @@ div.pb-section.pb-section-0{ min-height: 25vw; }
 
 
 @media screen and (max-width: 624px) {
-    .offer .sub-title p{ font-size: 1.4rem; }
+    .offer .sub-title p{ 
+        font-size: 1.4rem; 
+        text-align: center;
+    }
+    
+    .section-heading, .offer {
+        text-align: center;
+    }
 
     #section-after-wallpaper { margin-top: 1rem; }
 
