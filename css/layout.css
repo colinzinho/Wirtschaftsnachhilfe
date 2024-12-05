@@ -456,6 +456,25 @@ div.pb-section.pb-section-0 {
     }
 }
 
+@media screen and (max-width: 1524px) {
+    .container-about-me {
+        grid-template-columns: 1fr;
+        column-gap: 6rem;
+    }
+}
+
+@media screen and (min-width: 1525px) {
+    .container-about-me {
+        grid-template-columns: 1.25fr 1fr;
+        column-gap: 1rem;
+    }
+
+    #portrait {
+        width: 271px;
+        height: 363px;
+    }
+}
+
 @media screen and (max-width: 1134px) {
     .container-offers-1, .container-offers-2 {
         grid-template-columns: 1fr;
@@ -475,11 +494,6 @@ div.pb-section.pb-section-0 {
         grid-column: 1/1;
         text-align: center;
     }
-
-    .container-about-me {
-        grid-template-columns: 1fr;
-        column-gap: 6rem;
-    }
 }
 
 @media screen and (min-width: 1135px) {
@@ -487,16 +501,14 @@ div.pb-section.pb-section-0 {
         grid-template-columns: 1fr 1fr;
         column-gap: 5rem;
     }
-
-    .container-about-me {
-        grid-template-columns: 1.25fr 1fr;
-        column-gap: 1rem;
-    }
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 984px) {
     .container-about-me .section-heading {
         grid-column: 1/1;
+    }
+
+    .container-about-me .section-heading, .container-contact-btn {
         text-align: center;
     }
     
@@ -561,4 +573,9 @@ div.pb-section.pb-section-0{ min-height: 25vw; }
     #slogan{ font-size: 4vw; }
     
     #page-container { padding-top: 8.5rem; }
+
+    /* #portrait {
+        width: ;
+        height: ;
+    } */
 }
