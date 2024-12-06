@@ -432,7 +432,7 @@ div.pb-section.pb-section-0 {
     .container-contact .form-contact .form {
         grid-template-columns: 1fr;
         text-align: center;
-        padding: 0 0 1rem 0;
+        padding: 0;
         border: none;
     }
 
