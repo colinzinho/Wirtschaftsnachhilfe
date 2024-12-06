@@ -177,7 +177,6 @@ div.pb-section.pb-section-0 {
     border-color: #592130;
     text-transform: uppercase;
     text-decoration: none;
-    padding: .3rem 1rem;
 }
 
 .site-footer {
@@ -384,7 +383,7 @@ div.pb-section.pb-section-0 {
     min-width: 30%;
 }
 
-.x {
+.blocker-li-item {
     min-width: 30%;
 }
 
@@ -554,6 +553,10 @@ div.pb-section.pb-section-0 {
     .container-contact {
         grid-template-columns: 1fr 1.25fr;
     }
+
+    .pb-button {
+        padding: .3rem 1rem;
+    }
 }
 
 @media screen and (min-width: 754px) and (max-width: 1134px) {
@@ -656,6 +659,10 @@ div.pb-section.pb-section-0{ min-height: 25vw; }
 
 @media screen and (min-width: 625px) and (max-width: 1134px) {
     .offer .sub-title p{ font-size: 1.7rem; }
+
+    .pb-button {
+        padding: .3rem 1rem;
+    }
 }
 
 @media screen and (max-width: 624px) {
@@ -675,4 +682,8 @@ div.pb-section.pb-section-0{ min-height: 25vw; }
     #slogan{ font-size: 4vw; }
     
     #page-container { padding-top: 8.5rem; }
+
+    .pb-button {
+        padding: .6rem 1rem;
+    }
 }
