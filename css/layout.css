@@ -76,7 +76,6 @@
 .logo-container {
     padding: 0.25rem;
     margin: auto auto auto 0;
-    /* margin: auto; */
 }
 
 .builder-inner-content {
@@ -125,7 +124,6 @@ div.pb-section.pb-section-0 {
     font-size: 50px;
     color: #ffffff !important;
     text-align: end;
-    /* text-align: center; */
 }
 
 #slogan {
@@ -136,10 +134,6 @@ div.pb-section.pb-section-0 {
 .pb-text > :last-child {
     padding-bottom: 0;
 }
-
-/* .sub-title {
-    margin-bottom: 0.5rem;
-} */
 
 .offer {
     border: 1px solid #000;
@@ -156,10 +150,8 @@ div.pb-section.pb-section-0 {
 }
 
 .offer .sub-title p{
-    /* font-size: 2.2rem; */
     color: #373737;
     opacity: 0.7;
-    /* padding-bottom: 0 !important */
 }
 
 .enclosure {
@@ -193,9 +185,7 @@ div.pb-section.pb-section-0 {
 }
 
 .meta-nav li {
-    /* display: flex; */
     list-style: none;
-    /* justify-content: space-evenly; */
     padding-right: 0.5rem;
     margin-right: 0.5rem;
     border-right: 1px solid black;
@@ -397,32 +387,21 @@ div.pb-section.pb-section-0 {
     flex-direction: row;
 }
 
-/**
-     * Reset Settings
-     */
-     .field-wrapper .field {
-        width: 75%;
-     }
+.field-wrapper .field {
+width: 75%;
+}
 
-     .field-wrapper label {
-        font-weight: 600;
-    }
+.field-wrapper label {
+font-weight: 600;
+}
 
-     .field-wrapper .inputfield {
-        width: 100%;
-     }
+.field-wrapper .email {
+width: 50%;
+}
 
-     .field-wrapper .email {
-        width: 50%;
-     }
-
-     .field-wrapper .textarea {
-        margin-bottom: 0;
-     }
-
-    .accept-data-privacy {
-        margin-bottom: 0rem;
-    }
+.field-wrapper .textarea, .accept-data-privacy {
+margin-bottom: 0;
+}
 
 @media screen and (max-width: 753px) {
     .container-contact .form .entire-line {

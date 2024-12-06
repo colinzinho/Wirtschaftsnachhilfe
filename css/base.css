@@ -79,7 +79,9 @@ img {
 }
 
 p {
+    hyphens: auto;
     text-align: justify; /* Stellt Text im Blocksatz dar */
+    text-align-last: auto;
 }
 
 @media screen and (min-width: 524px) and (max-width: 623px) {
