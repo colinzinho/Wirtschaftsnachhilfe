@@ -13,12 +13,6 @@
     <link rel="icon" type="image/x-icon" href="img/facivon.png" /> <!--Favicon - needs revision!-->
 
     <link href="css/style.css" rel="stylesheet" />
-
-    <!-- Embedd Google Fonts for demonstration purposes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap" rel="stylesheet">
-
     <script src="js/jquery-3.6.3.js"></script>
     <script>
       var header;
@@ -301,10 +295,12 @@
                   <h2>Kontakt</h2>
                 </div>
                 <div class="pb-module ">
-                  <p>Silvia von Burg</p>
-                  <p>E-Mail: info@silviavonburg.ch</p>
-                  <p>Mobile: +41 79 304 04 72</p>
-                  <br>
+                  <div class="contact-details">
+                    <p>Silvia von Burg</p>
+                    <p>E-Mail: info@silviavonburg.ch</p>
+                    <p>Mobile: +41 79 304 04 72</p>
+                  </div>
+                  <!-- <br> -->
                   <p class="text-field-required"><span>*</span> sind Pflichtfelder</p>
                 </div>
                 <div class="pb-module form-contact">
@@ -321,37 +317,37 @@
                     </div>
                     <div class="field-wrapper">
                       <div class="field">
-                        <label for="firstname">Vorname<span class="field-required">*</span></label><input type="text" id="firstname" name="firstname" class="inputfield" required>
+                        <label for="firstname" class="form-label">Vorname<span class="field-required">*</span></label><input type="text" id="firstname" name="firstname" class="inputfield" size="20" required>
                       </div>
                     </div>
                     <div class="field-wrapper">
                       <div class="field">
-                        <label for="lastname">Nachname<span class="field-required">*</span></label><input type="text" id="lastname" name="lastname" class="inputfield" required>
+                        <label for="lastname" class="form-label">Nachname<span class="field-required">*</span></label><input type="text" id="lastname" name="lastname" class="inputfield" size="20" required>
                       </div>
                     </div>
                     <div class="field-wrapper">
                       <div class="field">
-                        <label for="address">Strasse<span class="field-required">*</span></label><input type="text" id="address" name="address" class="inputfield" required>
+                        <label for="address" class="form-label">Strasse<span class="field-required">*</span></label><input type="text" id="address" name="address" class="inputfield" size="20" required>
                       </div>
                     </div>
                     <div class="field-wrapper">
                       <div class="field">
-                        <label for="place">PLZ/Ort<span class="field-required">*</span></label><input type="text" id="place" name="place" class="inputfield" required>
+                        <label for="place" class="form-label">PLZ/Ort<span class="field-required">*</span></label><input type="text" id="place" name="place" class="inputfield" size="20" required>
                       </div>
                     </div>
                     <div class="field-wrapper entire-line">
                       <label for="email">Email<span class="field-required">*</span></label>
-                      <input type="email" id="email" name="email" class="email" required>
+                      <input type="email" id="email" name="email" class="email" size="30" required>
                     </div>
                     <div class="field-wrapper entire-line et-last-child">
                       <label for="message">Nachricht</label>
-                      <textarea id="message" class="textarea" name="message" cols="10" rows="5"></textarea>
+                      <textarea id="message" class="textarea" name="message" cols="20" rows="5"></textarea>
                     </div>
                     <div class="accept-data-privacy entire-line">
                       <input type="checkbox" id="privacy-policy" class="checkbox" name="privacy-policy" required>
                       <label for="privacy-policy">Ich stimme der <a href="datenschutzerklärung/Datenschutzerklaerung.pdf" target="_blank">Datenschutzerklärung</a> zu<span class="field-required">*</span></label>
                     </div>
-                    <div>
+                    <div class="container-submit">
                       <button type="submit" class="pb-button">Abschicken</button>
                     </div>
                   </form>
@@ -427,7 +423,7 @@
           <nav class="meta-nav">
               <ul>
                 <!--Nachfolge Liste steht in einer Reihe, wegen den kleinen Abständen, die ansonsten zwischen den Elementen auftauchen..-->
-                <li class="copyright"><p>&copy; 2020-2024 Silvia&nbsp;von&nbsp;Burg</p></li><li><a href="impressum/Impressum_Silvia.pdf" target="_blank" rel="noopener noreferrer">Impressum </a></li><li><a href="datenschutzerklärung/Datenschutzerklaerung.pdf" target="_blank" rel="noopener noreferrer">Datenschutz </a></li> 
+                <li class="copyright"><p>&copy;2020-2024 Silvia&nbsp;von&nbsp;Burg</p></li><li><a href="impressum/Impressum_Silvia.pdf" target="_blank" rel="noopener noreferrer">Impressum </a></li><li><a href="datenschutzerklärung/Datenschutzerklaerung.pdf" target="_blank" rel="noopener noreferrer">Datenschutz </a></li><li class="x"></li>
               </ul>
           </nav>
         </div>

@@ -32,14 +32,6 @@
     }
 
     .menubutton {display: none !important }
-
-    .flex-container {
-        flex-direction: row;
-    }
-    
-    .skill {
-        min-width: 30%;
-    }
 }
 
 /* Is being used with every Viewport width! */
