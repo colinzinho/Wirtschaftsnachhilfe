@@ -79,9 +79,8 @@ img {
 }
 
 p {
-    hyphens: auto;
+    hyphens: auto; /* Implementiert Silbentrennung */
     text-align: justify; /* Stellt Text im Blocksatz dar */
-    text-align-last: auto;
 }
 
 @media screen and (min-width: 524px) and (max-width: 623px) {
