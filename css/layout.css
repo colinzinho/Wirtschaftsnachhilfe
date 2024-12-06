@@ -388,15 +388,19 @@ div.pb-section.pb-section-0 {
 }
 
 .field-wrapper .field {
-width: 75%;
+    width: 75%;
 }
 
 .field-wrapper label {
-font-weight: 600;
+    font-weight: 600;
+}
+
+.container-contact .field-wrapper .inputfield {
+    width: 100%;
 }
 
 .field-wrapper .email {
-width: 50%;
+    width: 50%;
 }
 
 .field-wrapper .textarea, .accept-data-privacy {
@@ -428,10 +432,6 @@ margin-bottom: 0;
     .text-field-required {
         padding-left: 12%;
     }
-
-    /* .container-contact .entire-line {
-        
-    } */
 
     .container-contact .field-wrapper .field {
         text-align: start;
