@@ -400,17 +400,21 @@ div.pb-section.pb-section-0 {
 }
 
 .field-wrapper .email {
-    width: 50%;
+    width: 37.5%;
 }
 
 .field-wrapper .textarea, .accept-data-privacy {
 margin-bottom: 0;
 }
 
+.p-w-lBreaks {
+    margin-bottom: 0.6em;
+}
+
 @media screen and (max-width: 753px) {
     .container-contact .form .entire-line {
          grid-column: 1/1;
-         padding-left: 12%;
+         padding-left: 12.5%;
          /* width: 75%; */
     }
 
@@ -442,7 +446,7 @@ margin-bottom: 0;
     }
 
     .container-contact .field-wrapper .inputfield {
-        width: 50%;
+        width: 87%;
     }
 
     .container-contact .container-submit {
@@ -568,7 +572,7 @@ margin-bottom: 0;
     }
 
     .container-contact .entire-line {
-        padding-left: 6%;
+        padding-left: 5%;
     }
 
     .container-contact .entire-line, .form-label, .container-submit {
@@ -580,11 +584,15 @@ margin-bottom: 0;
     }
 
     .container-contact .field-wrapper .email {
-        width: 54%;
+        width: 42%;
     }
 
     .container-contact .field-wrapper .textarea {
         width: 94%;
+    }
+
+    .field-wrapper .field {
+        width: 80%;
     }
 }
 

@@ -78,6 +78,12 @@ img {
     height: auto;
 }
 
+.container-fluid {
+    width: 80%;
+    margin: auto;
+    position: relative;
+}
+
 p {
     hyphens: auto; /* Implementiert Silbentrennung */
     text-align: justify; /* Stellt Text im Blocksatz dar */
@@ -186,15 +192,15 @@ p {
     h6 { font-size: 1rem; font-variant: small-caps; }
 }
 
-@media screen and (min-width: 1525px) {
+@media screen and (min-width: 1135px) and (max-width: 1524px) {
     .container-fluid {
-        width: 80%;
+        width: 90%;
         margin: auto;
         position: relative;
     }
 }
 
-@media screen and (max-width: 1524px) {
+@media screen and (max-width: 624px) {
     .container-fluid {
         width: 90%;
         margin: auto;
