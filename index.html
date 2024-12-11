@@ -19,6 +19,7 @@
       var menubutton;
       var pageContainer;
       var toTopBtn;
+      var thresholdValtoTopBtn;
 
       $(document).ready(function() {
         /* set variable values after initialization of site */
@@ -27,7 +28,7 @@
         pageContainer = $("#page-container");
         
         toTopBtn = $("#toTopBtn");
-        thresholdValtoTopBtn = $('div[id="offers"]').offset().top - getHeaderHeight();
+        thresholdValtoTopBtn = undefined;
       });
 
       $(window).scroll(function() {
@@ -36,38 +37,37 @@
         var headerIsFixed = header.hasClass("fixed-header");
         var btnIsHidden = toTopBtn.hasClass("hidden");
 
-        if(windowpos >= thresholdValtoTopBtn && btnIsHidden) {
-          if(toTopBtn.hasClass("fadeOut")) {
-            toTopBtn.removeClass("fadeOut");
-          }
-          toTopBtn.removeClass("hidden");
-          toTopBtn.addClass("fadeIn");
-        }
-
-        if(windowpos < thresholdValtoTopBtn && !btnIsHidden) {
-          toTopBtn.addClass("fadeOut");  
-          setTimeout( function functionName () {
-            toTopBtn.addClass("hidden");
-          }, 2000);
-
-        }
-
         if(windowpos > 20 && !headerIsFixed) { /* 20 stands for the imagniary space in px above the header */
           header.addClass("fixed-header");
+          thresholdValtoTopBtn = $('div[id="offers"]').offset().top - getHeaderHeight();
+          if($(window).width() < 625) {
+            this.thresholdValtoTopBtn -= 20;
+          }
+          
           pageContainer.addClass("animation"); /* enables smooth animation (ease-in-ease-out) */
-          var decreasingValue;
-          /* Mit switch case anfangen zu arbeiten */
-          // if($(window).width() < 625) {
-          //   decreasingValue = -21
-          // } else {
-          //   decreasingValue = -41
-          // }
           pageContainer.css('margin-top', -41 + 'px'); /* whole website content hops up by 41px - is being used for smooth animation/ transition */
         }
         
         if(windowpos <= 0 && headerIsFixed) { /* restore default size of header (height) */
           header.removeClass("fixed-header");
           pageContainer.css('margin-top', -1 + 'px'); /* whole website content hops down by 40px - is being used for smooth animation/ transition */
+        }
+
+        if(thresholdValtoTopBtn !== undefined) {
+          if(windowpos >= thresholdValtoTopBtn && btnIsHidden) {
+            if(toTopBtn.hasClass("fadeOut")) {
+              toTopBtn.removeClass("fadeOut");
+            }
+            toTopBtn.removeClass("hidden");
+            toTopBtn.addClass("fadeIn");
+          }
+
+          if(windowpos < thresholdValtoTopBtn && !btnIsHidden) {
+            toTopBtn.addClass("fadeOut");  
+            setTimeout( function functionName () {
+              toTopBtn.addClass("hidden");
+            }, 2000);
+          }
         }
       });
 
