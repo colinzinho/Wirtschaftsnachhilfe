@@ -119,6 +119,10 @@ p {
     div {
         font-size: 1.8rem;
     }
+
+    .smaller-txt {
+        font-size: 1.5rem !important;
+    }
     
     h1, h2, h4, h5, h6 {
         padding-bottom: 1rem;
@@ -145,6 +149,10 @@ p {
 @media screen and (min-width: 625px) and (max-width: 1134px) {
     div {
         font-size: 1.6rem;
+    }
+
+    .smaller-txt {
+        font-size: 1.4rem;
     }
     
     h1, h2, h4, h5, h6 {

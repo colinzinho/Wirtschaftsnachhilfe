@@ -411,7 +411,8 @@ margin-bottom: 0;
     margin-bottom: 0.6em;
 }
 
-@media screen and (max-width: 753px) {
+/* Contact Form Styling ONLY! */
+@media screen and (max-width: 803px) {
     .container-contact .form .entire-line {
          grid-column: 1/1;
          padding-left: 12.5%;
@@ -439,6 +440,7 @@ margin-bottom: 0;
 
     .container-contact .field-wrapper .field {
         text-align: start;
+        padding-right: 10%;
     }
 
     .container-contact .entire-line, .container-contact .form-label, .container-submit {
@@ -446,7 +448,8 @@ margin-bottom: 0;
     }
 
     .container-contact .field-wrapper .inputfield {
-        width: 87%;
+        /* width: 87%; */
+        width: 100%;
     }
 
     .container-contact .container-submit {
@@ -454,11 +457,11 @@ margin-bottom: 0;
     }
 
     .container-contact .field-wrapper .email {
-        width: 75%;
+        width: 74%;
     }
 
     .container-contact .field-wrapper .textarea {
-        width: 75%;
+        width: 74%;
     }
 
     .container-skillset .flex-container {
@@ -471,6 +474,36 @@ margin-bottom: 0;
 
     .section-heading-icons h2 {
         line-height: 1.2em;
+    }
+
+    .multiple-inputfield {
+        width: 84%;
+        padding-left: 12.5%;
+    }
+
+    .field.smaller-space-on-small-devices {
+        margin-right: 1rem;
+    }
+
+    .field.decreasing-width-wrapper.smaller-space-on-small-devices {
+        padding-right: 0 !important;
+    }
+
+    .add-information {
+        margin-right: auto;
+    }
+
+    #street {
+        width: 99%;
+    }
+
+    #no-padding-right {
+        padding-right: 0;
+    }
+
+    .field.decreasing-width-wrapper {
+        width: 100%;
+        padding-right: 9% !important;
     }
 }
 
@@ -534,6 +567,10 @@ margin-bottom: 0;
     .container-contact .contact-details p {
         text-align: center;
     }
+
+    .field-wrapper label {
+        font-weight: 400;
+    }
 }
 
 /* Layout 1 horizontally */
@@ -550,9 +587,25 @@ margin-bottom: 0;
     .pb-button {
         padding: .3rem 1rem;
     }
+
+    .multiple-inputfield.postalcode .place {
+        width: 74%;
+    }
+
+    .multiple-inputfield.street div, .multiple-inputfield.postalcode div {
+        margin-right: auto;
+    }
+
+    .border-right {
+        border-right: solid 0.5px #3d3d3d;
+    }
+    
+    .field-wrapper.border-right {
+        margin-right: 1rem;
+    }
 }
 
-@media screen and (min-width: 754px) and (max-width: 1134px) {
+@media screen and (min-width: 803px) and (max-width: 1134px) {
     .container-contact {
         padding: 2rem;
     }
@@ -593,6 +646,22 @@ margin-bottom: 0;
 
     .field-wrapper .field {
         width: 80%;
+    }
+
+    .multiple-inputfield {
+        justify-content: center;
+    }
+
+    .field-wrapper .field.decreasing-width-wrapper {
+        width: 66%;
+    }
+
+    .padding-left {
+        padding-left: 2.5%;
+    }
+
+    .padding-right {
+        padding-right: 2.5%;
     }
 }
 
@@ -689,4 +758,27 @@ div.pb-section.pb-section-0{ min-height: 27vw; }
     .container-copyright {
         flex-direction: column;
     }
+}
+
+
+.multiple-inputfield {
+    display: flex;
+}
+
+.multiple-inputfield .street, .multiple-inputfield .postal-code {
+    width: auto;
+}
+
+
+
+
+
+.width-auto {
+    width: auto !important;
+}
+
+
+
+.add-information {
+    min-width: 10% !important;
 }

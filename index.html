@@ -309,7 +309,7 @@
                         <option>Kurse / Expertentätigkeiten</option>
                       </select>
                     </div>
-                    <div class="field-wrapper">
+                    <div class="field-wrapper border-right">
                       <div class="field">
                         <label for="firstname" class="form-label">Vorname<span class="field-required">*</span></label><input type="text" id="firstname" name="firstname" class="inputfield" size="20" required>
                       </div>
@@ -319,14 +319,20 @@
                         <label for="lastname" class="form-label">Nachname<span class="field-required">*</span></label><input type="text" id="lastname" name="lastname" class="inputfield" size="20" required>
                       </div>
                     </div>
-                    <div class="field-wrapper">
-                      <div class="field">
-                        <label for="address" class="form-label">Strasse<span class="field-required">*</span></label><input type="text" id="address" name="address" class="inputfield" size="20" required>
+                    <div class="field-wrapper multiple-inputfield street border-right">
+                      <div class="field decreasing-width-wrapper smaller-space-on-small-devices padding-right">
+                        <label for="street" class="form-label">Strasse<span class="field-required">*</span></label><input type="text" id="street" name="street" class="inputfield" size="20" required>
+                      </div>
+                      <div class="field width-auto add-information">
+                        <label for="streetnumber" class="form-label smaller-txt">Nr.<span class="field-required">*</span></label><input type="text" id="streetnumber" name="streetnumber" class="inputfield" size="3" required>
                       </div>
                     </div>
-                    <div class="field-wrapper">
-                      <div class="field">
-                        <label for="place" class="form-label">PLZ/Ort<span class="field-required">*</span></label><input type="text" id="place" name="place" class="inputfield" size="20" required>
+                    <div class="field-wrapper multiple-inputfield postalcode">
+                      <div id="no-padding-right" class="field width-auto add-information smaller-space-on-small-devices">
+                        <label for="postalcode" class="form-label smaller-txt">PLZ<span class="field-required">*</span></label><input type="text" id="postalcode" name="postalcode" class="inputfield" size="3" required>
+                      </div>
+                      <div class="field decreasing-width-wrapper padding-left">
+                        <label for="city" class="form-label">Ort<span class="field-required">*</span></label><input type="text" id="city" name="city" class="inputfield place" size="20" required>
                       </div>
                     </div>
                     <div class="field-wrapper entire-line">
