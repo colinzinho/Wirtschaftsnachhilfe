@@ -13,129 +13,6 @@
     <link rel="icon" type="image/x-icon" href="img/facivon.png" /> <!--Favicon - needs revision!-->
 
     <link href="css/style.css" rel="stylesheet" />
-    <script src="js/jquery-3.6.3.js"></script>
-    <script>
-      var header;
-      var menubutton;
-      var pageContainer;
-      var toTopBtn;
-      var thresholdValtoTopBtn;
-
-      $(document).ready(function() {
-        /* set variable values after initialization of site */
-        header = $("#page-header");
-        menubutton = $("#menubutton");
-        pageContainer = $("#page-container");
-        
-        toTopBtn = $("#toTopBtn");
-        thresholdValtoTopBtn = undefined;
-      });
-
-      $(window).scroll(function() {
-        var windowpos = $(window).scrollTop(); /* gets vertical scrollbar position of window element */
-        
-        var headerIsFixed = header.hasClass("fixed-header");
-        var btnIsHidden = toTopBtn.hasClass("hidden");
-
-        if(windowpos > 20 && !headerIsFixed) { /* 20 stands for the imagniary space in px above the header */
-          header.addClass("fixed-header");
-          thresholdValtoTopBtn = $('div[id="offers"]').offset().top - getHeaderHeight();
-          if($(window).width() < 625) {
-            this.thresholdValtoTopBtn -= 20;
-          }
-          
-          pageContainer.addClass("animation"); /* enables smooth animation (ease-in-ease-out) */
-          pageContainer.css('margin-top', -41 + 'px'); /* whole website content hops up by 41px - is being used for smooth animation/ transition */
-        }
-        
-        if(windowpos <= 0 && headerIsFixed) { /* restore default size of header (height) */
-          header.removeClass("fixed-header");
-          pageContainer.css('margin-top', -1 + 'px'); /* whole website content hops down by 40px - is being used for smooth animation/ transition */
-        }
-
-        if(thresholdValtoTopBtn !== undefined) {
-          if(windowpos >= thresholdValtoTopBtn && btnIsHidden) {
-            if(toTopBtn.hasClass("fadeOut")) {
-              toTopBtn.removeClass("fadeOut");
-            }
-            toTopBtn.removeClass("hidden");
-            toTopBtn.addClass("fadeIn");
-          }
-
-          if(windowpos < thresholdValtoTopBtn && !btnIsHidden) {
-            toTopBtn.addClass("fadeOut");  
-            setTimeout( function functionName () {
-              toTopBtn.addClass("hidden");
-            }, 2000);
-          }
-        }
-      });
-
-      function onClick() {
-        $("#logo-link").click(function (event) {
-          window.location.reload(0);
-        });
-
-        $("#navigation a").click(function (event) {
-          var sectionName = $(this).data("nav-section"); 
-          var result = sectionNav(sectionName);
-
-          if(!result) {
-            event.preventDefault(); // what does this do - exception handler??
-          }
-        });
-
-        $(".contact-btn").click(function (event) {
-          var result = sectionNav('contact');
-
-          if(!result) {
-            event.preventDefault();
-          }
-        });
-
-        $("#toTopBtn").click(function (event) {
-          window.history.pushState('', '', '/index.html');
-          $(window).scrollTop(0)
-        });
-      }
-
-      function sectionNav (input) {
-          var sectionName = input.toLowerCase();
-          var collapsingValueNavBar = - 1;
-          var headerHeight;
-          /**
-           * viewport > 769 - initial height: 156px,   collapsed height: 116
-           * viewport < 769 - initial height: 151.5px, collapsed height: 111.5px
-           */
-          if ($('div[data-section="' + sectionName + '"]').length) {
-            if(!header.hasClass('fixed-header') && $(window).width() < 625) {
-              collapsingValueNavBar = 19;
-            }
-
-            headerHeight = getHeaderHeight() + collapsingValueNavBar;
-            $("html").animate(
-              {
-                scrollTop:
-                  $('div[data-section="' + sectionName + '"]').offset().top - headerHeight
-              },
-              250
-            );
-
-            if($("#menubutton").hasClass('showmenu')) {
-              $("#menubutton").removeClass('showmenu');
-            }
-
-            return true;
-          } else {
-            return false;
-          }
-        }
-
-      function getHeaderHeight() {
-        return $('#page-header')[0].getBoundingClientRect().height;
-      }
-
-    </script>
   </head>
   <body>
     <div id="page-container">
@@ -429,6 +306,129 @@
         </div>
       </footer>
     </div>
+    <script src="js/jquery-3.6.3.js"></script>
+    <script>
+      var header;
+      var menubutton;
+      var pageContainer;
+      var toTopBtn;
+      var thresholdValtoTopBtn;
+
+      $(document).ready(function() {
+        /* set variable values after initialization of site */
+        header = $("#page-header");
+        menubutton = $("#menubutton");
+        pageContainer = $("#page-container");
+        
+        toTopBtn = $("#toTopBtn");
+        thresholdValtoTopBtn = undefined;
+      });
+
+      $(window).scroll(function() {
+        var windowpos = $(window).scrollTop(); /* gets vertical scrollbar position of window element */
+        
+        var headerIsFixed = header.hasClass("fixed-header");
+        var btnIsHidden = toTopBtn.hasClass("hidden");
+
+        if(windowpos > 20 && !headerIsFixed) { /* 20 stands for the imagniary space in px above the header */
+          header.addClass("fixed-header");
+          thresholdValtoTopBtn = $('div[id="offers"]').offset().top - getHeaderHeight();
+          if($(window).width() < 625) {
+            this.thresholdValtoTopBtn -= 20;
+          }
+          
+          pageContainer.addClass("animation"); /* enables smooth animation (ease-in-ease-out) */
+          pageContainer.css('margin-top', -41 + 'px'); /* whole website content hops up by 41px - is being used for smooth animation/ transition */
+        }
+        
+        if(windowpos <= 0 && headerIsFixed) { /* restore default size of header (height) */
+          header.removeClass("fixed-header");
+          pageContainer.css('margin-top', -1 + 'px'); /* whole website content hops down by 40px - is being used for smooth animation/ transition */
+        }
+
+        if(thresholdValtoTopBtn !== undefined) {
+          if(windowpos >= thresholdValtoTopBtn && btnIsHidden) {
+            if(toTopBtn.hasClass("fadeOut")) {
+              toTopBtn.removeClass("fadeOut");
+            }
+            toTopBtn.removeClass("hidden");
+            toTopBtn.addClass("fadeIn");
+          }
+
+          if(windowpos < thresholdValtoTopBtn && !btnIsHidden) {
+            toTopBtn.addClass("fadeOut");  
+            setTimeout( function functionName () {
+              toTopBtn.addClass("hidden");
+            }, 2000);
+          }
+        }
+      });
+
+      function onClick() {
+        $("#logo-link").click(function (event) {
+          window.location.reload(0);
+        });
+
+        $("#navigation a").click(function (event) {
+          var sectionName = $(this).data("nav-section"); 
+          var result = sectionNav(sectionName);
+
+          if(!result) {
+            event.preventDefault(); // what does this do - exception handler??
+          }
+        });
+
+        $(".contact-btn").click(function (event) {
+          var result = sectionNav('contact');
+
+          if(!result) {
+            event.preventDefault();
+          }
+        });
+
+        $("#toTopBtn").click(function (event) {
+          window.history.pushState('', '', '/index.html');
+          $(window).scrollTop(0)
+        });
+      }
+
+      function sectionNav (input) {
+          var sectionName = input.toLowerCase();
+          var collapsingValueNavBar = - 1;
+          var headerHeight;
+          /**
+           * viewport > 769 - initial height: 156px,   collapsed height: 116
+           * viewport < 769 - initial height: 151.5px, collapsed height: 111.5px
+           */
+          if ($('div[data-section="' + sectionName + '"]').length) {
+            if(!header.hasClass('fixed-header') && $(window).width() < 625) {
+              collapsingValueNavBar = 19;
+            }
+
+            headerHeight = getHeaderHeight() + collapsingValueNavBar;
+            $("html").animate(
+              {
+                scrollTop:
+                  $('div[data-section="' + sectionName + '"]').offset().top - headerHeight
+              },
+              250
+            );
+
+            if($("#menubutton").hasClass('showmenu')) {
+              $("#menubutton").removeClass('showmenu');
+            }
+
+            return true;
+          } else {
+            return false;
+          }
+        }
+
+      function getHeaderHeight() {
+        return $('#page-header')[0].getBoundingClientRect().height;
+      }
+
+    </script>
     <script>
       onClick();
     </script>
