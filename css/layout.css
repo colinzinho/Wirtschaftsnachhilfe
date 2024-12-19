@@ -1,9 +1,11 @@
+/* Layout */
 #page-container {
     margin-top: -1px;
     /* padding-top: 13.5rem; */
     overflow-y: hidden;
 }
 
+/* Layout */
 .animation#page-container {
     transition: margin-top 0.4s ease-in-out;
 }
@@ -40,16 +42,6 @@
     }
 }
 
-/* Navigationsleiste */
-#page-header {
-    line-height: 1.5rem;
-    background-color: #fff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 99999;
-}
-
 .fixed-header {
     top: 0;
     z-index: 200000;
@@ -73,10 +65,7 @@
     min-height: 30px;
 }
 
-.logo-container {
-    padding: 0.25rem;
-    margin: auto auto auto 0;
-}
+
 
 .builder-inner-content {
     position: relative;
@@ -377,9 +366,9 @@ div.pb-section.pb-section-0 {
     min-width: 30%;
 }
 
-.blocker-li-item {
+/* .blocker-li-item {
     min-width: 30%;
-}
+} */
 
 .container-copyright {
     display: flex;
@@ -716,6 +705,8 @@ margin-bottom: 0;
 
 div.pb-section.pb-section-0{ min-height: 27vw; }
 #slogan{ font-size: 3vw; }
+
+/* Layout */
 #page-container { padding-top: 13.5rem; }
 
 /* Dynamischer Teil */
@@ -747,6 +738,7 @@ div.pb-section.pb-section-0{ min-height: 27vw; }
 
     #slogan{ font-size: 4vw; }
     
+    /* Layout */
     #page-container { padding-top: 8.5rem; }
 
     .pb-button {

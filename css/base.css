@@ -78,6 +78,7 @@ img {
     height: auto;
 }
 
+/* Layout */
 .container-fluid {
     width: 80%;
     margin: auto;
@@ -87,30 +88,6 @@ img {
 p {
     hyphens: auto; /* Implementiert Silbentrennung */
     text-align: justify; /* Stellt Text im Blocksatz dar */
-}
-
-@media screen and (min-width: 524px) and (max-width: 623px) {
-    .blocker {
-        min-width: 58%;
-    }
-}
-
-@media screen and (min-width: 424px) and (max-width: 523px) {
-    .blocker {
-        min-width: 48%;
-    }
-}
-
-@media screen and (min-width: 324px) and (max-width: 423px) {
-    .blocker {
-        min-width: 38%;
-    }
-}
-
-@media screen and (max-width: 323px) {
-    .blocker {
-        min-width: 28%;
-    }
 }
 
 /* Dynamischer Teil */
@@ -140,10 +117,6 @@ p {
     h4 { font-size: 1.5rem }
     h5 { font-size: 1.25rem }
     h6 { font-size: 1rem; font-variant: small-caps; }
-
-    .blocker {
-        width: 33%;
-    }
 }
 
 @media screen and (min-width: 625px) and (max-width: 1134px) {
@@ -172,9 +145,7 @@ p {
     h5 { font-size: 1.25rem }
     h6 { font-size: 1rem; font-variant: small-caps; }
 
-    .blocker {
-        min-width: 63%;
-    }
+    
 }
 
 @media screen and (max-width: 624px) {

@@ -5,10 +5,10 @@ var thresholdToTopBtn = -1;
 const imaginarySpace = 20; /* stands for the imagniary space in px above the header */ 
 
 $(document).ready(function() {
-/* Set variable values after initialization of site */
-header = $("#page-header");
-pageContainer = $("#page-container");
-toTopBtn = $("#toTopBtn");
+    /* Set variable values after initialization of site */
+    header = $("#page-header");
+    pageContainer = $("#page-container");
+    toTopBtn = $("#toTopBtn");
 });
 
 $(window).scroll(function() {
@@ -50,16 +50,16 @@ if(windowpos >= thresholdToTopBtn && btnIsHidden) {
 
 /* Helper function: show 'backToTop' button */
 function showElement(element) {
-element.removeClass("hidden");
-element.addClass("fadeIn");
+    element.removeClass("hidden");
+    element.addClass("fadeIn");
 };
 
 /* Helper function: hide 'backToTop' button smoothly (animation) */
 function hideElementSmoothly(element) {
-element.addClass("fadeOut");  
-setTimeout( function () {
-    element.addClass("hidden");
-}, 2000);
+    element.addClass("fadeOut");  
+    setTimeout( function () {
+        element.addClass("hidden");
+    }, 2000);
 };
 
 function onClick() {
@@ -107,8 +107,8 @@ function scrollingTo(input) {
         },
         250
     );
-    if($("#menubutton").hasClass('showmenu')) {
-        $("#menubutton").removeClass('showmenu');
+    if($("#menubutton").hasClass('show-menu')) {
+        $("#menubutton").removeClass('show-menu');
     }
     return true;
     } else {

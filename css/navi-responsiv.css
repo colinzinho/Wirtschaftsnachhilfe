@@ -1,91 +1,55 @@
-/* Navigation Section with Content */
-@media screen and (min-width: 1135px) {
-    .top-menu-nav ul {
-        max-height: none !important;
-        flex-direction: row !important;
-        justify-content: flex-end;
-        padding: 0;
-    }
-
-    .top-menu-nav li {
-        display: inline-block;
-        margin-right: 22px;
-    }
-
-    /* Affects only last li Item in ul */
-    .top-menu-nav li:last-child {
-        margin-right: 0 !important;
-    }
-    
-    nav.top-menu-nav a {
-        display: inline-block;
-        position: relative;
-        padding-bottom: 60px;
-        text-align: end;
-        margin-right: 0 !important;
-        transition: padding-bottom 0.4s ease-in-out;   
-    }
-
-    /* Fixed Navbar: decrease padding of Links in Navigation */
-    .fixed-header .top-menu-nav a {
-        padding-bottom: 40px;
-    }
-
-    .menubutton {display: none !important }
+/* Properties to secure space that navigation bar (following elements) need */
+#page-header {
+    line-height: 1.5rem;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999; /* Secures that this container stays always in front of other components */
 }
 
-/* Is being used with every Viewport width! */
-.top-navigation {
+/* Enables flex layout for it's content (3 DIV's) */
+.header-content-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-content: flex-start;
 }
 
-.top-menu-nav {
-    /* position: static; */
-     /* Why was Position set static? */
-    transition: padding-top 0.4s ease-in-out;
+/* Logo sticks to the right of parent container but gets vertically centered */
+.logo-container {
+    margin: auto auto auto 0;
 }
 
-.top-menu-nav ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    max-height: 0;
-    overflow: hidden;
+#logo {
+    width: 228px;
+    height: 102px;
 }
 
-.top-menu-nav a {
-    display: block;
-    background: #fff;
-    color: #3d3d3d;
-    padding: 0.5rem;
+#logo-link {
+    line-height: 0;
 }
 
-.top-menu-nav button {
-    width: 100%;
-    /* justify-content: flex-end; */
-    
+.site-navigation {
+    padding: 6rem 0;
     transition: padding 0.4s ease-in-out;
 }
 
-
+/* Decreasing value for smooth transition effect */
+.fixed-header .site-navigation {
+    padding: 4rem 0;
+}
 
 .menubutton {
-    /* display: flex;
-    align-items: center; */
+    width: 100%;
     background: inherit;
     color: #000;
     font: inherit;
     text-align: center;
     padding: 0rem 1rem; 
-    border: 0; 
     margin: 0;
+    border: 0;
+    display: none; /* Button standardly invisible */
 }
 
 .menubutton::before {
@@ -93,61 +57,107 @@
     content: url(../img/icons/menuburger.svg);
     width: 1.5em;
     height: 1.5em;
-    /* margin-right: 1.1em; */
 }
 
-.showmenu + ul {
-    overflow: initial;
-}
-
-.showmenu.menubutton::before {
+.show-menu.menubutton::before {
     content: url(../img/icons/menuclose.svg);
 }
 
-#logo-link {
-    line-height: 0;
+/* + is an adjacent selector - affects ul only when follows immediately on the show-menu class  */
+.show-menu + ul {
+    overflow: initial !important; /* Makes collapsed navigation visible */
+    max-height: none; /* Reset limited height */
 }
 
+.site-navigation ul {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+@media screen and (min-width: 1135px) {
+
+}
+
+@media screen and (max-width: 1134px) {
+    .menubutton {
+        display: inline-block; /* Makes button and it's ::before content visible */
+    }
+
+    .site-navigation ul {
+        max-height: 0; /* Limit height of navigation content */
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 625px) and (max-width: 1134px) {
+    #logo {
+        width: 183px;
+        height: 82px;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    #logo {
+        width: 148px;
+        height: 66px;
+    }
+}
+
+
+/* Vertical layout: navigation content visible */
+@media screen and (min-width: 1135px) {
+    .site-navigation li {
+        display: inline-block;
+        margin-right: 22px;
+    }
+
+    /* Affects only last li Item in ul */
+    .site-navigation li:last-child {
+        margin-right: 0 !important;
+    }
+    
+    nav.site-navigation a {
+        display: inline-block;
+        position: relative;
+        text-align: end;
+        margin-right: 0 !important;
+        transition: padding-bottom 0.4s ease-in-out;   
+    }
+}
+
+
+
+.site-navigation a {
+    display: block;
+    background: #fff;
+    color: #3d3d3d;
+    padding: 0.5rem;
+}
+
+
+
 @media screen and (min-width: 625px) {
-    .top-menu-nav {
-        padding-top: 6rem;
-        /* padding: 60px 0 0 0; */
-    }
-
-    /* Collapsed Navbar */
-    .fixed-header .top-menu-nav {
-        padding-top: 4rem;
-    }
-
-    .top-menu-nav button {
-        padding-bottom: 6rem;
-    }
-
-    /* Collapsed Navbar */
-    .fixed-header button {
-        padding-bottom: 4rem;
-    }
+    
 
     
 }
 
+/* Layout on small devices (phones) */
 @media screen and (max-width: 624px) {
-    .top-menu-nav {
+    .site-navigation {
         padding-top: 4rem;
-        /* padding: 60px 0 0 0; */
-    }
-
-    /* Collapsed Navbar */
-    .fixed-header .top-menu-nav {
-        padding-top: 3rem;
-    }
-
-    .top-menu-nav button {
         padding-bottom: 4rem;
     }
 
-    /* Collapsed Navbar */
-    .fixed-header button {
+    /* Decreasing value for smooth transition effect */
+    .fixed-header .site-navigation {
+        padding-top: 3rem;
         padding-bottom: 3rem;
     }
 }
