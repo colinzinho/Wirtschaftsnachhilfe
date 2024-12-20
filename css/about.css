@@ -1,0 +1,24 @@
+
+@media screen and (min-width: 1525px) {
+    .container-about-me {
+        grid-template-columns: 1.25fr 1fr;
+        column-gap: 1rem;
+    }
+
+    #portrait {
+        width: 271px;
+        height: 363px;
+    }
+}
+
+@media screen and (max-width: 1524px) {
+    .container-about-me {
+        grid-template-columns: 1fr;
+        column-gap: 6rem;
+    }
+}
+
+/* Contact btns in offers section are being centered at max-width: 1134px */
+@media screen and (max-width: 984px) {
+    .container-contact-btn { text-align: center; }
+}

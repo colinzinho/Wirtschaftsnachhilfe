@@ -70,19 +70,16 @@ function onClick() {
 
     /* Sets behavior as links in navbar are being clicked */
     $("#navigation a").click(function (event) {
-        var sectionName = $(this).data("nav-section"); 
-        var result = scrollingTo(sectionName);
+        let sectionName = $(this).data("nav-section"); 
+        let result = scrollingTo(sectionName);
         if(!result) {
         event.preventDefault(); // what does this do - exception handler??
         }
     });
 
-    /* Sets behavior as one of the various contact buttons is being clicked  */
+    
     $(".contact-btn").click(function (event) {
-        var result = scrollingTo('contact');
-        if(!result) {
-        event.preventDefault(); // what does this do - exception handler??
-        }
+        
     });
 
     /* Arrow up button which hides in the bottom right corner of the website */
@@ -91,6 +88,14 @@ function onClick() {
         $(window).scrollTop(0)
     });
 };
+
+/* Sets behavior as one of the various contact buttons is being clicked  */
+function onContactBtnClicked(event) {
+    let result = scrollingTo('contact');
+    if(!result) {
+    event.preventDefault(); // what does this do - exception handler??
+    }
+}
 
 /* Helper function: enables scrolling on whole webpage */
 function scrollingTo(input) {

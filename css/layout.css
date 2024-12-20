@@ -65,8 +65,6 @@
     min-height: 30px;
 }
 
-
-
 .builder-inner-content {
     position: relative;
     z-index: 1;
@@ -450,24 +448,9 @@ margin-bottom: 0;
     }
 }
 
-@media screen and (max-width: 1524px) {
-    .container-about-me {
-        grid-template-columns: 1fr;
-        column-gap: 6rem;
-    }
-}
 
-@media screen and (min-width: 1525px) {
-    .container-about-me {
-        grid-template-columns: 1.25fr 1fr;
-        column-gap: 1rem;
-    }
 
-    #portrait {
-        width: 271px;
-        height: 363px;
-    }
-}
+
 
 @media screen and (min-width: 985px) and (max-width: 1524px){
     #portrait {
@@ -587,11 +570,8 @@ margin-bottom: 0;
 
 /* Layout 2 vertically */
 @media screen and (max-width: 984px) {
-    .container-about-me .section-heading {
-        grid-column: 1/1;
-    }
 
-    .container-about-me .section-heading, .container-contact-btn {
+    .container-about-me .container-contact-btn {
         text-align: center;
     }
     
@@ -611,6 +591,7 @@ margin-bottom: 0;
         font-size: 75px !important;
     }
 
+    /* Über mich Abschnitt */
     .container-about-me .contact-btn {
         margin-top: 1rem;
     }
@@ -666,7 +647,6 @@ margin-bottom: 0;
     }
 }
 
-
 .multiple-inputfield {
     display: flex;
 }
@@ -675,15 +655,9 @@ margin-bottom: 0;
     width: auto;
 }
 
-
-
-
-
 .width-auto {
     width: auto !important;
 }
-
-
 
 .add-information {
     min-width: 10% !important;
