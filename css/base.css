@@ -90,6 +90,14 @@ p {
     text-align: justify; /* Stellt Text im Blocksatz dar */
 }
 
+h1, h2, h4, h5, h6 {
+    line-height: 1em;
+}
+
+h2, h4, h5, h6 {
+    padding-bottom: 1rem;
+}
+
 /* Dynamischer Teil */
 
 @media screen and (min-width: 1135px) {
@@ -99,11 +107,6 @@ p {
 
     .smaller-txt {
         font-size: 1.5rem !important;
-    }
-    
-    h1, h2, h4, h5, h6 {
-        padding-bottom: 1rem;
-        line-height: 1em;
     }
     
     a, button, p, span {
@@ -128,11 +131,6 @@ p {
         font-size: 1.4rem;
     }
     
-    h1, h2, h4, h5, h6 {
-        padding-bottom: 1rem;
-        line-height: 1em;
-    }
-    
     a, button, p, span {
         font-size: 1.6rem;
         line-height: 1.6em;
@@ -153,11 +151,6 @@ p {
         font-size: 1.4rem;
     }
     
-    h1, h2, h4, h5, h6 {
-        padding-bottom: 1rem;
-        line-height: 1em;
-    }
-    
     a, button, p, span {
         font-size: 1.4rem;
         line-height: 1.4em;
@@ -171,7 +164,7 @@ p {
     h6 { font-size: 1rem; font-variant: small-caps; }
 }
 
-@media screen and (min-width: 1135px) and (max-width: 1524px) {
+@media screen and (min-width: 984px) and (max-width: 1524px) {
     .container-fluid {
         width: 90%;
         margin: auto;
