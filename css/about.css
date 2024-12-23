@@ -1,24 +1,59 @@
+.container-about-me {
+    grid-template-columns: 1.25fr 1fr; /* Two columns; first one is 0.25x wider */
+    column-gap: 1rem;
+}
 
-@media screen and (min-width: 1525px) {
-    .container-about-me {
-        grid-template-columns: 1.25fr 1fr;
-        column-gap: 1rem;
-    }
+#portrait {
+    width: 181px;
+    height: 242px;
+}
 
+.centered-img {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+@media screen and (min-width: 1524px) {
+    /* Enlarge portrait picture on big devices */
     #portrait {
         width: 271px;
         height: 363px;
     }
 }
 
+/* Used width of content 90% (container-fluid) */
 @media screen and (max-width: 1524px) {
-    .container-about-me {
-        grid-template-columns: 1fr;
-        column-gap: 6rem;
+    /* Change to one-column-layout only - section-heading grid element loses power of dividing grid into columns grid-column: 1/3; */
+    .container-about-me { grid-template-columns: 1fr; }
+
+    .txt-about-me {
+        border: 1px solid #000;
+        padding: 0.75rem;
+    }
+}
+
+/* On devices width wdth smaller than 985px the portrait picture takes it's default size (width=181px height=242px) */
+@media screen and (min-width: 984px) and (max-width: 1524px){
+    .container-about-me { column-gap: 6rem; }
+
+    #portrait {
+        width: 224px;
+        height: 300px;
     }
 }
 
 /* Contact btns in offers section are being centered at max-width: 1134px */
-@media screen and (max-width: 984px) {
+@media screen and (max-width: 983px) {
+    .container-about-me {
+        column-gap: 0; /* One-row-layout no column-gap required */
+    }
+
+    /* Moves img up straight after section heading and before text about-me */
+    .container-portrait {
+        grid-row: 2;
+        margin-bottom: 1.5rem;
+    }
+
     .container-contact-btn { text-align: center; }
 }

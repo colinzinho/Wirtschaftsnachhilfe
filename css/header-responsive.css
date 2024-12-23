@@ -17,18 +17,14 @@
 }
 
 /* Logo sticks to the right of parent container but gets vertically centered */
-.logo-container {
-    margin: auto auto auto 0;
-}
+.logo-container { margin: auto auto auto 0; }
 
 #logo {
     width: 228px;
     height: 102px;
 }
 
-#logo-link {
-    line-height: 0;
-}
+#logo-link { line-height: 0; }
 
 .site-navigation {
     padding: 6rem 0;
@@ -36,9 +32,7 @@
 }
 
 /* Decreasing value for smooth transition effect */
-.fixed-header .site-navigation {
-    padding: 4rem 0;
-}
+.fixed-header .site-navigation { padding: 4rem 0; }
 
 .menubutton {
     width: 100%;
@@ -59,9 +53,7 @@
     height: 1.5em;
 }
 
-.show-menu.menubutton::before {
-    content: url(../img/icons/menuclose.svg);
-}
+.show-menu.menubutton::before { content: url(../img/icons/menuclose.svg); }
 
 /* + is an adjacent selector - affects ul only when follows immediately on the show-menu class  */
 .show-menu + ul {
@@ -84,27 +76,21 @@
     padding: 0.5rem;
 }
 
-.site-navigation span {
-    padding-left: 0.5rem; /* Increases the effect of centered elements in navigation */
-}
+/* Increases the effect of centered elements in navigation */
+.site-navigation span { padding-left: 0.5rem; }
 
 /* Vertical layout: navigation content visible */
 @media screen and (min-width: 1135px) {
-    .site-navigation li {
-        margin-right: 22px;
-    }
+    .site-navigation li { margin-right: 22px; }
 
     /* Affects only last li Item in ul */
-    .site-navigation li:last-child {
-        margin-right: 0 !important;
-    }
+    .site-navigation li:last-child { margin-right: 0 !important; }
 }
 
 /* Horizontal layout: navigation content collapsed */
 @media screen and (max-width: 1134px) {
-    .menubutton {
-        display: inline-block; /* Makes button and it's ::before content visible */
-    }
+    /* Makes button and it's ::before content visible */
+    .menubutton { display: inline-block; }
 
     .site-navigation ul {
         max-height: 0; /* Limit height of navigation content */
@@ -112,13 +98,9 @@
     }
 
     /* Create space between collapsed menu button and site menu */
-    .space-between li:first-child {
-        margin-top: 1.5rem;
-    }
+    .space-between li:first-child { margin-top: 1.5rem; }
 
-    .site-navigation a {
-        display: block;
-    }
+    .site-navigation a { display: block; }
 }
 
 /* Reduces size of site logo */

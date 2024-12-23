@@ -117,15 +117,15 @@
                 <h2>Über mich</h2>
               </div>
               <div>
-                <div class="text-portrait">
-                  <p class="p-w-lBreaks">
+                <div class="txt-about-me">
+                  <p class="txt-with-lBreaks">
                     Ich verfüge über 20 Jahre Berufserfahrung als Lehrperson in den Fachgebieten Wirtschaft und Recht und Finanz- und Rechnungswesen. 
                     Unterrichtet habe ich an der Kaufmännischen Berufsschule und zwar in sämtlichen Profilen, auch Berufsmaturität.  
                     Ebenfalls Berufserfahrung konnte ich bei Privatschulen, an der Fachmittelschule sowie am Gymnasium sammeln. 
                     Während 10 Jahren habe ich kaufmännische Lehrabschlussprüfungen (auch Berufsmaturitätsprüfungen) korrigiert und ebenfalls während 10 Jahren mündliche Prüfungen im Bereich BWL und VWL bei Technischen Kaufleuten abgenommen. 
                     Ich verfüge sowohl über die fachlichen wie auch pädagogisch notwendigen Diplome.  
                   </p>
-                  <p class="p-w-lBreaks">
+                  <p class="txt-with-lBreaks">
                     Die Arbeit mit Jugendlichen bereitet mir grosse Freude. Mein Ansporn ist es, sie bei ihrer Ausbildung kompetent zu unterstützen und sie professionell auf die Abschlussprüfungen vorzubereiten.  
                   </p>
                   <p>
@@ -133,7 +133,7 @@
                   </p>
                 </div>
               </div>
-              <div class="portrait center-image">
+              <div class="container-portrait centered-img">
                   <img id="portrait" src="img/portrait_silvia_von_burg.jpg" alt="Portrait Silvia von Burg" width="181" height="242">
               </div>
               <div class="container-contact-btn">
@@ -146,18 +146,17 @@
               <div class="section-heading">
                 <h2>Kontakt</h2>
               </div>
-              <div>
+              <div class="container-grid-details">
                 <div class="contact-details">
                   <p>Silvia von Burg</p>
                   <p>E-Mail: info@silviavonburg.ch</p>
                   <p>Mobile: +41 79 340 04 72</p>
                 </div>
-                <!-- <br> -->
-                <p class="text-field-required"><span>*</span> sind Pflichtfelder</p>
+                <p class="shift-left"><span class="field-required">*</span> sind Pflichtfelder</p>
               </div>
-              <div class="form-contact">
-                <form action="#" method="POST" class="form">
-                  <div class="field-wrapper entire-line">
+              <div class="container-contact-form">
+                <form action="#" method="POST" class="grid-layout contact-form">
+                  <div class="entire-line">
                     <label for="course">Ich interessiere mich für<span class="field-required">*</span></label>
                     <select id="course" name="course" required>
                       <option>Wählen Sie ein Angebot aus</option>
@@ -167,45 +166,54 @@
                       <option>Kurse / Expertentätigkeiten</option>
                     </select>
                   </div>
-                  <div class="field-wrapper border-right">
-                    <div class="field">
+                  <div>
+                    <div class="fieldcontainer-static-width">
                       <label for="firstname" class="form-label">Vorname<span class="field-required">*</span></label><input type="text" id="firstname" name="firstname" class="inputfield" size="20" required>
                     </div>
                   </div>
-                  <div class="field-wrapper">
-                    <div class="field">
+                  <div class="">
+                    <div class="fieldcontainer-static-width">
                       <label for="lastname" class="form-label">Nachname<span class="field-required">*</span></label><input type="text" id="lastname" name="lastname" class="inputfield" size="20" required>
                     </div>
                   </div>
-                  <div class="field-wrapper multiple-inputfield street border-right">
-                    <div class="field decreasing-width-wrapper smaller-space-on-small-devices padding-right">
-                      <label for="street" class="form-label">Strasse<span class="field-required">*</span></label><input type="text" id="street" name="street" class="inputfield" size="20" required>
-                    </div>
-                    <div class="field width-auto add-information">
-                      <label for="streetnumber" class="form-label smaller-txt">Nr.<span class="field-required">*</span></label><input type="text" id="streetnumber" name="streetnumber" class="inputfield" size="3" required>
-                    </div>
-                  </div>
-                  <div class="field-wrapper multiple-inputfield postalcode">
-                    <div id="no-padding-right" class="field width-auto add-information smaller-space-on-small-devices">
-                      <label for="postalcode" class="form-label smaller-txt">PLZ<span class="field-required">*</span></label><input type="text" id="postalcode" name="postalcode" class="inputfield" size="3" required>
-                    </div>
-                    <div class="field decreasing-width-wrapper padding-left">
-                      <label for="city" class="form-label">Ort<span class="field-required">*</span></label><input type="text" id="city" name="city" class="inputfield place" size="20" required>
+                  <div>
+                    <div class="fieldcontainer-static-width flex-layout">
+                      <div class="container-flex-input-fields entire-line-layout-inputs semi-line-layout-inputs">
+                        <label for="street" class="form-label">Strasse<span class="field-required">*</span></label><input type="text" id="street" name="street" class="inputfield" size="20" required>
+                      </div>
+                      <div class="container-streetnumber padding-left">
+                        <label for="streetnumber" class="form-label smaller-txt">Nr.<span class="field-required">*</span></label><input type="text" id="streetnumber" name="streetnumber" class="inputfield" size="4" required>
+                      </div>
                     </div>
                   </div>
-                  <div class="field-wrapper entire-line">
-                    <label for="email">Email<span class="field-required">*</span></label>
-                    <input type="email" id="email" name="email" class="email" size="30" required>
+                  <div class="postalcode">
+                    <div class="fieldcontainer-static-width flex-layout manual-settings">
+                      <div id="no-padding-right" class="">
+                        <label for="postalcode" class="form-label smaller-txt">PLZ<span class="field-required">*</span></label><input type="text" id="postalcode" name="postalcode" class="inputfield" size="4" required>
+                      </div>
+                      <div class="container-flex-input-fields entire-line-layout-inputs semi-line-layout-inputs padding-left">
+                          <label for="city" class="form-label">Ort<span class="field-required">*</span></label><input type="text" id="city" name="city" class="inputfield place" size="20" required>
+                      </div>
+                    </div>
+                    
                   </div>
-                  <div class="field-wrapper entire-line et-last-child">
-                    <label for="message">Nachricht</label>
-                    <textarea id="message" class="textarea" name="message" cols="20" rows="5"></textarea>
+                  <div class="entire-line">
+                    <div class="fieldcontainer-email-width">
+                      <label for="email">Email<span class="field-required">*</span></label>
+                      <input type="email" id="email" name="email" class="inputfield email" size="30" required>
+                    </div>
                   </div>
-                  <div class="accept-data-privacy entire-line">
+                  <div class="entire-line last-inputfield-child">
+                    <div class="txtarea-entire-line-layout txtarea-semi-line-layout">
+                      <label for="message">Nachricht</label>
+                      <textarea id="message" class="inputfield textarea" name="message" cols="20" rows="5"></textarea>
+                    </div>
+                  </div>
+                  <div class="flex-layout container-data-privacy entire-line">
                     <input type="checkbox" id="privacy-policy" class="checkbox" name="privacy-policy" required>
                     <label for="privacy-policy">Ich stimme der <a href="datenschutzerklärung/Datenschutzerklaerung.pdf" target="_blank">Datenschutzerklärung</a> zu<span class="field-required">*</span></label>
                   </div>
-                  <div class="container-submit">
+                  <div>
                     <button type="submit" class="pb-button">Abschicken</button>
                   </div>
                 </form>

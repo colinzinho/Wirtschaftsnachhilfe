@@ -1,7 +1,7 @@
-var header;
-var pageContainer;
-var toTopBtn;
-var thresholdToTopBtn = -1;
+let header;
+let pageContainer;
+let toTopBtn;
+let thresholdToTopBtn = -1;
 const imaginarySpace = 20; /* stands for the imagniary space in px above the header */ 
 
 $(document).ready(function() {
@@ -12,9 +12,9 @@ $(document).ready(function() {
 });
 
 $(window).scroll(function() {
-var windowpos = $(window).scrollTop(); /* gets vertical scrollbar position of window element(top left corner of window) */
-var headerIsFixed = header.hasClass("fixed-header");
-var btnIsHidden = toTopBtn.hasClass("hidden");
+let windowpos = $(window).scrollTop(); /* gets vertical scrollbar position of window element(top left corner of window) */
+let headerIsFixed = header.hasClass("fixed-header");
+let btnIsHidden = toTopBtn.hasClass("hidden");
 
 if(windowpos > imaginarySpace && !headerIsFixed) {
     header.addClass("fixed-header"); /* Changes/ decreases height of header */
@@ -99,12 +99,12 @@ function onContactBtnClicked(event) {
 
 /* Helper function: enables scrolling on whole webpage */
 function scrollingTo(input) {
-    var sectionName = input.toLowerCase();
+    let sectionName = input.toLowerCase();
     /* If not set to 19 on small devices (< 625px) scrolling mechanism scrolls to far */
-    var collapsingValueNavBar = (!header.hasClass('fixed-header') && $(window).width() < 625) ? 19 : -1;
+    let collapsingValueNavBar = (!header.hasClass('fixed-header') && $(window).width() < 625) ? 19 : -1;
 
     if ($('div[data-section="' + sectionName + '"]').length) {
-    var headerHeight = getHeaderHeight() + collapsingValueNavBar;
+    let headerHeight = getHeaderHeight() + collapsingValueNavBar;
     $("html").animate(
         {
         scrollTop:

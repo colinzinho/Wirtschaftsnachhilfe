@@ -24,11 +24,6 @@
     #slogan { font-size: 3vw; }
 }
 
-
-@media screen and (min-width: 625px) and (max-width: 1134px) {
-    
-}
-
 @media screen and (max-width: 624px) {
     .wallpaper-background { min-height: calc(0.66 * 100vw); } /* Enlarge min-height of wallpaper-background */
     #slogan{ font-size: 4.5vw; }

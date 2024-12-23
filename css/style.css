@@ -2,13 +2,15 @@
 
 @import url(base.css);
 
-@import url(header-responsiv.css);
+@import url(header-responsive.css);
 
 @import url(wallpaper-background.css);
 
 @import url(offers.css);
 
 @import url(about.css);
+
+@import url(contact-us.css);
 
 @import url(content.css);
 

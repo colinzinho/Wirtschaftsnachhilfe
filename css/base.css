@@ -5,9 +5,7 @@
 /* Aktivieren des Border-Box-Modell für alle Elemente inkl. durch CSS erzeugte Inhalte in den Pseudoelementen ::before & ::after */
 *,
 *::before,
-*::after {
-    box-sizing: border-box;
-}
+*::after {  box-sizing: border-box; }
 
 /* Vermeiden von Collapsing Margins (zusammenfallende / kolllabierende Aussenabstände) */
 html { scroll-behavior: smooth; }
@@ -49,29 +47,19 @@ input, button, select, textarea, option {
     color: inherit;
 }
 
-body {
-    overflow-x: hidden;
-}
+body { overflow-x: hidden; }
 
-/**
-  * 3. Elementselektoren
-  */
+/* 3. Elementselektoren */
 a {
     text-decoration: none;
     color: #3d3d3d;
 }
 
-a, button, select {
-    cursor: pointer;
-}
+a, button, select, input[type=checkbox] { cursor: pointer; }
 
-article {
-    display: block;
-}
+article { display: block; }
 
-address {
-    font-style: normal;
-}
+address { font-style: normal; }
 
 img {
     max-width: 100%;
@@ -85,29 +73,37 @@ img {
     position: relative;
 }
 
+@media screen and (min-width: 984px) and (max-width: 1524px) {
+    .container-fluid {
+        width: 90%;
+        margin: auto;
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 624px) {
+    .container-fluid {
+        width: 90%;
+        margin: auto;
+        position: relative;
+    }
+}
+
 p {
     hyphens: auto; /* Implementiert Silbentrennung */
     text-align: justify; /* Stellt Text im Blocksatz dar */
 }
 
-h1, h2, h4, h5, h6 {
-    line-height: 1em;
-}
+h1, h2, h4, h5, h6 { line-height: 1em; }
 
-h2, h4, h5, h6 {
-    padding-bottom: 1rem;
-}
+h2, h4, h5, h6 { padding-bottom: 1rem; }
 
 /* Dynamischer Teil */
 
 @media screen and (min-width: 1135px) {
-    div {
-        font-size: 1.8rem;
-    }
+    div { font-size: 1.8rem; }
 
-    .smaller-txt {
-        font-size: 1.5rem !important;
-    }
+    .smaller-txt { font-size: 1.5rem !important; }
     
     a, button, p, span {
         font-size: 1.8rem;
@@ -123,13 +119,9 @@ h2, h4, h5, h6 {
 }
 
 @media screen and (min-width: 625px) and (max-width: 1134px) {
-    div {
-        font-size: 1.6rem;
-    }
+    div { font-size: 1.6rem; }
 
-    .smaller-txt {
-        font-size: 1.4rem;
-    }
+    .smaller-txt { font-size: 1.4rem; }
     
     a, button, p, span {
         font-size: 1.6rem;
@@ -147,9 +139,7 @@ h2, h4, h5, h6 {
 }
 
 @media screen and (max-width: 624px) {
-    div {
-        font-size: 1.4rem;
-    }
+    div { font-size: 1.4rem; }
     
     a, button, p, span {
         font-size: 1.4rem;
@@ -162,20 +152,4 @@ h2, h4, h5, h6 {
     h4 { font-size: 1.5rem }
     h5 { font-size: 1.25rem }
     h6 { font-size: 1rem; font-variant: small-caps; }
-}
-
-@media screen and (min-width: 984px) and (max-width: 1524px) {
-    .container-fluid {
-        width: 90%;
-        margin: auto;
-        position: relative;
-    }
-}
-
-@media screen and (max-width: 624px) {
-    .container-fluid {
-        width: 90%;
-        margin: auto;
-        position: relative;
-    }
 }
