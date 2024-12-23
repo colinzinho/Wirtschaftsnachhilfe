@@ -16,8 +16,7 @@
     align-content: flex-start;
 }
 
-/* Logo sticks to the right of parent container but gets vertically centered */
-.logo-container { margin: auto auto auto 0; }
+.logo-container { margin: auto auto auto 0; } /* Logo sticks to the right of parent container but gets vertically centered */
 
 #logo {
     width: 228px;
@@ -31,8 +30,7 @@
     transition: padding 0.4s ease-in-out;
 }
 
-/* Decreasing value for smooth transition effect */
-.fixed-header .site-navigation { padding: 4rem 0; }
+.fixed-header .site-navigation { padding: 4rem 0; } /* Decreasing value for smooth transition effect */
 
 .menubutton {
     width: 100%;
@@ -76,29 +74,25 @@
     padding: 0.5rem;
 }
 
-/* Increases the effect of centered elements in navigation */
-.site-navigation span { padding-left: 0.5rem; }
+.site-navigation span { padding-left: 0.5rem; } /* Increases the effect of centered elements in navigation */
 
 /* Vertical layout: navigation content visible */
 @media screen and (min-width: 1135px) {
     .site-navigation li { margin-right: 22px; }
 
-    /* Affects only last li Item in ul */
-    .site-navigation li:last-child { margin-right: 0 !important; }
+    .site-navigation li:last-child { margin-right: 0 !important; } /* Affects only last li Item in ul */
 }
 
 /* Horizontal layout: navigation content collapsed */
 @media screen and (max-width: 1134px) {
-    /* Makes button and it's ::before content visible */
-    .menubutton { display: inline-block; }
+    .menubutton { display: inline-block; } /* Makes button and it's ::before content visible */
 
     .site-navigation ul {
         max-height: 0; /* Limit height of navigation content */
         flex-direction: column;
     }
 
-    /* Create space between collapsed menu button and site menu */
-    .space-between li:first-child { margin-top: 1.5rem; }
+    .space-between li:first-child { margin-top: 1.5rem; } /* Create space between collapsed menu button and site menu */
 
     .site-navigation a { display: block; }
 }

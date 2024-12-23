@@ -79,8 +79,6 @@
     width: 0;
 }
 
-
-
 .pb-text h2{
     font-size: 50px;
     color: #ffffff !important;
@@ -135,12 +133,6 @@
     overflow-wrap: anywhere;
     height: fit-content;
 }
-
-
-
-
-
-
 
 .pb-text-align-center h2 { text-align: center; }
 
@@ -201,9 +193,7 @@
     row-gap: 1rem;
 }
 
-.flex-layout {
-    display: flex;
-}
+.flex-layout { display: flex; }
 
 @media screen and (min-width: 984px) {
     /* Title extends itself over full available width */

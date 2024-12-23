@@ -1,6 +1,4 @@
-
-/* Decrease Space between Wallpaper Background and first Section */
-.page-section.offers-students { padding-top: 0rem; }
+.page-section.offers-students { padding-top: 0rem; } /* Decrease Space between Wallpaper Background and first Section */
 
 .offer {
     border: 1px solid #000;
