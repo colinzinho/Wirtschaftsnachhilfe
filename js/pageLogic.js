@@ -8,7 +8,7 @@ $(document).ready(function() {
     /* Set variable values after initialization of site */
     header = $("#page-header");
     pageContainer = $("#page-container");
-    toTopBtn = $("#toTopBtn");
+    toTopBtn = $("#to-top-button");
 });
 
 $(window).scroll(function() {
@@ -83,7 +83,7 @@ function onClick() {
     });
 
     /* Arrow up button which hides in the bottom right corner of the website */
-    $("#toTopBtn").click(function (event) {
+    $("#to-top-button").click(function (event) {
         window.history.pushState('', '', '/index.html');
         $(window).scrollTop(0)
     });

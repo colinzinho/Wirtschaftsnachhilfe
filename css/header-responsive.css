@@ -8,15 +8,9 @@
     z-index: 99999; /* Secures that this container stays always in front of other components */
 }
 
-/* Enables flex layout for it's content (3 DIV's) */
-.header-content-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: flex-start;
-}
+.flex-layout.header-content-wrapper { justify-content: space-between; }
 
-.logo-container { margin: auto auto auto 0; } /* Logo sticks to the right of parent container but gets vertically centered */
+.logo-container { margin: auto 0; } /* Logo vertically centered */
 
 #logo {
     width: 228px;
@@ -28,6 +22,12 @@
 .site-navigation {
     padding: 6rem 0;
     transition: padding 0.4s ease-in-out;
+}
+
+.site-navigation .flex-layout {
+    column-gap: 2rem;
+    list-style: none;
+    overflow: hidden; /* If not set site-navigation does not hide when button is clicked on collapsed navigation view (small devices) */
 }
 
 .fixed-header .site-navigation { padding: 4rem 0; } /* Decreasing value for smooth transition effect */
@@ -59,14 +59,6 @@
     max-height: none; /* Reset limited height */
 }
 
-.site-navigation ul {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    list-style: none;
-    overflow: hidden;
-}
-
 .site-navigation a {
     display: inline-block;
     background: #fff;
@@ -75,13 +67,6 @@
 }
 
 .site-navigation span { padding-left: 0.5rem; } /* Increases the effect of centered elements in navigation */
-
-/* Vertical layout: navigation content visible */
-@media screen and (min-width: 1135px) {
-    .site-navigation li { margin-right: 22px; }
-
-    .site-navigation li:last-child { margin-right: 0 !important; } /* Affects only last li Item in ul */
-}
 
 /* Horizontal layout: navigation content collapsed */
 @media screen and (max-width: 1134px) {

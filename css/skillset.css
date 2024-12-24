@@ -22,8 +22,9 @@
     .flex-layout.container-icons { column-gap: 5%; } /* Only required when layout is row (default) */
 }
 
-
 @media screen and (max-width: 624px) {
+    .container-skillset{ padding: 2% 0; } /* Enlarge space-separation to top and bottom section */
+
     .container-skillset h2 { line-height: 1.2em; }
 
     .flex-layout.container-icons { 
