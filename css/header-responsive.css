@@ -47,8 +47,16 @@
 .menubutton::before {
     display: inline-block;
     content: url(../img/icons/menuburger.svg);
-    width: 1.5em;
-    height: 1.5em;
+    vertical-align: middle; /* Vertically centered */
+    width: 2.5em;
+    height: 2.5em;
+}
+
+@media screen and (max-width: 624px) {
+    .menubutton::before {
+        width: 2em;
+        height: 2.5em;
+    }
 }
 
 .show-menu.menubutton::before { content: url(../img/icons/menuclose.svg); }
