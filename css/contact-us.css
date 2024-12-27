@@ -1,0 +1,97 @@
+.container-contact { 
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem; /* Only needed when there are more than one column - less than 1135px of width this not the case anymore */
+}
+
+.contact-details { margin-bottom: 2rem; }
+
+.contact-form { grid-template-columns: 1fr 1fr; }
+
+.contact-form > div { margin-bottom: 1rem; }
+
+.contact-form .last-inputfield-child { margin-bottom: 0 !important; }
+ 
+.entire-line { grid-column: 1/3; }
+
+.fieldcontainer-static-width, .entire-line-layout-inputs, .txtarea-semi-line-layout { width: 75%; }
+
+.fieldcontainer-email-width { width: 50%; }
+
+.flex-layout.fieldcontainer-static-width { justify-content: space-between; }
+
+.contact-form label {
+    display: block;
+    font-weight: 600;
+}
+
+.contact-form input[type=text], select { min-height: 26px; } /* Ensure that entering text is always visible */
+
+.inputfield { width: 100%; }
+
+.container-data-privacy {
+    justify-content: flex-start; 
+    margin-bottom: 0.5rem; 
+}
+
+.container-data-privacy input { margin-right: 1rem; } /* Separates checkbox and information text */
+
+.container-data-privacy a { color: #d06f25; }
+
+.field-required {
+    color: #790000;
+    margin-left: 4px;
+}
+
+.padding-left { padding-left: 2.5%; }
+
+@media screen and (min-width: 1135px) {
+    .contact-form .txtarea-entire-line-layout { width: 87.5%; } /* Textarea to go conform with other inputfields */
+}
+
+@media screen and (min-width: 625px) and (max-width: 1134px) {
+    .contact-form > div { margin-left: 10%; }
+
+    /* shift-left moves '* sind Pflichfelder' to the right */
+    .contact-form > .entire-line, .shift-left { 
+        margin-left: 5%; 
+        width: 90%; /* If width would stay at 100% it would overlap the parent div and the email-input-field can't be adjusted to the width of the other input fields properly... */
+    }
+
+    .contact-form .txtarea-entire-line-layout { width: 93%; }
+}
+
+@media screen and (max-width: 1134px) {
+    .container-contact { grid-template-columns: 1fr; } /* Moves form under contact details */
+
+    .container-contact .section-heading, .contact-details p { text-align: center; }
+
+    .container-grid-details  { grid-column: 1 / 3; } /* Contact-details row takes whole screen width to display */
+
+    .contact-details {margin-bottom: 3rem;}
+
+    .contact-form { padding: 0 0 1rem 0; } /* Insert extra space between form-bottom and section skillset on small devices */
+
+    .contact-form label { font-weight: 400; }
+}
+
+@media screen and (min-width: 625px) {
+    .contact-form .email { width: 75%; } /* Inputfield where email is entered */
+}
+
+@media screen and (max-width: 624px) {
+    .container-contact { margin: 2rem auto; } /* If not set too less space between sections  */
+
+    .contact-form { grid-template-columns: 1fr; } /* Changing to row-layout - no more inputfields next to each other! */
+
+    .contact-form > div { margin-left: 0; }
+
+    .contact-form, .shift-left { padding-left: 10% !important; } /* shift-left moves '* sind Pflichfelder' to the right */
+
+    .entire-line { grid-column: 1 / 1; }  /* Switch to row-layout - no more columns and elements next to each other! */
+
+    .container-form .fieldcontainer-dynamic-width { width: 80%; }
+
+    .container-flex-input-fields.semi-line-layout-inputs { width: 80%; } /* Reduces space on small devices between input fields on the same line */
+
+    .fieldcontainer-email-width { width: 75%; }
+}

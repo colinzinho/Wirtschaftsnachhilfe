@@ -1,9 +1,18 @@
+@import url(font.css);
+
 @import url(base.css);
 
-@import url(content.css);
+@import url(header-responsive.css);
+
+@import url(wallpaper-background.css);
+
+@import url(offers.css);
+
+@import url(about.css);
+
+@import url(contact-us.css);
+
+@import url(skillset.css);
 
 @import url(layout.css);
 
-@import url(font.css);
-
-@import url(navi-responsiv.css);

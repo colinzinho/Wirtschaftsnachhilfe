@@ -1,0 +1,30 @@
+
+.wallpaper-background {
+    background-image: url('../img/wallpaper_background.jpg') !important;
+    min-height: 27vw; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.container-slogan {
+    position: absolute;
+    right: 5%;
+    top: 20%;
+}
+
+#slogan {
+    font-size: 4vw;
+    color: #ffffff !important;
+    text-align: end;
+}
+
+/* Exception slogan looks too big on screen bigger than 1620px */
+@media screen and (min-width: 1620px) {
+    #slogan { font-size: 3vw; }
+}
+
+@media screen and (max-width: 624px) {
+    .wallpaper-background { min-height: calc(0.66 * 100vw); } /* Enlarge min-height of wallpaper-background */
+    #slogan { font-size: 4.5vw; }
+}

@@ -1,22 +1,58 @@
-/**
- * 1. Allgemeine Eninstellungen
-*/
+*, *::before, *::after {  box-sizing: border-box; } /* Aktivieren des Border-Box-Modell für alle Elemente inkl. durch CSS erzeugte Inhalte in den Pseudoelementen ::before & ::after */
 
-/* Aktivieren des Border-Box-Modell für alle Elemente inkl. durch CSS erzeugte Inhalte in den Pseudoelementen ::before & ::after */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+html { 
+    scroll-behavior: smooth; /* Vermeiden von Collapsing Margins (zusammenfallende / kolllabierende Aussenabstände) */
+    font-size: 62.5%; /* Root font size of browsers is 16px - if we set root fot size to 62.5% we get 10px and it's easier to calculate! */
 }
 
-/* Vermeiden von Collapsing Margins (zusammenfallende / kolllabierende Aussenabstände) */
-html { scroll-behavior: smooth; }
+/* ----------------------------------------------------------------------------- START font size and style ------------------------------------------------------------------------------------------------------------------------------------------------- */
+* {
+    font-family: 'Comic Sans MS', 'Sour Gummy', "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+      "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    color: #3d3d3d;
+}
+
+a, button, label, p, span {
+    font-size: 1.8rem;
+    line-height: 1.8em;
+}
+
+h2 { font-size: 4rem; }
+h3 { font-size: 3.2rem }
+
+h1, h2 { line-height: 1em; }
+
+h2 { padding-bottom: 1rem !important;}
+
+@media screen and (min-width: 625px) and (max-width: 1134px) {
+    a, button, label, p, span {
+        font-size: 1.6rem;
+        line-height: 1.6em;
+    }
+    
+    h2 { font-size: 3rem; }
+    h3 { font-size: 2.4rem }
+}
+
+@media screen and (max-width: 624px) {
+    a, button, label, p, span {
+        font-size: 1.4rem;
+        line-height: 1.5em;
+    }
+
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.7rem } 
+}
+/* ----------------------------------------------------------------------------- START font size and style ------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 body {
     background-size: cover !important;
     background-position: top !important;
     background-repeat:  no-repeat !important;
     background-attachment: fixed !important;
+    overflow-x: hidden; /* Content that overflows the body element should be hidden! */
+    hyphens: auto; /* Implementiert Silbentrennung */
+    
 }
 
 a, body, button, blockquote div, h1, h2, h3, h4, h5, h6, html, img, li, p, span, ol, ul {
@@ -24,183 +60,31 @@ a, body, button, blockquote div, h1, h2, h3, h4, h5, h6, html, img, li, p, span,
     padding: 0;
     border: 0;
     outline: 0;
-    vertical-align: baseline;
-    background-color: transparent;
 }
 
-textarea { margin-block-end: 0; }
-
-/**
- * 2. Grundlegende Schrift- und Textgestaltung
-*/
-html {
-    --font-fallback: "-apple-system", BlinkMacSystemFont;
-    font-size: 62.5%;
-}
-
-* {
-    font-family: 'Comic Sans MS', 'Sour Gummy', "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-      "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    color: #3d3d3d;
-}
-
-input, button, select, textarea, option {
-    font-family: inherit;
-    color: inherit;
-}
-
-body {
-    overflow-x: hidden;
-}
-
-/**
-  * 3. Elementselektoren
-  */
 a {
     text-decoration: none;
     color: #3d3d3d;
 }
 
-a, button, select {
-    cursor: pointer;
-}
-
-article {
-    display: block;
-}
-
-address {
-    font-style: normal;
-}
+a, button, select, input[type=checkbox] { cursor: pointer; }
 
 img {
     max-width: 100%;
     height: auto;
 }
 
+p { text-align: justify; /* Stellt Text im Blocksatz dar */ }
+
+
+/* ----------------------------------------------------------------------------- START container fluid layout ------------------------------------------------------------------------------------------------------------------------------------------------- */
 .container-fluid {
     width: 80%;
     margin: auto;
     position: relative;
 }
 
-p {
-    hyphens: auto; /* Implementiert Silbentrennung */
-    text-align: justify; /* Stellt Text im Blocksatz dar */
-}
-
-@media screen and (min-width: 524px) and (max-width: 623px) {
-    .blocker {
-        min-width: 58%;
-    }
-}
-
-@media screen and (min-width: 424px) and (max-width: 523px) {
-    .blocker {
-        min-width: 48%;
-    }
-}
-
-@media screen and (min-width: 324px) and (max-width: 423px) {
-    .blocker {
-        min-width: 38%;
-    }
-}
-
-@media screen and (max-width: 323px) {
-    .blocker {
-        min-width: 28%;
-    }
-}
-
-/* Dynamischer Teil */
-
-@media screen and (min-width: 1135px) {
-    div {
-        font-size: 1.8rem;
-    }
-
-    .smaller-txt {
-        font-size: 1.5rem !important;
-    }
-    
-    h1, h2, h4, h5, h6 {
-        padding-bottom: 1rem;
-        line-height: 1em;
-    }
-    
-    a, button, p, span {
-        font-size: 1.8rem;
-        line-height: 1.8em;
-    }
-    
-    /* h1 { font-size: 5rem; } */
-    h2 { font-size: 4rem; }
-    h3 { font-size: 3rem }
-    h4 { font-size: 1.5rem }
-    h5 { font-size: 1.25rem }
-    h6 { font-size: 1rem; font-variant: small-caps; }
-
-    .blocker {
-        width: 33%;
-    }
-}
-
-@media screen and (min-width: 625px) and (max-width: 1134px) {
-    div {
-        font-size: 1.6rem;
-    }
-
-    .smaller-txt {
-        font-size: 1.4rem;
-    }
-    
-    h1, h2, h4, h5, h6 {
-        padding-bottom: 1rem;
-        line-height: 1em;
-    }
-    
-    a, button, p, span {
-        font-size: 1.6rem;
-        line-height: 1.6em;
-    }
-    
-    /* h1 { font-size: 5rem; } */
-    h2 { font-size: 3rem; }
-    h3 { font-size: 2rem }
-    h4 { font-size: 1.5rem }
-    h5 { font-size: 1.25rem }
-    h6 { font-size: 1rem; font-variant: small-caps; }
-
-    .blocker {
-        min-width: 63%;
-    }
-}
-
-@media screen and (max-width: 624px) {
-    div {
-        font-size: 1.4rem;
-    }
-    
-    h1, h2, h4, h5, h6 {
-        padding-bottom: 1rem;
-        line-height: 1em;
-    }
-    
-    a, button, p, span {
-        font-size: 1.4rem;
-        line-height: 1.4em;
-    }
-
-    /* h1 { font-size: 2rem; } */
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.6rem }
-    h4 { font-size: 1.5rem }
-    h5 { font-size: 1.25rem }
-    h6 { font-size: 1rem; font-variant: small-caps; }
-}
-
-@media screen and (min-width: 1135px) and (max-width: 1524px) {
+@media screen and (min-width: 984px) and (max-width: 1524px) {
     .container-fluid {
         width: 90%;
         margin: auto;
@@ -209,9 +93,11 @@ p {
 }
 
 @media screen and (max-width: 624px) {
+    /* Between 625px and 984px layouts switches again to width: 80% */
     .container-fluid {
         width: 90%;
         margin: auto;
         position: relative;
     }
 }
+/* ----------------------------------------------------------------------------- END container fluid layout ------------------------------------------------------------------------------------------------------------------------------------------------- */
