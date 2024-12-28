@@ -1,6 +1,6 @@
 
 .wallpaper-background {
-    background-image: url('../img/wallpaper_background.jpg') !important;
+    background-image: url('../img/wallpaper_background.webp') !important;
     min-height: 27vw; 
     background-size: cover;
     background-repeat: no-repeat;
