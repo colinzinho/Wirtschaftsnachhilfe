@@ -77,11 +77,6 @@ function onClick() {
         }
     });
 
-    
-    $(".contact-btn").click(function (event) {
-        
-    });
-
     /* Arrow up button which hides in the bottom right corner of the website */
     $("#to-top-button").click(function (event) {
         window.history.pushState('', '', '/index.html');
