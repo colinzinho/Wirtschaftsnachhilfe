@@ -13,7 +13,7 @@ html {
 }
 
 a, button, label, p, span {
-    font-size: 1.8rem;
+    font-size: 2rem;
     line-height: 1.8em;
 }
 
@@ -23,6 +23,10 @@ h3 { font-size: 3.2rem }
 h1, h2 { line-height: 1em; }
 
 h2 { padding-bottom: 1rem !important;}
+
+@media screen and (min-width: 1135px) and (max-width: 1524px) {
+    a, button, label, p, span { font-size: 1.8rem; }
+}
 
 @media screen and (min-width: 625px) and (max-width: 1134px) {
     a, button, label, p, span {
@@ -69,6 +73,7 @@ a {
 
 a, button, select, input[type=checkbox] { cursor: pointer; }
 
+/* Ensure img scale down if they have to, but never scale up to be larger than it's original size! */
 img {
     max-width: 100%;
     height: auto;
