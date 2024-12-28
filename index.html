@@ -36,12 +36,20 @@
       </header>
       <main>
         <div class="page-section container-wallpaper-background" data-section="home">
-          <picture>
+          <img src="./img/wallpaper_background_cropped.webp" 
+            srcset="./img/wallpaper_background_downsized.webp 624w, 
+                    ./img/wallpaper_background_cropped.webp 3000w" 
+            sizes="(max-width: 768px) 100vw, 3000px"
+            width="3000" 
+            height="1254" 
+            alt="Joia da Foia above the sea of fog">
+          
+          <!-- <picture> -->
             <!-- Smaller image for mobile -->
-            <source srcset="./img/wallpaper_background_downsized.webp 624w, ./img/wallpaper_background_cropped.webp 625w" media="(max-width: 768px)">
+            <!-- <source srcset="./img/wallpaper_background_downsized.webp 624w, ./img/wallpaper_background_cropped.webp 625w" media="(max-width: 768px)"> -->
             <!-- Default image -->
-            <img src="./img/wallpaper_background_cropped.webp" alt="Joia da Foia above the sea of fog">
-          </picture>
+            <!-- <img src="./img/wallpaper_background_cropped.webp" alt="Joia da Foia above the sea of fog"> -->
+          <!-- </picture> -->
           <!-- <img class="wallpaper-background" src="./img/wallpaper_background_cropped.webp" srcset="./img/wallpaper_background_downsized-1.webp 624w, ./img/wallpaper_background_cropped.webp 625w" width="3000" height="1254" alt="Joia da Foia above the sea of fog"> -->
           <div class="container-slogan">
               <h1 id="slogan">Gemeinsam zum Ziel</h1>
