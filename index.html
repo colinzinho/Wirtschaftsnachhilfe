@@ -17,27 +17,6 @@
     <link rel=”mask-icon” href=”./img/favicon.svg” color=”#000000"> <!-- For safari -->
     <link href="css/style.css" rel="stylesheet" />
     <!-- <link rel="preload" as="image" href="./img/wallpaper_background_cropped.webp" imagesrcset="./img/wallpaper_background_downsized.webp 1500w, ./img/wallpaper_background_cropped.webp 3000w" alt="Joia da Foia above the sea of fog" /> -->
-  
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          setWallpaperBackgroud();
-      })
-
-      window.addEventListener('orientationchange', function() {
-          setWallpaperBackgroud();
-      });
-
-      function setWallpaperBackgroud() {
-        let img = $("#wallpaper-background")[0];
-        if(window.innerWidth <= 624) {
-          img.src = "./img/wallpaper_background_downsized.webp";
-        } else {
-          img.src ="./img/wallpaper_background_cropped.webp";
-        }
-      }
-      
-    </script>
-
   </head>
   <body>
     <div id="page-container">
@@ -63,14 +42,15 @@
       </header>
       <main>
         <div class="page-section container-wallpaper-background" data-section="home">
-          <img id="wallpaper-background" src="./img/wallpaper_background.webp" width="3000" height="1254" alt="Joia da Foia above the sea of fog"> <!-- srcset="./img/wallpaper_background_downsized.webp 1500w, ./img/wallpaper_background_cropped.webp 3000w" sizes="(max-width: 624px) 100vw, 3000px" -->
+          <!-- <img id="wallpaper-background" src="./img/wallpaper_background.webp" srcset="./img/wallpaper_background_downsized.webp 1500w, ./img/wallpaper_background_cropped.webp 3000w" sizes="(max-width: 624px) 100vw, 3000px" width="3000" height="1254" alt="Joia da Foia above the sea of fog"> -->
           
-          <!-- <picture> -->
+          <picture>
             <!-- Smaller image for mobile -->
-            <!-- <source srcset="./img/wallpaper_background_downsized.webp 624w, ./img/wallpaper_background_cropped.webp 625w" media="(max-width: 768px)"> -->
+            <source srcset="./img/wallpaper_background_downsized.webp 1500w, ./img/wallpaper_background_cropped.webp 3000w" media="(max-width: 624px)">
             <!-- Default image -->
-            <!-- <img src="./img/wallpaper_background_cropped.webp" alt="Joia da Foia above the sea of fog"> -->
-          <!-- </picture> -->
+            <img src="./img/wallpaper_background.webp" alt="Joia da Foia above the sea of fog">
+          </picture>
+
           <!-- <img class="wallpaper-background" src="./img/wallpaper_background_cropped.webp" srcset="./img/wallpaper_background_downsized-1.webp 624w, ./img/wallpaper_background_cropped.webp 625w" width="3000" height="1254" alt="Joia da Foia above the sea of fog"> -->
           <div class="container-slogan">
               <h1 id="slogan">Gemeinsam zum Ziel</h1>
