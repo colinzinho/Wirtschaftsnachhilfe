@@ -282,12 +282,20 @@
     <script src="js/jquery-3.6.3.js"></script>
     <script src="js/pageLogic.js"></script>
     <script>
+      // window.addEventListener('orientationchange', function() {
+      //     const images = document.querySelectorAll('img');
+      //     images.forEach(img => {
+      //         img.src = img.currentSrc; // Forces the image to reload
+      //     });
+      // });
+
       window.addEventListener('orientationchange', function() {
-          const images = document.querySelectorAll('img');
-          images.forEach(img => {
-              img.src = img.currentSrc; // Forces the image to reload
+          requestAnimationFrame(function() {
+              document.body.style.display = 'none';  // Hide the body temporarily
+              document.body.style.display = '';      // Show it again
           });
       });
+
       onClick();
     </script>
   </body>
