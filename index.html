@@ -285,7 +285,7 @@
       window.addEventListener('orientationchange', function() {
           const images = document.querySelectorAll('img');
           images.forEach(img => {
-              img.src = img.src; // Forces the image to reload
+              img.src = img.currentSrc; // Forces the image to reload
           });
       });
       onClick();
