@@ -287,8 +287,11 @@
       }
       
       window.addEventListener('load', adjustFollowingElementPosition);
-      window.addEventListener('resize', adjustFollowingElementPosition); /* Enlarge or minmize width or height of web page */
-      window.addEventListener('orientationchange', adjustFollowingElementPosition) /* Every time mode is switched between landscape and portrait */
+      /* Ensuring that the elements are loaded before accessing them! */
+      document.addEventListener('DOMContentLoaded', function () {
+        window.addEventListener('resize', adjustFollowingElementPosition); /* Enlarge or minmize width or height of web page */
+        window.addEventListener('orientationchange', adjustFollowingElementPosition); /* Every time mode is switched between landscape and portrait */
+      });
 
       onClick();
     </script>
