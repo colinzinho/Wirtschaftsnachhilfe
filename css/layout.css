@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------------------------- START page layout defaults ------------------------------------------------------------------------------------------------------------------------------------------------- */
 #page-container {
     margin-top: -1px;
-    padding-top: 13.5rem;
+    /* padding-top: 13.5rem; */
     overflow-y: hidden;
 }
 
@@ -156,7 +156,7 @@
 
     #section-after-wallpaper { margin-top: 1rem; }
     
-    #page-container { padding-top: 8.5rem; }
+    /* #page-container { padding-top: 8.5rem; } */
 
     .page-button { padding: .6rem 1rem; }
 
