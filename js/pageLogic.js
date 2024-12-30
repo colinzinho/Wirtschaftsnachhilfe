@@ -12,27 +12,27 @@ $(document).ready(function() {
 });
 
 $(window).scroll(function() {
-let windowpos = $(window).scrollTop(); /* gets vertical scrollbar position of window element(top left corner of window) */
-let headerIsFixed = header.hasClass("fixed-header");
-let btnIsHidden = toTopBtn.hasClass("hidden");
+    let windowpos = $(window).scrollTop(); /* gets vertical scrollbar position of window element(top left corner of window) */
+    let headerIsFixed = header.hasClass("fixed-header");
+    let btnIsHidden = toTopBtn.hasClass("hidden");
 
-if(windowpos > imaginarySpace && !headerIsFixed) {
-    header.addClass("fixed-header"); /* Changes/ decreases height of header */
-    thresholdToTopBtn = $('div[id="offers"]').offset().top - getHeaderHeight(); /* Estimates 'space' between bottom left corner of navbar and top left corner of offers section  */
-    if($(window).width() < 625) {
-        thresholdToTopBtn -= 20; /* If not set 'toTopBtn' shows to late and hides to early... */
+    if(windowpos > imaginarySpace && !headerIsFixed) {
+        header.addClass("fixed-header"); /* Changes/ decreases height of header */
+        thresholdToTopBtn = $('div[id="offers"]').offset().top - getHeaderHeight(); /* Estimates 'space' between bottom left corner of navbar and top left corner of offers section  */
+        if($(window).width() < 625) {
+            thresholdToTopBtn -= 20; /* If not set 'toTopBtn' shows to late and hides to early... */
+        }
+        pageContainer.addClass("animation"); /* enables smooth animation (ease-in-ease-out) */
+        pageContainer.css('margin-top', -41 + 'px'); /* whole website content hops up by 41px - is being used for smooth animation/ transition */
+    }else if(windowpos <= 0 && headerIsFixed) { /* restore default size of header (height) */
+        header.removeClass("fixed-header");
+        pageContainer.css('margin-top', -1 + 'px'); /* whole website content hops down by 40px - is being used for smooth animation/ transition */
     }
-    pageContainer.addClass("animation"); /* enables smooth animation (ease-in-ease-out) */
-    pageContainer.css('margin-top', -41 + 'px'); /* whole website content hops up by 41px - is being used for smooth animation/ transition */
-}else if(windowpos <= 0 && headerIsFixed) { /* restore default size of header (height) */
-    header.removeClass("fixed-header");
-    pageContainer.css('margin-top', -1 + 'px'); /* whole website content hops down by 40px - is being used for smooth animation/ transition */
-}
 
-/* thresholdToTopBtn only turns positive value as website has being scrolled by more than 20px */
-if(thresholdToTopBtn !== -1) {
-    toTopBtnHandling(windowpos, btnIsHidden);
-}
+    /* thresholdToTopBtn only turns positive value as website has being scrolled by more than 20px */
+    if(thresholdToTopBtn !== -1) {
+        toTopBtnHandling(windowpos, btnIsHidden);
+    }
 });
 
 /* Controls Visibility of 'backToTop' button */
