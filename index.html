@@ -10,25 +10,22 @@
     <link rel="icon" href="./img/favicon.svg" sizes="any" type="image/svg+xml">
     <link rel=”mask-icon” href=”./img/favicon.svg” color=”#000000"> <!-- For safari -->
     <link href="css/style.css" rel="stylesheet" />
-    <!-- <link rel="preload" as="image" href="./img/wallpaper_background_small.webp" imagesrcset=" ./img/wallpaper_background_small.webp 960w, ./img/wallpaper_background_medium.webp 1500w, ./img/wallpaper_background_cropped.webp 3000w" imagesizes="(max-width: 624px) 100vw, (max-width: 1000px) 1500px, 3000px" alt="Joia da Foia above the sea of fog" /> -->
-    
+    <link rel="preload" href="./img/wallpaper_background_small.webp" as="image" media="(max-width: 624px)">
+    <link rel="preload" href="./img/wallpaper_background_medium.webp" as="image" media="(max-width: 1000px)">
+    <link rel="preload" href="./img/wallpaper_background_large.webp" as="image" media="(min-width: 1001px)">    
     <script>
       function adjustFollowingElementPosition() {
         const fixedElement = document.getElementById('page-header');
         const followingElement = document.getElementById('main-content');
-        
-        // Get the height of the fixed element
         const fixedHeight = fixedElement.offsetHeight;
-        
-        // Adjust the margin-top of the following element
+
         followingElement.style.marginTop = fixedHeight + 'px';
       }
       
-      // Call the function to adjust the following element on page load and resize
       window.addEventListener('load', adjustFollowingElementPosition);
-      window.addEventListener('resize', adjustFollowingElementPosition);
+      window.addEventListener('resize', adjustFollowingElementPosition); /* Enlarge or minmize width or height of web page */
+      window.addEventListener('orientationchange', adjustFollowingElementPosition) /* Every time mode is switched between landscape and portrait */
     </script>
-
   </head>
   <body>
     <div id="page-container">
@@ -56,20 +53,12 @@
         <div class="page-section container-wallpaper-background" data-section="home">
           
           <picture>
-            <!-- Small size image for very small screens (e.g., mobile devices) -->
              <source srcset="./img/wallpaper_background_small.webp" media="(max-width: 624px)">
-
-             <!-- Medium size image for tablets or medium-sized screens -->
              <source srcset="./img/wallpaper_background_medium.webp" media="(max-width: 1000px)">
-
-             <!-- Large size image for larger screens (e.g., desktops) -->
              <source srcset="./img/wallpaper_background_large.webp" media="(min-width: 1001px)">
-
             <!-- Fallback image for browsers that do not support <picture> element -->
             <img src="./img/wallpaper_background_medium.webp" alt="Joia da Foia above the sea of fog">
           </picture>
-
-          <!-- <img srcset="./img/wallpaper_background_small.webp 960w, ./img/wallpaper_background_medium.webp 1500w, ./img/wallpaper_background_large.webp 3000w" sizes="(max-width: 624px) 100vw, (max-width: 1000px) 1500px, 3000px" alt="Joia da Foia above the sea of fog"> -->
           <div class="container-slogan">
               <h1 id="slogan">Gemeinsam zum Ziel</h1>
           </div>
