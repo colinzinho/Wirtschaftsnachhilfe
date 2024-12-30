@@ -13,19 +13,7 @@
     <link rel="preload" href="./img/wallpaper_background_small.webp" as="image" media="(max-width: 624px)">
     <link rel="preload" href="./img/wallpaper_background_medium.webp" as="image" media="(max-width: 1000px)">
     <link rel="preload" href="./img/wallpaper_background_large.webp" as="image" media="(min-width: 1001px)">    
-    <script>
-      function adjustFollowingElementPosition() {
-        const fixedElement = document.getElementById('page-header');
-        const followingElement = document.getElementById('main-content');
-        const fixedHeight = fixedElement.offsetHeight;
-
-        followingElement.style.marginTop = fixedHeight + 'px';
-      }
-      
-      window.addEventListener('load', adjustFollowingElementPosition);
-      window.addEventListener('resize', adjustFollowingElementPosition); /* Enlarge or minmize width or height of web page */
-      window.addEventListener('orientationchange', adjustFollowingElementPosition) /* Every time mode is switched between landscape and portrait */
-    </script>
+    
   </head>
   <body>
     <div id="page-container">
@@ -290,6 +278,18 @@
     <script src="js/jquery-3.6.3.js"></script>
     <script src="js/pageLogic.js"></script>
     <script>
+      function adjustFollowingElementPosition() {
+        const fixedElement = document.getElementById('page-header');
+        const followingElement = document.getElementById('main-content');
+        const fixedHeight = fixedElement.offsetHeight;
+
+        followingElement.style.marginTop = fixedHeight + 'px';
+      }
+      
+      window.addEventListener('load', adjustFollowingElementPosition);
+      window.addEventListener('resize', adjustFollowingElementPosition); /* Enlarge or minmize width or height of web page */
+      window.addEventListener('orientationchange', adjustFollowingElementPosition) /* Every time mode is switched between landscape and portrait */
+
       onClick();
     </script>
   </body>
