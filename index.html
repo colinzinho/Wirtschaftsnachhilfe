@@ -9,10 +9,10 @@
     <title>Silvia von Burg &mdash; Wirtschaftsnachhilfe</title>
     <link rel="icon" href="./img/favicon.svg" sizes="any" type="image/svg+xml">
     <link rel=”mask-icon” href=”./img/favicon.svg” color=”#000000"> <!-- For safari -->
-    <link href="css/style.css" rel="stylesheet" />
     <link rel="preload" href="./img/wallpaper_background_small.webp" as="image" media="(max-width: 624px)">
     <link rel="preload" href="./img/wallpaper_background_medium.webp" as="image" media="(max-width: 1000px)">
     <link rel="preload" href="./img/wallpaper_background_large.webp" as="image" media="(min-width: 1001px)">
+    <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
     <div id="page-container">
@@ -266,7 +266,6 @@
         <div class="container-fluid">
           <nav class="meta-nav" aria-label="site footer">
               <ul class="flex-layout">
-                <!--Nachfolge Liste steht in einer Reihe, wegen den kleinen Abständen, die ansonsten zwischen den Elementen auftauchen..-->
                 <li class="flex-layout container-copyright border-right"><p>&copy; 2020-2024</p><p>&nbsp;Silvia&nbsp;von&nbsp;Burg</p></li><li class="border-right"><a href="impressum/Impressum_Silvia.pdf" target="_blank" rel="noopener noreferrer">Impressum </a></li><li><a href="datenschutzerklärung/Datenschutzerklaerung.pdf" target="_blank" rel="noopener noreferrer">Datenschutz </a></li>
               </ul>
           </nav>
@@ -276,19 +275,6 @@
     <script src="js/jquery-3.6.3.js"></script>
     <script src="js/pageLogic.js"></script>
     <script>
-      function adjustFollowingElementPosition() {
-        const fixedElement = document.getElementById('page-header');
-        const followingElement = document.getElementById('main-content');
-        const fixedHeight = fixedElement.offsetHeight;
-
-        followingElement.style.marginTop = fixedHeight + 'px';
-      }
-      
-      /* Ensuring that the elements are loaded before accessing them! */
-      document.addEventListener('DOMContentLoaded', function () {
-        window.addEventListener('load', adjustFollowingElementPosition);
-      });
-
       onClick();
     </script>
   </body>
