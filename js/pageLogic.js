@@ -24,7 +24,6 @@ function adjustFollowingElementPosition() {
     const fixedElement = document.getElementById('page-header');
     const followingElement = document.getElementById('main-content');
     const fixedHeight = fixedElement.offsetHeight;
-
     followingElement.style.marginTop = fixedHeight + 'px';
 }
 
@@ -42,10 +41,15 @@ function onClick() {
 
     /* Arrow up button which hides in the bottom right corner of the website */
     $('#to-top-button').click(function (event) {
-        window.history.pushState('', '', '/index.html');
-        $(window).scrollTop(0)
+        scrollToTop();
     });
 };
+
+/* Helper function: Scrolls to top of page */
+function scrollToTop() {
+    window.history.pushState('', '', '/index.html');
+    $(window).scrollTop(0)
+}
 
 /* Sets behavior as one of the various contact buttons is being clicked  */
 function onContactBtnClicked(event) {
@@ -94,15 +98,18 @@ function scrollingTo(input) {
         header.addClass('fixed-header'); /* Changes decrease height of header */
         scrollAnimationHeader(-40);
     }
-
-    thresholdToTopBtn = Math.round($('div[id="' + sectionName + '"]').offset().top) - headerHeight; /* Estimates 'space' between bottom left corner of navbar and top left corner of offers section  */
-    $('html').animate(
-        {
-        scrollTop:
-            $('div[data-section="' + sectionName + '"]').offset().top - headerHeight + 1
-        },
-        250
-    );
+    if(sectionName === 'home') {
+        scrollToTop();
+    } else {
+        thresholdToTopBtn = Math.round($('div[id="' + sectionName + '"]').offset().top) - headerHeight; /* Estimates 'space' between bottom left corner of navbar and top left corner of offers section  */
+        $('html').animate(
+            {
+            scrollTop:
+                $('div[data-section="' + sectionName + '"]').offset().top - headerHeight + 1
+            },
+            250
+        );
+    }
     /* Hide collapsed site menu after being clicked and routing completed */
     if($('#menubutton').hasClass('show-menu')) {
         $('#menubutton').removeClass('show-menu');
@@ -117,11 +124,8 @@ function toTopBtnHandling(windowpos, btnIsHidden) {
         }
         showElement(toTopBtn);
     }
-    if(windowpos < thresholdToTopBtn && !btnIsHidden) {
+    if(windowpos < (Math.round($('div[id="offers"]').offset().top) - getHeaderHeight()) && !btnIsHidden) {
         hideElementSmoothly(toTopBtn);
-    }
-    if(btnIsHidden == undefined) {
-        showElement(toTopBtn);
     }
 };
 
