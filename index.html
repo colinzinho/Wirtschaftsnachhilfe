@@ -93,8 +93,7 @@
               <div class="offer">
                 <h3>Stellvertreterin für Wirtschaftsfächer</h3>
                 <p class="offering-text">
-                  Suchen Sie eine erfahrene und diplomierte Lehrperson im Fachbereich Wirtschaft und Recht und/oder Finanz- und Rechnungswesen für eine Stellvertretung? 
-                  Ich verfüge über eine 20-jährige Berufserfahrung an Berufsfachschulen, Fachmittelschulen und auch am Gymnasium. 
+                  Suchen Sie eine erfahrene und diplomierte Lehrperson im Fachbereich Wirtschaft und Recht und/oder Finanz- und Rechnungswesen für eine Stellvertretung?
                   Mein Angebot richtet sich an Schulen, die eine kompetente und erfahrene Stellvertretung suchen, die nahtlos den laufenden Unterricht übernimmt und gemäss den Lehrplänen professionell fortsetzt. 
                   Mindestdauer eines Einsatzes 1 Monat (Mindestpensum 15 Lektionen/Woche). Kosten pro erteilter Lektion ab CHF 125.— netto. 
                 </p>
@@ -104,8 +103,8 @@
                 <div class="offer">
                   <h3>Kurse / Expertentätigkeiten</h3>
                   <p class="offering-text">
-                    Suchen Sie eine erfahrene und diplomierte Lehrperson für die Erteilung von Kursen (z.B. Repetitionskurse, QV-Vorbereitungskurse) in den Fachgebieten Wirtschaft und Recht und Finanz- und Rechnungswesen? 
-                    Oder benötigen Sie eine Expertin, die bei Korrekturarbeiten oder Prüfungsabnahmen behilflich sein kann? 
+                    Benötigen Sie eine erfahrene und diplomierte Lehrperson für die Erteilung von Kursen (z.B. Repetitionskurse, QV-Vorbereitungskurse) in den Fachgebieten Wirtschaft und Recht und/oder Finanz- und Rechnungswesen? 
+                    Oder suchen Sie eine Expertin, die bei Korrekturarbeiten oder Prüfungsabnahmen behilflich sein kann? 
                   </p>
                   <p>
                     Für nähere Informationen nehmen Sie bitte Kontakt auf.
@@ -255,7 +254,7 @@
                   <img src="img/icons/sentiment_satisfied_FILL0_wght400_GRAD0_opsz40.svg" width="40" height="40" alt="Icon Sentiment Satisfied">
                 </span>
                 <h3 class="skill-definition">
-                  <span>Freude + Begeisterung</span>
+                  <span>Freude</span>
                 </h3>
               </div>
             </div>
@@ -266,15 +265,15 @@
         <div class="container-fluid">
           <nav class="meta-nav" aria-label="site footer">
               <ul class="flex-layout">
-                <li class="flex-layout container-copyright border-right"><p>&copy; 2020-2024</p><p>&nbsp;Silvia&nbsp;von&nbsp;Burg</p></li><li class="border-right"><a href="impressum/Impressum_Silvia.pdf" target="_blank" rel="noopener noreferrer">Impressum </a></li><li><a href="datenschutzerklärung/Datenschutzerklaerung.pdf" target="_blank" rel="noopener noreferrer">Datenschutz </a></li>
+                <li class="flex-layout container-copyright border-right"><p>&copy; 2024-2025</p><p>&nbsp;Silvia&nbsp;von&nbsp;Burg</p></li><li class="border-right"><a href="impressum/Impressum_Silvia.pdf" target="_blank" rel="noopener noreferrer">Impressum </a></li><li><a href="datenschutzerklärung/Datenschutzerklaerung.pdf" target="_blank" rel="noopener noreferrer">Datenschutz </a></li>
               </ul>
           </nav>
         </div>
       </footer>
     </div>
     <script src="js/jquery-3.6.3.js"></script>
-    <script src="js/pageLogic.js"></script>
     <script>
+      let windowpos,header,mainContentContainer,toTopBtn,thresholdToTopBtn,headerIsFixed;const imaginarySpace=20;function adjustFollowingElementPosition(){let o=document.getElementById("page-header"),e=document.getElementById("main-content"),n=o.offsetHeight;e.style.marginTop=n+"px"}function onClick(){$("#logo-link").click(function(o){window.location.reload(0)}),$("#navigation a").click(function(o){scrollingTo($(this).data("nav-section"))}),$("#to-top-button").click(function(o){scrollToTop()})}function scrollToTop(){window.history.pushState("","","/index.html"),$(window).scrollTop(0)}function onContactBtnClicked(o){scrollingTo("contact")}function scrollAnimationHeader(o){mainContentContainer.hasClass("animation")||mainContentContainer.addClass("animation");let e=parseInt(mainContentContainer.css("margin-top"))+o;mainContentContainer.css("margin-top",e+"px"),o<0&&(windowpos+=40)}function scrollingTo(o){let e=o.toLowerCase(),n=getHeaderHeight();header.hasClass("fixed-header")||(625>$(window).width()&&(n+=20),header.addClass("fixed-header"),scrollAnimationHeader(-40)),"home"===e?scrollToTop():(thresholdToTopBtn=Math.round($('div[id="'+e+'"]').offset().top)-n,$("html").animate({scrollTop:$('div[data-section="'+e+'"]').offset().top-n+1},250)),$("#menubutton").hasClass("show-menu")&&$("#menubutton").removeClass("show-menu")}function toTopBtnHandling(o,e){o>=thresholdToTopBtn&&e&&(toTopBtn.hasClass("fadeOut")&&toTopBtn.removeClass("fadeOut"),showElement(toTopBtn)),o<Math.round($('div[id="offers"]').offset().top)-getHeaderHeight()&&!e&&hideElementSmoothly(toTopBtn)}function showElement(o){o.removeClass("hidden"),o.addClass("fadeIn")}function hideElementSmoothly(o){o.addClass("fadeOut"),setTimeout(function(){o.addClass("hidden")},2e3)}function getHeaderHeight(){return $("#page-header").outerHeight()}document.addEventListener("DOMContentLoaded",function(){window.addEventListener("load",adjustFollowingElementPosition)}),$(document).ready(function(){windowpos=$(window).scrollTop(),header=$("#page-header"),mainContentContainer=$("#main-content"),toTopBtn=$("#to-top-button")}),$(window).scroll(function(){windowpos=$(window).scrollTop(),headerIsFixed=header.hasClass("fixed-header"),windowpos>20&&!headerIsFixed&&(header.addClass("fixed-header"),scrollAnimationHeader(-40),thresholdToTopBtn=Math.round($('div[id="offers"]').offset().top)-getHeaderHeight()),windowpos<=0&&headerIsFixed&&(header.removeClass("fixed-header"),scrollAnimationHeader(40)),toTopBtnHandling(windowpos,toTopBtn.hasClass("hidden"))});
       onClick();
     </script>
   </body>
