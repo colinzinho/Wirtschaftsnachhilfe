@@ -1,4 +1,4 @@
-.page-section.container-wallpaper-background { padding-top: 0; }
+.page-section.container-wallpaper-background { padding: 0; }
 
 .container-wallpaper-background { 
     max-height: 27vw;
@@ -24,5 +24,6 @@
 
 @media screen and (max-width: 624px) {
     .container-wallpaper-background { max-height: none; } /* Make full img (height) visible on screen */
+    .container-wallpaper-background picture { display: flex; } /* If not set picture element is underneath img and causes extra white space... */
     #slogan { font-size: 4.5vw; }
 }

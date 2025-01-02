@@ -12,8 +12,7 @@
     <link href="css/style.css" rel="stylesheet" />
     <link rel="preload" href="./img/wallpaper_background_small.webp" as="image" media="(max-width: 624px)">
     <link rel="preload" href="./img/wallpaper_background_medium.webp" as="image" media="(max-width: 1000px)">
-    <link rel="preload" href="./img/wallpaper_background_large.webp" as="image" media="(min-width: 1001px)">    
-    
+    <link rel="preload" href="./img/wallpaper_background_large.webp" as="image" media="(min-width: 1001px)">
   </head>
   <body>
     <div id="page-container">
@@ -38,8 +37,7 @@
         </div>
       </header>
       <main id="main-content">
-        <div class="page-section container-wallpaper-background" data-section="home">
-          
+        <div class="page-section container-wallpaper-background" data-section="home">       
           <picture>
              <source srcset="./img/wallpaper_background_small.webp" media="(max-width: 624px)">
              <source srcset="./img/wallpaper_background_medium.webp" media="(max-width: 1000px)">
@@ -282,38 +280,13 @@
         const fixedElement = document.getElementById('page-header');
         const followingElement = document.getElementById('main-content');
         const fixedHeight = fixedElement.offsetHeight;
-        console.log('Navbar height:', fixedHeight); // Log the navbar height
-        console.log('Window width:', window.innerWidth);
-
 
         followingElement.style.marginTop = fixedHeight + 'px';
-      }
-
-      function handleOrientationChange() {
-        // Force a reflow to ensure styles and layout are recalculated
-        const fixedElement = document.getElementById('page-header');
-
-        // Trigger a reflow by reading a layout property
-        const triggerReflow = fixedElement.offsetHeight; /* The value of triggerReflow isn’t important, but simply reading this property will ensure that the layout is recalculated! */
-
-        console.log('Reflow triggered:', triggerReflow);
-        console.log('Window width:', window.innerWidth);
-
-        // Use requestAnimationFrame to ensure layout recalculations are finished
-        requestAnimationFrame(function() {
-          // After reflow and recalculating styles, adjust layout
-          adjustFollowingElementPosition();
-        });
       }
       
       /* Ensuring that the elements are loaded before accessing them! */
       document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('load', adjustFollowingElementPosition);
-        
-        window.addEventListener('resize', handleOrientationChange); 
-        /* Enlarge or minmize width or height of web page */
-        window.addEventListener('orientationchange', handleOrientationChange); /* Every time mode is switched between landscape and portrait */
-
       });
 
       onClick();
