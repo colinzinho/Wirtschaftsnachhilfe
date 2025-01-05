@@ -6,23 +6,35 @@ html {
 }
 
 /* ----------------------------------------------------------------------------- START font size and style ------------------------------------------------------------------------------------------------------------------------------------------------- */
-* {
-    font-family: 'Comic Sans MS', 'Sour Gummy', "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-      "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+body {
+    font-family: 'Noto Sans', 'Segoe UI', '-apple-system', BlinkMacSystemFont, Arial, sans-serif;
     color: #3d3d3d;
+
+    background-size: cover !important;
+    background-position: top !important;
+    background-repeat:  no-repeat !important;
+    background-attachment: fixed !important;
+    overflow-x: hidden; /* Content that overflows the body element should be hidden! */
+    hyphens: auto; /* Implementiert Silbentrennung */
 }
 
 a, button, label, p, span {
     font-size: 2rem;
+    font-weight: 400;
     line-height: 1.8em;
 }
 
-h2 { font-size: 4rem; }
+h2 { 
+    font-size: 4rem;
+    font-weight: 600;
+    padding-bottom: 1rem !important;
+}
+
 h3 { font-size: 3.2rem }
 
-h1, h2 { line-height: 1em; }
+h1, h3, h2.no-bold-txt { font-weight: 500; }
 
-h2 { padding-bottom: 1rem !important;}
+h1, h2 { line-height: 1em; }
 
 @media screen and (min-width: 1135px) and (max-width: 1524px) {
     a, button, label, p, span { font-size: 1.8rem; }
@@ -47,17 +59,6 @@ h2 { padding-bottom: 1rem !important;}
     h2 { font-size: 2rem; }
     h3 { font-size: 1.7rem } 
 }
-/* ----------------------------------------------------------------------------- START font size and style ------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-body {
-    background-size: cover !important;
-    background-position: top !important;
-    background-repeat:  no-repeat !important;
-    background-attachment: fixed !important;
-    overflow-x: hidden; /* Content that overflows the body element should be hidden! */
-    hyphens: auto; /* Implementiert Silbentrennung */
-    
-}
 
 a, body, button, blockquote div, h1, h2, h3, h4, h5, h6, html, img, li, p, span, ol, ul {
     margin: 0;
@@ -80,7 +81,6 @@ img {
 }
 
 p { text-align: justify; /* Stellt Text im Blocksatz dar */ }
-
 
 /* ----------------------------------------------------------------------------- START container fluid layout ------------------------------------------------------------------------------------------------------------------------------------------------- */
 .container-fluid {

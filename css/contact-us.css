@@ -21,7 +21,7 @@
 
 .contact-form label {
     display: block;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .contact-form input[type=text], select { min-height: 26px; } /* Ensure that entering text is always visible */
