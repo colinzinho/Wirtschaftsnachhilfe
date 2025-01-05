@@ -1,12 +1,31 @@
 /* ----------------------------------------------------------------------------- @import url(font.css); ------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* noto-sans-regular - latin */
 @font-face {
     font-display: swap;
     font-family: 'Noto Sans';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/NotoSans_VariableFont.ttf') format('truetype'), /* Safari, Android, iOS */ 
+    src: url('../fonts/noto-sans-v38-latin-regular.woff2') format('woff2'), /* Modern browsers */
+         url('../fonts/noto-sans-v38-latin-regular.ttf') format('truetype'); /* Old browsers */
 }
-
+/* noto-sans-500 - latin */
+@font-face {
+    font-display: swap;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/noto-sans-v38-latin-500.woff2') format('woff2'), /* Modern browsers */
+         url('../fonts/noto-sans-v38-latin-500.ttf') format('truetype'); /* Old browsers */
+}
+/* noto-sans-600 - latin */
+@font-face {
+    font-display: swap;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/noto-sans-v38-latin-600.woff2') format('woff2'), /* Modern browsers */
+         url('../fonts/noto-sans-v38-latin-600.ttf') format('truetype'); /* Old browsers */
+}
 /* ----------------------------------------------------------------------------- @import url(base.css); ------------------------------------------------------------------------------------------------------------------------------------------------- */
 *, *::before, *::after {  box-sizing: border-box; } /* Aktivieren des Border-Box-Modell für alle Elemente inkl. durch CSS erzeugte Inhalte in den Pseudoelementen ::before & ::after */
 
@@ -16,24 +35,34 @@ html {
 }
 
 /* ----------------------------------------------------------------------------- START font size and style ------------------------------------------------------------------------------------------------------------------------------------------------- */
-* {
-    font-family: 'Noto Sans', 'Segoe UI', '-apple-system, BlinkMacSystemFont', serif;
+body {
+    font-family: 'Noto Sans', 'Segoe UI', '-apple-system', BlinkMacSystemFont, Arial, sans-serif;
     color: #3d3d3d;
+
+    background-size: cover !important;
+    background-position: top !important;
+    background-repeat:  no-repeat !important;
+    background-attachment: fixed !important;
+    overflow-x: hidden; /* Content that overflows the body element should be hidden! */
+    hyphens: auto; /* Implementiert Silbentrennung */
 }
 
 a, button, label, p, span {
     font-size: 2rem;
+    font-weight: 400;
     line-height: 1.8em;
 }
 
-h2 { font-size: 4rem; }
+h2 { 
+    font-size: 4rem;
+    font-weight: 600;
+    padding-bottom: 1rem !important;
+}
 h3 { font-size: 3.2rem; }
 
 h1, h2 { line-height: 1em; }
 
-h1, h2, h3 { font-weight: 600 !important; }
-
-h2 { padding-bottom: 1rem !important;}
+h1, h3, h2.no-bold-txt { font-weight: 500; }
 
 @media screen and (min-width: 1135px) and (max-width: 1524px) {
     a, button, label, p, span { font-size: 1.8rem; }
@@ -58,17 +87,6 @@ h2 { padding-bottom: 1rem !important;}
     h2 { font-size: 2rem; }
     h3 { font-size: 1.7rem } 
 }
-/* ----------------------------------------------------------------------------- START font size and style ------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-body {
-    background-size: cover !important;
-    background-position: top !important;
-    background-repeat:  no-repeat !important;
-    background-attachment: fixed !important;
-    overflow-x: hidden; /* Content that overflows the body element should be hidden! */
-    hyphens: auto; /* Implementiert Silbentrennung */
-    
-}
 
 a, body, button, blockquote div, h1, h2, h3, h4, h5, h6, html, img, li, p, span, ol, ul {
     margin: 0;
@@ -91,7 +109,6 @@ img {
 }
 
 p { text-align: justify; /* Stellt Text im Blocksatz dar */ }
-
 
 /* ----------------------------------------------------------------------------- START container fluid layout ------------------------------------------------------------------------------------------------------------------------------------------------- */
 .container-fluid {
@@ -407,7 +424,7 @@ p { text-align: justify; /* Stellt Text im Blocksatz dar */ }
 
 .contact-form label {
     display: block;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .contact-form input[type=text], select { min-height: 26px; } /* Ensure that entering text is always visible */
@@ -499,7 +516,7 @@ p { text-align: justify; /* Stellt Text im Blocksatz dar */ }
 }
 
 .skill-definition {
-    font-weight: 600;
+    font-weight: 400;
     color: #000000 !important;
 }
 
