@@ -88,9 +88,13 @@
 /* ----------------------------------------------------------------------------- START helper functions ------------------------------------------------------------------------------------------------------------------------------------------------- */
 .border-right { border-right: 1px solid black; }
 
+.block-layout-container { display: block !important; }
+
 .section-colored { background-color: #BDCDD6; }
 
 .txt-with-lBreaks { margin-bottom: 0.6em; } /* Is being unsed in section about me to separate better some parts of the text */
+
+.visible { visibility: visible; }
 
 .hidden { display: none; }
 /* ----------------------------------------------------------------------------- END helper functions ------------------------------------------------------------------------------------------------------------------------------------------------- */

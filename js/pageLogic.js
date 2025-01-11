@@ -43,7 +43,23 @@ function onClick() {
     $('#to-top-button').click(function (event) {
         scrollToTop();
     });
+
+    /* */
+    $('#form-submit-btn').click(function (event) {
+        
+    });
 };
+
+function validateFormClientSide() {
+    let course = document.forms['contact-form']['course'].value;
+    if(course == 'Wählen Sie ein Angebot aus') {
+        let element = $('#err-msg-course')
+        element.html('<p class="err-msg-txt">Choose an existing course from the list!</p>');
+        element.addClass('visible');
+        // alert('Choose an existing course from the list!');
+        return false;
+    }
+}
 
 /* Helper function: Scrolls to top of page */
 function scrollToTop() {

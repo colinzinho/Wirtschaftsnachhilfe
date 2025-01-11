@@ -42,6 +42,21 @@
     margin-left: 4px;
 }
 
+.err-msg-container {
+    visibility: hidden; 
+}
+
+.err-msg-container.visible {
+    display: inline-block;
+    background-color: aliceblue;
+    padding: 0.5rem 0.25rem;
+    border-radius: 5px;
+}
+
+.err-msg-container.visible p { font-size: 1.1rem; }
+¨
+.err-msg-txt { visibility: visible !important; }
+
 .padding-left { padding-left: 2.5%; }
 
 @media screen and (min-width: 1135px) {
