@@ -146,7 +146,7 @@
 
     .smaller-width { width: 250% !important; }
 
-    .err-msg { font-size: 1rem }
+    .err-msg { font-size: 1.2rem }
 
     .max-width { width: 525% !important; }
 }
