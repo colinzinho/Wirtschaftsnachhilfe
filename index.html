@@ -160,48 +160,56 @@
                 <p>E-Mail: info@silviavonburg.ch</p>
                 <p>Mobile: +41 79 340 04 72</p>
               </div>
+              <div id="err-infotxt" class="shift-left err-infotxt-container"></div>
               <p class="shift-left"><span class="field-required">*</span> sind Pflichtfelder</p>
             </div>
             <div class="container-contact-form">
               <form id="contact-form" name="contact-form" class="grid-layout contact-form" action="#" onsubmit="return validateFormClientSide()" method="POST">
-                <div class="entire-line">
+                <div class="entire-line reference-absolute-pos">
                   <label for="course">Ich interessiere mich für<span class="field-required">*</span></label>
-                  <select id="course" name="course" required>
+                  <select id="course" name="course">
                     <option>Wählen Sie ein Angebot aus</option>
                     <option>Online-Nachhilfe</option>
                     <option>Intensivkurs in Monchique</option>
                     <option>Stellvertretung</option>
                     <option>Kurse / Expertentätigkeiten</option>
                   </select>
-                  <div class="block-layout-container"><div id="err-msg-course" class="err-msg-container"></div></div>
+                  <!-- <div class="block-layout-container"></div> -->
+                  <div id="err-msg-course" class="err-msg-container"></div>
                 </div>
-                <div>
+                <div class="x">
                   <div class="fieldcontainer-static-width">
-                    <label for="firstname" class="form-label">Vorname<span class="field-required">*</span></label><input type="text" id="firstname" name="firstname" class="inputfield" size="20" required>
+                    <label for="firstname" class="form-label">Vorname<span class="field-required">*</span></label><input type="text" id="firstname" name="firstname" class="inputfield" size="20">
+                    <div id="err-msg-firstname" class="err-msg-container"></div>
                   </div>
                 </div>
                 <div>
                   <div class="fieldcontainer-static-width">
-                    <label for="lastname" class="form-label">Nachname<span class="field-required">*</span></label><input type="text" id="lastname" name="lastname" class="inputfield" size="20" required>
+                    <label for="lastname" class="form-label">Nachname<span class="field-required">*</span></label><input type="text" id="lastname" name="lastname" class="inputfield" size="20">
+                    <div id="err-msg-lastname" class="err-msg-container"></div>
                   </div>
                 </div>
                 <div>
                   <div class="flex-layout fieldcontainer-static-width">
                     <div class="container-flex-input-fields entire-line-layout-inputs semi-line-layout-inputs">
-                      <label for="street" class="form-label">Strasse<span class="field-required">*</span></label><input type="text" id="street" name="street" class="inputfield" size="20" required>
+                      <label for="street" class="form-label">Strasse<span class="field-required">*</span></label><input type="text" id="street" name="street" class="inputfield" size="20">
+                      <div id="err-msg-street" class="err-msg-container"></div>
                     </div>
                     <div class="container-streetnumber padding-left">
-                      <label for="streetnumber" class="form-label smaller-txt">Nr.<span class="field-required">*</span></label><input type="text" id="streetnumber" name="streetnumber" class="inputfield" size="4" required>
+                      <label for="streetnumber" class="form-label smaller-txt">Nr.<span class="field-required">*</span></label><input type="text" id="streetnumber" name="streetnumber" class="inputfield" size="4">
+                      <div id="err-msg-streetnumber" class="err-msg-container absolute-pos indent-left smaller-width"></div>
                     </div>
                   </div>
                 </div>
                 <div class="postalcode">
                   <div class="flex-layout fieldcontainer-static-width">
-                    <div id="no-padding-right">
-                      <label for="postalcode" class="form-label smaller-txt">PLZ<span class="field-required">*</span></label><input type="text" id="postalcode" name="postalcode" class="inputfield" size="4" required>
+                    <div id="no-padding-right" class="container-postalcode">
+                      <label for="postalcode" class="form-label smaller-txt">PLZ<span class="field-required">*</span></label><input type="text" id="postalcode" name="postalcode" class="inputfield" size="4">
+                      <div id="err-msg-postalcode" class="err-msg-container absolute-pos max-width"></div>
                     </div>
                     <div class="container-flex-input-fields entire-line-layout-inputs semi-line-layout-inputs padding-left">
-                        <label for="city" class="form-label">Ort<span class="field-required">*</span></label><input type="text" id="city" name="city" class="inputfield place" size="20" required>
+                        <label for="city" class="form-label">Ort<span class="field-required">*</span></label><input type="text" id="city" name="city" class="inputfield place" size="20">
+                        <div id="err-msg-city" class="err-msg-container"></div>
                     </div>
                   </div>
                 </div>

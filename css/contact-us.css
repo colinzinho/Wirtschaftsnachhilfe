@@ -28,6 +28,10 @@
 
 .inputfield { width: 100%; }
 
+.container-streetnumber, .container-postalcode { position: relative; }
+
+.container-streetnumber .indent-left { left: 15% !important; }
+
 .container-data-privacy {
     justify-content: flex-start; 
     margin-bottom: 0.5rem; 
@@ -42,22 +46,46 @@
     margin-left: 4px;
 }
 
-.err-msg-container {
-    visibility: hidden; 
+.err-infotxt-container { 
+    display: inline-block;
+    visibility: hidden;
 }
 
-.err-msg-container.visible {
-    display: inline-block;
-    background-color: aliceblue;
-    padding: 0.5rem 0.25rem;
+.err-infotxt-container.visible {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255,0,0,0.1) ;
+    border: 1px solid red;
     border-radius: 5px;
 }
 
-.err-msg-container.visible p { font-size: 1.1rem; }
-¨
-.err-msg-txt { visibility: visible !important; }
+.error-txt { color: red; }
+
+.error-infotxt { font-size: inherit; }
+.err-msg { 
+    font-size: 1.5rem;
+    line-height: 1.3em;
+}
+
+.err-msg-container { visibility: hidden; }
+
+.err-msg-container.visible { padding-top: 0.25rem; }
+
+.absolute-pos.visible {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 350%;
+    padding-top: 0.5rem !important;
+}
+
+.err-msg-container-absolute p { line-height: 1.3em !important; }
 
 .padding-left { padding-left: 2.5%; }
+
+@media screen and (min-width: 1135px) and (max-width: 1524px) {
+    .err-msg { font-size: 1.4rem }
+}
 
 @media screen and (min-width: 1135px) {
     .contact-form .txtarea-entire-line-layout { width: 87.5%; } /* Textarea to go conform with other inputfields */
@@ -73,6 +101,10 @@
     }
 
     .contact-form .txtarea-entire-line-layout { width: 93%; }
+
+    .err-infotxt-container.visible { max-width: 83%; }
+
+    .err-msg { font-size: 1.3rem }
 }
 
 @media screen and (max-width: 1134px) {
@@ -100,7 +132,7 @@
 
     .contact-form > div { margin-left: 0; }
 
-    .contact-form, .shift-left { padding-left: 10% !important; } /* shift-left moves '* sind Pflichfelder' to the right */
+    .contact-form, .shift-left { margin-left: 10% !important; } /* shift-left moves '* sind Pflichfelder' to the right */
 
     .entire-line { grid-column: 1 / 1; }  /* Switch to row-layout - no more columns and elements next to each other! */
 
@@ -109,4 +141,12 @@
     .container-flex-input-fields.semi-line-layout-inputs { width: 80%; } /* Reduces space on small devices between input fields on the same line */
 
     .fieldcontainer-email-width { width: 75%; }
+
+    .err-infotxt-container.visible { max-width: 67%; }
+
+    .smaller-width { width: 250% !important; }
+
+    .err-msg { font-size: 1rem }
+
+    .max-width { width: 525% !important; }
 }

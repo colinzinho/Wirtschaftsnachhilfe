@@ -90,6 +90,8 @@
 
 .block-layout-container { display: block !important; }
 
+.reference-absolute-pos { position: relative; }
+
 .section-colored { background-color: #BDCDD6; }
 
 .txt-with-lBreaks { margin-bottom: 0.6em; } /* Is being unsed in section about me to separate better some parts of the text */
@@ -97,6 +99,8 @@
 .visible { visibility: visible; }
 
 .hidden { display: none; }
+
+.inputfield-err { border: 1px solid red; }
 /* ----------------------------------------------------------------------------- END helper functions ------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------------- START footer styling ------------------------------------------------------------------------------------------------------------------------------------------------- */
