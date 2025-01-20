@@ -30,7 +30,7 @@
 
 .container-streetnumber, .container-postalcode { position: relative; }
 
-.container-streetnumber .indent-left { left: 15% !important; }
+.indent-left { left: 15% !important; }
 
 .container-data-privacy {
     justify-content: flex-start; 
@@ -144,7 +144,7 @@
 
     .err-infotxt-container.visible { max-width: 67%; }
 
-    .smaller-width { width: 250% !important; }
+    .smaller-width { width: 200% !important; }
 
     .err-msg { font-size: 1.2rem }
 
