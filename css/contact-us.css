@@ -30,7 +30,7 @@
 
 .container-streetnumber, .container-postalcode { position: relative; }
 
-.indent-left { left: 15% !important; }
+.container-streetnumber .indent-left { left: 15% !important; }
 
 .container-data-privacy {
     justify-content: flex-start; 

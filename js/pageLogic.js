@@ -122,9 +122,6 @@ function validateFormClientSide() {
                 
                 if(hasError === true) {
                     err_container.html('<p class="error-txt err-msg">' + err_message + '</p>');
-                    if(window.innerWidth > 624) {
-                        err_container.addClass('indent-left');
-                    }
                     err_container.addClass('visible');
                     input.addClass('inputfield-err'); // Input field highlighted in red color.
                     break;
