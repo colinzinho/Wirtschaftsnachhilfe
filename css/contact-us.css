@@ -37,6 +37,8 @@
     margin-bottom: 0.5rem; 
 }
 
+.flex-layout.container-data-privacy { flex-wrap: wrap; } /* Allows items to wrap - need when error message shows */
+
 .container-data-privacy input { margin-right: 1rem; } /* Separates checkbox and information text */
 
 .container-data-privacy a { color: #d06f25; }

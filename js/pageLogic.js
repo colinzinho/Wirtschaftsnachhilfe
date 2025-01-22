@@ -5,7 +5,7 @@ let toTopBtn;
 let thresholdToTopBtn;
 let headerIsFixed;
 const imaginarySpace = 20; /* Slows down the header animation by preventing the animation to start as user starts to scroll */
-let aInputFieldNames = ['course', 'firstname', 'lastname', 'street', 'streetnumber', 'postalcode', 'city', 'email'];
+let aInputFieldNames = ['course', 'firstname', 'lastname', 'street', 'streetnumber', 'postalcode', 'city', 'email', 'policy'];
   
 /* Ensuring that the elements are loaded before accessing them. DOMContentLoaded get trigger before $(document).ready script runs */
 document.addEventListener('DOMContentLoaded', function () {
@@ -53,6 +53,7 @@ function onClick() {
 
 function validateFormClientSide() {
     let hasError = false;
+    let reachedEnd = false;
     let index = 0;
 
     do {
@@ -83,8 +84,10 @@ function validateFormClientSide() {
                 let input = $('#' + inputfieldName);
                 let err_container = $('#err-msg-' + inputfieldName);
                 let err_message = '';
+
+                value = value.trim();
                 // checks if the input is empty or only contains whitespace.
-                if(value.trim() === "") {
+                if(value === "") {
                     err_message = 'Input cant be empty or contain only whitespace!';
                     hasError = true;
                 } else if (/\d/.test(value) || !isNaN(value)) { //- /\d/.test(value) - Check if input contains at least one number (using regular expression)
@@ -112,7 +115,9 @@ function validateFormClientSide() {
                 let err_container = $('#err-msg-' + inputfieldName);
                 let err_message = '';
                 let regex = /^\d.*/;
-                if(value.trim() === "") {
+
+                value = value.trim();
+                if(value === "") {
                     err_message = 'Input cant be empty or contain only whitespace!';
                     hasError = true;
                 }else if(!regex.test(value)) {
@@ -142,7 +147,8 @@ function validateFormClientSide() {
                 let err_container = $('#err-msg-' + inputfieldName);
                 let err_message = '';
                 let regex = /^[^\d]*$/;
-                if(value.trim() === "") {
+                value = value.trim();
+                if(value === "") {
                     err_message = 'Input cant be empty or contain only whitespace!';
                     hasError = true;
                 } else if(regex.test(value)) {
@@ -166,13 +172,69 @@ function validateFormClientSide() {
                     break;
                 }
             }
+            case 'email': {
+                let input = $('#' + inputfieldName);
+                let err_container = $('#err-msg-' + inputfieldName);
+                let err_message = '';
+                let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                
+                value = value.trim();
+                // checks if the input is empty or only contains whitespace.
+                if(value === "") {
+                    err_message = 'Input cant be empty or contain only whitespace!';
+                    hasError = true;
+                } else if (!regex.test(value)) {
+                    err_message = 'Invalid Email format!';
+                    hasError = true;
+                }
+
+                if(hasError === true) {
+                    err_container.html('<p class="error-txt err-msg">' + err_message + '</p>');
+                    err_container.addClass('visible');
+                    input.addClass('inputfield-err');
+                    break;
+                } else {
+                    if(input.hasClass('inputfield-err') && err_container.hasClass('visible')) {
+                        input.removeClass('inputfield-err');
+                        err_container.removeClass('visible');
+                        err_container.empty().height(0);
+                    }    
+                    index++;
+                    break;
+                }
+            }
+
+            case 'policy': {
+                let input = $('#policy');
+                let err_container = $('#err-msg-policy');
+                let err_message = '';
+                if(document.forms['contact-form']['policy'].checked === false) {
+                    err_message = 'CheckBox need to be checked. Read the privacy policy!';
+                    hasError = true;
+                }
+
+                if(hasError === true) {
+                    err_container.html('<p class="error-txt err-msg">' + err_message + '</p>');
+                    err_container.addClass('visible');
+                    input.addClass('inputfield-err');
+                    break;
+                } else {
+                    if(input.hasClass('inputfield-err') && err_container.hasClass('visible')) {
+                        input.removeClass('inputfield-err');
+                        err_container.removeClass('visible');
+                        err_container.empty().height(0);
+                    }
+                    reachedEnd = true;
+                    break;
+                }
+            }
 
             default: {
                 alert('Form validation failed... reload the page please!');
-                break;
+                break
             }
         }
-    } while (hasError === false);
+    } while (hasError === false && reachedEnd === false);
 
     if(hasError) {
         let err_infotxt_container = $('#err-infotxt');
