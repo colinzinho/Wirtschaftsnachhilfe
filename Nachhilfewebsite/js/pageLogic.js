@@ -44,11 +44,6 @@ function onClick() {
     $('#to-top-button').click(function (event) {
         scrollToTop();
     });
-
-    /* */
-    $('#form-submit-btn').click(function (event) {
-        
-    });
 };
 
 function validateFormClientSide() {
@@ -64,7 +59,7 @@ function validateFormClientSide() {
                 let input = $('#course');
                 let err_container = $('#err-msg-course');
                 if(value == 'Wählen Sie ein Angebot aus') {
-                    err_container.html('<p class="error-txt err-msg">Choose an existing course from the list!</p>');
+                    err_container.html('<p class="error-txt err-msg">Sie müssen einen Kurs aus der Liste auswählen.</p>');
                     err_container.addClass('visible');
                     input.addClass('inputfield-err');
                     hasError = true;
@@ -88,10 +83,10 @@ function validateFormClientSide() {
                 value = value.trim();
                 // checks if the input is empty or only contains whitespace.
                 if(value === "") {
-                    err_message = 'Input cant be empty or contain only whitespace!';
+                    err_message = 'Die Eingabe darf nicht leer sein.';
                     hasError = true;
                 } else if (/\d/.test(value) || !isNaN(value)) { //- /\d/.test(value) - Check if input contains at least one number (using regular expression)
-                    err_message = 'Numbers are not allowed here!';
+                    err_message = 'Zahlen sind hier nicht erlaubt!';
                     hasError = true;
                 }
 
@@ -118,10 +113,10 @@ function validateFormClientSide() {
 
                 value = value.trim();
                 if(value === "") {
-                    err_message = 'Input cant be empty or contain only whitespace!';
+                    err_message = 'Die Eingabe darf nicht leer sein.';
                     hasError = true;
                 }else if(!regex.test(value)) {
-                    err_message = 'Streetnumber cant start with a number!';
+                    err_message = 'Kein Buchstabe am Anfang.';
                     hasError = true;
                 } 
                 
@@ -146,13 +141,13 @@ function validateFormClientSide() {
                 let input = $('#' + inputfieldName);
                 let err_container = $('#err-msg-' + inputfieldName);
                 let err_message = '';
-                let regex = /^[^\d]*$/;
+                let regex = /^[0-9]+$/;
                 value = value.trim();
                 if(value === "") {
-                    err_message = 'Input cant be empty or contain only whitespace!';
+                    err_message = 'Die Eingabe darf nicht leer sein.';
                     hasError = true;
-                } else if(regex.test(value)) {
-                    err_message = 'Only numbers allowed here!';
+                } else if(!regex.test(value)) {
+                    err_message = 'Nur Zahlen erlaubt.';
                     hasError = true;
                 } 
                 
@@ -181,10 +176,10 @@ function validateFormClientSide() {
                 value = value.trim();
                 // checks if the input is empty or only contains whitespace.
                 if(value === "") {
-                    err_message = 'Input cant be empty or contain only whitespace!';
+                    err_message = 'Die Eingabe darf nicht leer sein.';
                     hasError = true;
                 } else if (!regex.test(value)) {
-                    err_message = 'Invalid Email format!';
+                    err_message = 'Ungültiges E-Mail Format.';
                     hasError = true;
                 }
 
@@ -209,7 +204,7 @@ function validateFormClientSide() {
                 let err_container = $('#err-msg-policy');
                 let err_message = '';
                 if(document.forms['contact-form']['policy'].checked === false) {
-                    err_message = 'CheckBox need to be checked. Read the privacy policy!';
+                    err_message = 'Lesen und akzeptieren Sie die Datenschutzrichtlinien.';
                     hasError = true;
                 }
 
@@ -228,9 +223,8 @@ function validateFormClientSide() {
                     break;
                 }
             }
-
             default: {
-                alert('Form validation failed... reload the page please!');
+                alert('Formulareinreichung gescheitert. Laden Sie die Webseite neu.');
                 break
             }
         }
@@ -238,7 +232,7 @@ function validateFormClientSide() {
 
     if(hasError) {
         let err_infotxt_container = $('#err-infotxt');
-        err_infotxt_container.html('<p class="error-txt">Es gab ein Problem mit deiner Eingabe. Bitte prüfe das Feld unten.</p>');
+        err_infotxt_container.html('<p class="error-txt">Es gab ein Problem mit Ihrer Eingabe. Bitte prüfen Sie das entsprechende Feld.</p>');
         err_infotxt_container.addClass('visible');
         return false;
     }

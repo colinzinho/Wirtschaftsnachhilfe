@@ -1,0 +1,9 @@
+<Files "db_con.php">
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files "process_form.php">
+    Order Deny,Allow
+    Deny from all
+</Files>
