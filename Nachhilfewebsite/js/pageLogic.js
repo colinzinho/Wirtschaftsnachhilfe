@@ -79,14 +79,15 @@ function validateFormClientSide() {
                 let input = $('#' + inputfieldName);
                 let err_container = $('#err-msg-' + inputfieldName);
                 let err_message = '';
+                let regex = /^[a-zA-Zàáâäãåāæçćčéêëēėíîïīįìĵłńñóôöōõøœřśšşťùúûüūųýÿźżž\.\-\s]+$/;
 
                 value = value.trim();
                 // checks if the input is empty or only contains whitespace.
                 if(value === "") {
                     err_message = 'Die Eingabe darf nicht leer sein.';
                     hasError = true;
-                } else if (/\d/.test(value) || !isNaN(value)) { //- /\d/.test(value) - Check if input contains at least one number (using regular expression)
-                    err_message = 'Zahlen sind hier nicht erlaubt!';
+                } else if (!regex.test(value)) {
+                    err_message = 'Ungültige Eingabe.';
                     hasError = true;
                 }
 

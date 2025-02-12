@@ -35,43 +35,49 @@
     
         // Validate firstname and lastname (letters only, not empty or whitespace)
         foreach (['firstname', 'lastname'] as $field) {
-            if (empty(trim($field))) {
+            $field = trim($field);
+            if (empty($field)) {
                 $errors[$field] = "Die Eingabe darf nicht leer sein.";
-            } elseif (!preg_match("/^[a-zA-Z]+$/", $field)) {
-                $errors[$field] = "Zahlen sind hier nicht erlaubt!";
+            } elseif (!preg_match("/^[a-zA-Zàáâäãåāæçćčéêëēėíîïīįìĵłńñóôöōõøœřśšşťùúûüūųýÿźżž\.\-\s]+$/", $field)) {
+                $errors[$field] = "Ungültige Eingabe.";
             }
         }
     
         // Validate street (not empty, no whitespace, and letters only)
-        if (empty(trim($streetname))) {
+        $streetname = trim($streetname);
+        if (empty($streetname)) {
             $errors['street'] = "Die Eingabe darf nicht leer sein.";
-        } elseif (!preg_match("/^[a-zA-Z\s]+$/", $streetname)) {
-            $errors['street'] = "Zahlen sind hier nicht erlaubt!";
+        } elseif (!preg_match("/^[a-zA-Zàáâäãåāæçćčéêëēėíîïīįìĵłńñóôöōõøœřśšşťùúûüūųýÿźżž\.\-\s]+$/", $streetname)) {
+            $errors['street'] = "Ungültige Eingabe.";
         }
 
         // Validate streetnumber (not empty, starts with a number)
-        if (empty(trim($streetnumber))) {
+        $streetnumber = trim($streetnumber);
+        if (empty($streetnumber)) {
             $errors['streetnumber'] = "Die Eingabe darf nicht leer sein.";
         } elseif (!preg_match("/^[0-9]/", $streetnumber)) {
             $errors['streetnumber'] = "Kein Buchstabe am Anfang.";
         }
     
         // Validate city (not empty, no whitespace, and letters only)
-        if (empty(trim($city))) {
+        $city = trim($city);
+        if (empty($city)) {
             $errors['city'] = "Die Eingabe darf nicht leer sein.";
-        } elseif (!preg_match("/^[a-zA-Z\s]+$/", $city)) {
-            $errors['city'] = "Zahlen sind hier nicht erlaubt!";
+        } elseif (!preg_match("/^[a-zA-Zàáâäãåāæçćčéêëēėíîïīįìĵłńñóôöōõøœřśšşťùúûüūųýÿźżž\.\-\s]+$/", $city)) {
+            $errors['city'] = "Ungültige Eingabe.";
         }
     
         // Validate postal code (not empty, only numbers allowed)
-        if (empty(trim($postalcode))) {
+        $postalcode = trim($postalcode);
+        if (empty($postalcode)) {
             $errors['postal_code'] = "Die Eingabe darf nicht leer sein.";
         } elseif (!preg_match("/^[0-9]+$/", $postalcode)) {
             $errors['postal_code'] = "Nur Zahlen erlaubt.";
         }
     
         // Validate email (not empty, valid email format)
-        if (empty(trim($email))) {
+        $email = trim($email);
+        if (empty($email)) {
             $errors['email'] = "Die Eingabe darf nicht leer sein.";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = "Ungültiges E-Mail Format.";
@@ -186,14 +192,11 @@
             // Display the errors
             echo '
                 <div style="padding: 20px;">
-                    <h2>Der Server hat mit einem Fehler geantwortet...</h2>';
-            foreach ($errors as $field => $message) {
-                $fieldname = ucfirst($field);
-                echo "<p>$fieldname - $message</p>";
-            }
-            echo '<a href="../index.html">
+                    <h2>Der Server hat mit einem Fehler geantwortet...</h2>
+                    <p>Bitte korrigieren Sie Ihre Eingaben und versuchen Sie das Formular erneut abzuschicken.</p>
+                    <a href="../index.html">
                         <button class="page-button" style="margin-top: 0.75rem">
-                            Zurück zur Startseite
+                            Zurück zum Formular
                         </button>
                     </a>
                 </div>';
