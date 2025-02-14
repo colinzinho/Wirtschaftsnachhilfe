@@ -29,74 +29,58 @@
         $message = isset($_POST['message']) ? filter_var($_POST['message'], FILTER_SANITIZE_STRING) : '';
         $policy = isset($_POST['policy']) ? $_POST['policy'] : '';
 
-        if ($course == "Wählen Sie ein Angebot aus") {
-            $errors['course'] = "Sie müssen einen Kurs aus der Liste auswählen.";
+        if ($course == 'Wählen Sie ein Angebot aus') {
+            $errors['course'] = 'Sie müssen einen Kurs aus der Liste auswählen.';
         }
     
         // Validate firstname and lastname (letters only, not empty or whitespace)
-        foreach (['firstname', 'lastname'] as $field) {
+        foreach ([$firstname, $lastname, $streetname, $city] as $field) {
             $field = trim($field);
             if (empty($field)) {
-                $errors[$field] = "Die Eingabe darf nicht leer sein.";
-            } elseif (!preg_match("/^[a-zA-Zàáâäãåāæçćčéêëēėíîïīįìĵłńñóôöōõøœřśšşťùúûüūųýÿźżž\.\-\s]+$/", $field)) {
-                $errors[$field] = "Ungültige Eingabe.";
+                $errors[$field] = 'Die Eingabe darf nicht leer sein.';
+            } elseif (!preg_match('/^[a-zA-Zàáâäãåāæçćčéêëēėíîïīįìĵłńñóôöōõøœřśšşťùúûüūųýÿźżž\.\-\s]+$/', $field)) {
+                $errors[$field] = 'Ungültige Eingabe.';
             }
         }
-    
-        // Validate street (not empty, no whitespace, and letters only)
-        $streetname = trim($streetname);
-        if (empty($streetname)) {
-            $errors['street'] = "Die Eingabe darf nicht leer sein.";
-        } elseif (!preg_match("/^[a-zA-Zàáâäãåāæçćčéêëēėíîïīįìĵłńñóôöōõøœřśšşťùúûüūųýÿźżž\.\-\s]+$/", $streetname)) {
-            $errors['street'] = "Ungültige Eingabe.";
-        }
-
+        
         // Validate streetnumber (not empty, starts with a number)
         $streetnumber = trim($streetnumber);
         if (empty($streetnumber)) {
-            $errors['streetnumber'] = "Die Eingabe darf nicht leer sein.";
+            $errors['streetnumber'] = 'Die Eingabe darf nicht leer sein.';
         } elseif (!preg_match("/^[0-9]/", $streetnumber)) {
-            $errors['streetnumber'] = "Kein Buchstabe am Anfang.";
-        }
-    
-        // Validate city (not empty, no whitespace, and letters only)
-        $city = trim($city);
-        if (empty($city)) {
-            $errors['city'] = "Die Eingabe darf nicht leer sein.";
-        } elseif (!preg_match("/^[a-zA-Zàáâäãåāæçćčéêëēėíîïīįìĵłńñóôöōõøœřśšşťùúûüūųýÿźżž\.\-\s]+$/", $city)) {
-            $errors['city'] = "Ungültige Eingabe.";
+            $errors['streetnumber'] = 'Kein Buchstabe am Anfang.';
         }
     
         // Validate postal code (not empty, only numbers allowed)
         $postalcode = trim($postalcode);
         if (empty($postalcode)) {
-            $errors['postal_code'] = "Die Eingabe darf nicht leer sein.";
+            $errors['postal_code'] = 'Die Eingabe darf nicht leer sein.';
         } elseif (!preg_match("/^[0-9]+$/", $postalcode)) {
-            $errors['postal_code'] = "Nur Zahlen erlaubt.";
+            $errors['postal_code'] = 'Nur Zahlen erlaubt.';
         }
     
         // Validate email (not empty, valid email format)
         $email = trim($email);
         if (empty($email)) {
-            $errors['email'] = "Die Eingabe darf nicht leer sein.";
+            $errors['email'] = 'Die Eingabe darf nicht leer sein.';
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = "Ungültiges E-Mail Format.";
+            $errors['email'] = 'Ungültiges E-Mail Format.';
         }
     
         // Validate policy (checkbox must be checked)
         if (!isset($policy) || $policy != 'on') {
-            $errors['policy'] = "Lesen und akzeptieren Sie die Datenschutzrichtlinien.";
+            $errors['policy'] = 'Lesen und akzeptieren Sie die Datenschutzrichtlinien.';
         }
     
         // If there are any errors, handle them
         if (empty($errors)) {
             // Proceed with processing the form (e.g., saving to database, etc.)
             // Concatenate variables for easy Persistance
-            $street = $streetname . " " . $streetnumber;
-            $city_postal_code = $postalcode . " " . $city;
+            $street = $streetname . ' ' . $streetnumber;
+            $city_postal_code = $postalcode . ' ' . $city;
 
             // Prepare the SELECT Statement - keyword prepared statements - get ID to relating Course Name
-            $query_getCourse = $conn->prepare("SELECT ID FROM course WHERE Title = ?");
+            $query_getCourse = $conn->prepare('SELECT ID FROM `course` WHERE Title = ?');
             
             // Bind the parameter (the 's' indicates that the parameter is a string)
             $query_getCourse->bind_param('s', $course);
@@ -141,7 +125,7 @@
 
 
             // Prepare the INSERT Statement
-            $query_insert = $conn->prepare("INSERT INTO participant(Firstname, Lastname, CourseID, Street, City, Email, Message) VALUES(?, ?, ?, ?, ?, ?, ?)");
+            $query_insert = $conn->prepare('INSERT INTO `participant`(Firstname, Lastname, CourseID, Street, City, Email, `Message`) VALUES(?, ?, ?, ?, ?, ?, ?)');
 
             // Bind the result to a variable
             if(!$query_insert->bind_param('ssissss', $firstname, $lastname, $course_id, $street, $city_postal_code, $email, $message)) {
@@ -201,5 +185,6 @@
                     </a>
                 </div>';
         }
+        $conn->close();
     }
 ?>
