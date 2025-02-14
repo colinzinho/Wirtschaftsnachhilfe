@@ -7,6 +7,7 @@
 
     try {
         $conn = mysqli_connect($db_server, $db_user, $db_password, $db_name, 3306);
+        mysqli_set_charset($conn, "utf8mb4");
     }
     catch(mysqli_sql_exception $err){
         echo '
