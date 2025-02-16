@@ -172,6 +172,8 @@
             $query_insert->close();
             echo '</body>';
             echo '</html>';
+
+            require_once 'mailservice.php';
         } else {
             // Display the errors
             echo '
