@@ -3,4 +3,5 @@ All of the following dependencies need to be installed inside the root folder of
 - PHPMailer version 6.9.3 (or higher)
 
 2. Change project files
-- db_con.php -> replace with your database config
+- db_con.php -> replace with your database config.
+- mailservice.php -> replace SMTP server config and sender/recipient email data.
